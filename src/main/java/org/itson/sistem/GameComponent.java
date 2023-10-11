@@ -11,6 +11,6 @@ package org.itson.sistem;
 public class GameComponent {
 
     public static void main(String[] args) {
-        System.out.println("Mi primera rama :)");
+        System.out.println("Hello World");
     }
 }

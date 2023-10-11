@@ -5,6 +5,9 @@
 
 package org.itson.domain.tile;
 
+import java.awt.Graphics;
+import javax.swing.JPanel;
+
 /**
  * This enumerate class represents a tile's side
  * 
@@ -13,12 +16,21 @@ package org.itson.domain.tile;
  * @author Paul Alejandro Vazquez Cervantes ID:241400
  * @author Jose Eduardo Hinojosa Romero ID: 2356666
  */
-public class TileView {
+public class TileView extends JPanel{
 
+    private TileModel tileModel;
+    
     /**
      *
      */
-    public TileView(){
-
+    public TileView(TileModel tileModel){
+        this.tileModel = tileModel;
     }
+
+    @Override
+    public void paint(Graphics g) {
+        super.paint(g);
+    }
+    
+    
 }
