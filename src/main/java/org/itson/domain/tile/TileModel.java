@@ -4,6 +4,8 @@
  */
 package org.itson.domain.tile;
 
+import java.awt.image.BufferedImage;
+
 /**
  * This class represents the model of the tile, using the MVC model.
  *
@@ -233,6 +235,16 @@ public class TileModel {
         int secondFaceHeight = this.secondFace.getHeight();
         int result = (firstFaceHeight + secondFaceHeight);
         return result;
+    }
+    
+    public BufferedImage getImage(){
+        
+        BufferedImage firstFaceImage = this.firstFace.getImg();
+        
+        BufferedImage secondFaceImage = this.secondFace.getImg();
+        
+        return null;
+        
     }
 
     @Override
