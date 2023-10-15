@@ -49,7 +49,6 @@ public class frmHome extends javax.swing.JFrame {
 
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btnJoin.setBackground(new java.awt.Color(255, 255, 255));
         btnJoin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/home/Unirsetxt.png"))); // NOI18N
         btnJoin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -58,7 +57,6 @@ public class frmHome extends javax.swing.JFrame {
         });
         jPanel2.add(btnJoin, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 610, 320, -1));
 
-        btnRegresar.setBackground(new java.awt.Color(255, 255, 255));
         btnRegresar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/home/Regresar.png"))); // NOI18N
         btnRegresar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -113,6 +111,8 @@ public class frmHome extends javax.swing.JFrame {
 
         lbInfoArea2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/home/image 7.png"))); // NOI18N
         jPanel2.add(lbInfoArea2, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 280, -1, -1));
+
+        fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/home/Fondo_menu.jpg"))); // NOI18N
         jPanel2.add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1280, 720));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
