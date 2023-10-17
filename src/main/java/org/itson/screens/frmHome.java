@@ -9,14 +9,24 @@ package org.itson.screens;
  * @author paulvazquez
  */
 public class frmHome extends javax.swing.JFrame {
-
+        private static frmHome homeInstance;
     /**
      * Creates new form frmHome
      */
-    public frmHome() {
+    private frmHome() {
         initComponents();
     }
+    
+    private void closeCurrentWindow(){
+        this.setVisible(false);
+    }
 
+    public static frmHome getInstance(){
+        if (homeInstance == null){
+            homeInstance = new frmHome();
+        }
+        return homeInstance;
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -49,6 +59,7 @@ public class frmHome extends javax.swing.JFrame {
 
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        btnJoin.setBackground(new java.awt.Color(255, 255, 255));
         btnJoin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/home/Unirsetxt.png"))); // NOI18N
         btnJoin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -57,6 +68,7 @@ public class frmHome extends javax.swing.JFrame {
         });
         jPanel2.add(btnJoin, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 610, 320, -1));
 
+        btnRegresar.setBackground(new java.awt.Color(255, 255, 255));
         btnRegresar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/home/Regresar.png"))); // NOI18N
         btnRegresar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
