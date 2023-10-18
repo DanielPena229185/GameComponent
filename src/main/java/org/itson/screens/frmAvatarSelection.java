@@ -14,14 +14,24 @@ import javax.swing.JPanel;
  * @author santi
  */
 public class frmAvatarSelection extends javax.swing.JFrame {
-
+private static frmAvatarSelection avatarSelectionInstance;
     /**
      * Creates new form frmAvatarSelection
      */
-    public frmAvatarSelection() {
+    private frmAvatarSelection() {
         initComponents();
     }
+    
+    private void closeCurrentWindow(){
+        this.setVisible(false);
+    }
 
+    public static frmAvatarSelection getInstance(){
+        if (avatarSelectionInstance == null){
+            avatarSelectionInstance = new frmAvatarSelection();
+        }
+        return avatarSelectionInstance;
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -43,12 +53,11 @@ public class frmAvatarSelection extends javax.swing.JFrame {
         elDiablito = new javax.swing.JButton();
         elSol = new javax.swing.JButton();
         unirse = new javax.swing.JButton();
+        avatarSeleccionado = new javax.swing.JLabel();
         fondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(1280, 720));
         setMinimumSize(new java.awt.Dimension(1280, 720));
-        setPreferredSize(new java.awt.Dimension(1280, 720));
         setResizable(false);
         setSize(new java.awt.Dimension(1280, 720));
 
@@ -68,6 +77,11 @@ public class frmAvatarSelection extends javax.swing.JFrame {
 
         elGallo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/avatars/El_Gallo.jpg"))); // NOI18N
         elGallo.setBorder(null);
+        elGallo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                elGalloActionPerformed(evt);
+            }
+        });
         fondoPanel.add(elGallo, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 140, -1, -1));
 
         elBorracho.setIcon(new javax.swing.ImageIcon(getClass().getResource("/avatars/El_borracho.jpg"))); // NOI18N
@@ -83,6 +97,11 @@ public class frmAvatarSelection extends javax.swing.JFrame {
         laDama.setIcon(new javax.swing.ImageIcon(getClass().getResource("/avatars/La_dama.jpg"))); // NOI18N
         laDama.setBorder(null);
         laDama.setBorderPainted(false);
+        laDama.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                laDamaActionPerformed(evt);
+            }
+        });
         fondoPanel.add(laDama, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 140, -1, -1));
 
         elApache.setIcon(new javax.swing.ImageIcon(getClass().getResource("/avatars/El_apache.jpg"))); // NOI18N
@@ -108,16 +127,31 @@ public class frmAvatarSelection extends javax.swing.JFrame {
         laChalupa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/avatars/La_chalupa.jpg"))); // NOI18N
         laChalupa.setBorder(null);
         laChalupa.setBorderPainted(false);
+        laChalupa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                laChalupaActionPerformed(evt);
+            }
+        });
         fondoPanel.add(laChalupa, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 380, -1, -1));
 
         elDiablito.setIcon(new javax.swing.ImageIcon(getClass().getResource("/avatars/El_diablo.jpg"))); // NOI18N
         elDiablito.setBorder(null);
         elDiablito.setBorderPainted(false);
+        elDiablito.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                elDiablitoActionPerformed(evt);
+            }
+        });
         fondoPanel.add(elDiablito, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 380, -1, -1));
 
         elSol.setIcon(new javax.swing.ImageIcon(getClass().getResource("/avatars/El_sol.jpg"))); // NOI18N
         elSol.setBorder(null);
         elSol.setBorderPainted(false);
+        elSol.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                elSolActionPerformed(evt);
+            }
+        });
         fondoPanel.add(elSol, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 380, -1, -1));
 
         unirse.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
@@ -128,6 +162,7 @@ public class frmAvatarSelection extends javax.swing.JFrame {
             }
         });
         fondoPanel.add(unirse, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 560, -1, -1));
+        fondoPanel.add(avatarSeleccionado, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 280, 150, 220));
 
         fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/home/Fondo_menu.jpg"))); // NOI18N
         fondoPanel.add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -147,28 +182,59 @@ public class frmAvatarSelection extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    
     private void elBorrachoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_elBorrachoActionPerformed
-        // TODO add your handling code here:
+       ImageIcon avatar = new ImageIcon("src/main/resources/avatars/El_borracho.jpg"); // Reemplaza con la ruta correcta de la imagen  
+    avatarSeleccionado.setIcon(avatar);
     }//GEN-LAST:event_elBorrachoActionPerformed
 
     private void elApacheActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_elApacheActionPerformed
-        // TODO add your handling code here:
+    ImageIcon avatar = new ImageIcon("src/main/resources/avatars/El_apache.jpg"); // Reemplaza con la ruta correcta de la imagen  
+    avatarSeleccionado.setIcon(avatar);
     }//GEN-LAST:event_elApacheActionPerformed
 
     private void elValienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_elValienteActionPerformed
-        // TODO add your handling code here:
+        ImageIcon avatar = new ImageIcon("src/main/resources/avatars/El_Valiente.jpg"); // Reemplaza con la ruta correcta de la imagen  
+        avatarSeleccionado.setIcon(avatar);
     }//GEN-LAST:event_elValienteActionPerformed
 
     private void unirseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_unirseActionPerformed
-        // TODO add your handling code here:
+        this.setVisible(false);
+        frmHome.getInstance().setVisible(true);
     }//GEN-LAST:event_unirseActionPerformed
+
+    private void elGalloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_elGalloActionPerformed
+    ImageIcon avatar = new ImageIcon("src/main/resources/avatars/El_Gallo.jpg"); // Reemplaza con la ruta correcta de la imagen  
+    avatarSeleccionado.setIcon(avatar);
+        
+    }//GEN-LAST:event_elGalloActionPerformed
+
+    private void laDamaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_laDamaActionPerformed
+    ImageIcon avatar = new ImageIcon("src/main/resources/avatars/La_dama.jpg"); // Reemplaza con la ruta correcta de la imagen  
+    avatarSeleccionado.setIcon(avatar);
+    }//GEN-LAST:event_laDamaActionPerformed
+
+    private void laChalupaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_laChalupaActionPerformed
+    ImageIcon avatar = new ImageIcon("src/main/resources/avatars/La_chalupa.jpg"); // Reemplaza con la ruta correcta de la imagen  
+    avatarSeleccionado.setIcon(avatar);
+    }//GEN-LAST:event_laChalupaActionPerformed
+
+    private void elDiablitoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_elDiablitoActionPerformed
+    ImageIcon avatar = new ImageIcon("src/main/resources/avatars/El_diablo.jpg"); // Reemplaza con la ruta correcta de la imagen  
+    avatarSeleccionado.setIcon(avatar);
+    }//GEN-LAST:event_elDiablitoActionPerformed
+
+    private void elSolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_elSolActionPerformed
+    ImageIcon avatar = new ImageIcon("src/main/resources/avatars/El_sol.jpg"); // Reemplaza con la ruta correcta de la imagen  
+    avatarSeleccionado.setIcon(avatar);
+    }//GEN-LAST:event_elSolActionPerformed
     
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Titulo;
     private javax.swing.JLabel TituloMenor;
+    private javax.swing.JLabel avatarSeleccionado;
     private javax.swing.JButton elApache;
     private javax.swing.JButton elBorracho;
     private javax.swing.JButton elDiablito;

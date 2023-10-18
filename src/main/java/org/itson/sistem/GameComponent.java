@@ -4,6 +4,8 @@
 
 package org.itson.sistem;
 
+import org.itson.screens.frmAvatarSelection;
+
 /**
  *
  * @author Daniel Armando Peña Garcia ID:229185
@@ -11,6 +13,6 @@ package org.itson.sistem;
 public class GameComponent {
 
     public static void main(String[] args) {
-        System.out.println("Hello World");
+        
     }
 }
