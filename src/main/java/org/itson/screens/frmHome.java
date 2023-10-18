@@ -39,37 +39,27 @@ public class frmHome extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         btnJoin = new javax.swing.JButton();
         btnRegresar = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        lblLinea1 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        lbLinea3 = new javax.swing.JLabel();
         lbNmatch = new javax.swing.JLabel();
         lbPlayersQuantity = new javax.swing.JLabel();
         lbGameStatus = new javax.swing.JLabel();
-        lbInfoArea2 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         fondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btnJoin.setBackground(new java.awt.Color(255, 255, 255));
-        btnJoin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/home/Unirsetxt.png"))); // NOI18N
+        btnJoin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/home/btnUnirse.jpg"))); // NOI18N
         btnJoin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnJoinActionPerformed(evt);
             }
         });
-        jPanel2.add(btnJoin, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 610, 320, -1));
+        jPanel2.add(btnJoin, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 580, 320, -1));
 
-        btnRegresar.setBackground(new java.awt.Color(255, 255, 255));
-        btnRegresar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/home/Regresar.png"))); // NOI18N
+        btnRegresar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/home/btnRegresar.jpg"))); // NOI18N
         btnRegresar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRegresarActionPerformed(evt);
@@ -77,54 +67,33 @@ public class frmHome extends javax.swing.JFrame {
         });
         jPanel2.add(btnRegresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 640, 250, 60));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/home/buscarPartida.png"))); // NOI18N
-        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 30, -1, -1));
-
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/home/buscarArea.png"))); // NOI18N
-        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 20, -1, 80));
-
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/home/InformacionPartida.png"))); // NOI18N
-        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 190, -1, -1));
-
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/home/areaInfo.png"))); // NOI18N
-        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 180, -1, -1));
-
-        lblLinea1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/home/Line 1.png"))); // NOI18N
-        jPanel2.add(lblLinea1, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 280, -1, 200));
-
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/home/nPartida (1).png"))); // NOI18N
-        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 300, -1, -1));
-
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/home/Line 2.png"))); // NOI18N
-        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 280, -1, 200));
-
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/home/Cantidad de jugadores.png"))); // NOI18N
-        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 290, -1, -1));
-
-        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/home/Estado de juego.png"))); // NOI18N
-        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 300, -1, -1));
-
-        lbLinea3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/home/Line 3.png"))); // NOI18N
-        jPanel2.add(lbLinea3, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 360, -1, -1));
-
         lbNmatch.setBackground(new java.awt.Color(255, 255, 255));
-        lbNmatch.setFont(new java.awt.Font(".SF NS Text", 0, 14)); // NOI18N
+        lbNmatch.setFont(new java.awt.Font(".SF NS Text", 0, 18)); // NOI18N
+        lbNmatch.setForeground(new java.awt.Color(255, 255, 255));
         lbNmatch.setText("Numero");
-        jPanel2.add(lbNmatch, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 400, 110, 30));
+        jPanel2.add(lbNmatch, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 380, 110, 30));
 
         lbPlayersQuantity.setBackground(new java.awt.Color(255, 255, 255));
-        lbPlayersQuantity.setFont(new java.awt.Font(".SF NS Text", 0, 14)); // NOI18N
+        lbPlayersQuantity.setFont(new java.awt.Font(".SF NS Text", 0, 18)); // NOI18N
+        lbPlayersQuantity.setForeground(new java.awt.Color(255, 255, 255));
         lbPlayersQuantity.setText("Cantidad");
-        jPanel2.add(lbPlayersQuantity, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 400, 110, 30));
+        jPanel2.add(lbPlayersQuantity, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 380, 110, 30));
 
-        lbGameStatus.setBackground(new java.awt.Color(255, 255, 255));
+        lbGameStatus.setFont(new java.awt.Font(".SF NS Text", 0, 18)); // NOI18N
+        lbGameStatus.setForeground(new java.awt.Color(255, 255, 255));
         lbGameStatus.setText("Estado");
-        jPanel2.add(lbGameStatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 400, 130, 30));
+        jPanel2.add(lbGameStatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 380, 130, 30));
 
-        lbInfoArea2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/home/image 7.png"))); // NOI18N
-        jPanel2.add(lbInfoArea2, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 280, -1, -1));
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/home/lbBuscar.jpg"))); // NOI18N
+        jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 30, -1, 70));
 
-        fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/home/Fondo_menu.jpg"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/home/infoPartida.jpg"))); // NOI18N
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 160, -1, -1));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/home/tablaInfo.jpg"))); // NOI18N
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 260, -1, -1));
+
+        fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/home/fondo.jpeg"))); // NOI18N
         jPanel2.add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1280, 720));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -160,18 +129,10 @@ public class frmHome extends javax.swing.JFrame {
     private javax.swing.JLabel fondo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel lbGameStatus;
-    private javax.swing.JLabel lbInfoArea2;
-    private javax.swing.JLabel lbLinea3;
     private javax.swing.JLabel lbNmatch;
     private javax.swing.JLabel lbPlayersQuantity;
-    private javax.swing.JLabel lblLinea1;
     // End of variables declaration//GEN-END:variables
 }

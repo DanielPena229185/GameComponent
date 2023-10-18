@@ -34,8 +34,7 @@ public class frmMatch extends javax.swing.JFrame {
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btnPause.setBackground(new java.awt.Color(102, 51, 0));
-        btnPause.setIcon(new javax.swing.ImageIcon(getClass().getResource("/board/pausa.png"))); // NOI18N
+        btnPause.setIcon(new javax.swing.ImageIcon(getClass().getResource("/match/Pausa.jpg"))); // NOI18N
         btnPause.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnPauseActionPerformed(evt);
@@ -43,18 +42,18 @@ public class frmMatch extends javax.swing.JFrame {
         });
         jPanel1.add(btnPause, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 40, 50));
 
-        lbFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/board/Fondo.png"))); // NOI18N
+        lbFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/match/Fondo.jpeg"))); // NOI18N
         jPanel1.add(lbFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1280, 720));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1280, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 720, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
