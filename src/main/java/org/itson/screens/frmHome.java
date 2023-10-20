@@ -115,7 +115,8 @@ public class frmHome extends javax.swing.JFrame {
     }//GEN-LAST:event_btnJoinActionPerformed
 
     private void btnRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresarActionPerformed
-        // TODO add your handling code here:
+       this.setVisible(false);
+       frmAvatarSelection.getInstance().setVisible(true);
     }//GEN-LAST:event_btnRegresarActionPerformed
 
     /**

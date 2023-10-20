@@ -7,6 +7,7 @@ package org.itson.screens;
 import java.awt.Graphics;
 import java.awt.Image;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 /**
@@ -14,24 +15,27 @@ import javax.swing.JPanel;
  * @author santi
  */
 public class frmAvatarSelection extends javax.swing.JFrame {
-private static frmAvatarSelection avatarSelectionInstance;
+
+    private static frmAvatarSelection avatarSelectionInstance;
+
     /**
      * Creates new form frmAvatarSelection
      */
-    private frmAvatarSelection() {
+    public frmAvatarSelection() {
         initComponents();
     }
-    
-    private void closeCurrentWindow(){
+
+    private void closeCurrentWindow() {
         this.setVisible(false);
     }
 
-    public static frmAvatarSelection getInstance(){
-        if (avatarSelectionInstance == null){
+    public static frmAvatarSelection getInstance() {
+        if (avatarSelectionInstance == null) {
             avatarSelectionInstance = new frmAvatarSelection();
         }
         return avatarSelectionInstance;
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -162,6 +166,8 @@ private static frmAvatarSelection avatarSelectionInstance;
             }
         });
         fondoPanel.add(unirse, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 560, -1, -1));
+
+        avatarSeleccionado.setEnabled(false);
         fondoPanel.add(avatarSeleccionado, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 280, 150, 220));
 
         fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/home/Fondo_menu.jpg"))); // NOI18N
@@ -182,54 +188,119 @@ private static frmAvatarSelection avatarSelectionInstance;
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    
+    /**
+     * This method is an event handler for a user action, in this case clicking
+     * the button, when triggered, it loads an image file named
+     * "El_borracho.jpg" and sets it as the icon for the GUI component
+     * 'avatarSeleccionado'.
+     *
+     * @param evt a button click event
+     */
     private void elBorrachoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_elBorrachoActionPerformed
-       ImageIcon avatar = new ImageIcon("src/main/resources/avatars/El_borracho.jpg"); // Reemplaza con la ruta correcta de la imagen  
-    avatarSeleccionado.setIcon(avatar);
+        ImageIcon avatar = new ImageIcon("src/main/resources/avatars/El_borracho.jpg"); // Reemplaza con la ruta correcta de la imagen  
+        avatarSeleccionado.setIcon(avatar);
+        avatarSeleccionado.setEnabled(true);
     }//GEN-LAST:event_elBorrachoActionPerformed
-
+    /**
+     * This method is an event handler for a user action, in this case clicking
+     * the button, when triggered, it loads an image file named "El_apache.jpg"
+     * and sets it as the icon for the GUI component 'avatarSeleccionado'.
+     *
+     * @param evt a button click event
+     */
     private void elApacheActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_elApacheActionPerformed
-    ImageIcon avatar = new ImageIcon("src/main/resources/avatars/El_apache.jpg"); // Reemplaza con la ruta correcta de la imagen  
-    avatarSeleccionado.setIcon(avatar);
+        ImageIcon avatar = new ImageIcon("src/main/resources/avatars/El_apache.jpg"); // Reemplaza con la ruta correcta de la imagen  
+        avatarSeleccionado.setIcon(avatar);
+        avatarSeleccionado.setEnabled(true);
     }//GEN-LAST:event_elApacheActionPerformed
-
+    /**
+     * This method is an event handler for a user action, in this case clicking
+     * the button, when triggered, it loads an image file named
+     * "El_Valiente.jpg" and sets it as the icon for the GUI component
+     * 'avatarSeleccionado'.
+     *
+     * @param evt a button click event
+     */
     private void elValienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_elValienteActionPerformed
         ImageIcon avatar = new ImageIcon("src/main/resources/avatars/El_Valiente.jpg"); // Reemplaza con la ruta correcta de la imagen  
         avatarSeleccionado.setIcon(avatar);
+        avatarSeleccionado.setEnabled(true);
     }//GEN-LAST:event_elValienteActionPerformed
 
     private void unirseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_unirseActionPerformed
+        if(avatarSeleccionado.isEnabled()==true)
+        {    
         this.setVisible(false);
         frmHome.getInstance().setVisible(true);
+        avatarSeleccionado.getIcon();
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(this, "Selecciona un avatar para jugar", "avatar no seleccionado", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_unirseActionPerformed
-
+    /**
+     * This method is an event handler for a user action, in this case clicking
+     * the button, when triggered, it loads an image file named "El_Gallo.jpg"
+     * and sets it as the icon for the GUI component 'avatarSeleccionado'.
+     *
+     * @param evt a button click event
+     */
     private void elGalloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_elGalloActionPerformed
-    ImageIcon avatar = new ImageIcon("src/main/resources/avatars/El_Gallo.jpg"); // Reemplaza con la ruta correcta de la imagen  
-    avatarSeleccionado.setIcon(avatar);
-        
+        ImageIcon avatar = new ImageIcon("src/main/resources/avatars/El_Gallo.jpg"); // Reemplaza con la ruta correcta de la imagen  
+        avatarSeleccionado.setIcon(avatar);
+        avatarSeleccionado.setEnabled(true);
+
     }//GEN-LAST:event_elGalloActionPerformed
-
+    /**
+     * This method is an event handler for a user action, in this case clicking
+     * the button, when triggered, it loads an image file named "La_dama.jpg"
+     * and sets it as the icon for the GUI component 'avatarSeleccionado'.
+     *
+     * @param evt a button click event
+     */
     private void laDamaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_laDamaActionPerformed
-    ImageIcon avatar = new ImageIcon("src/main/resources/avatars/La_dama.jpg"); // Reemplaza con la ruta correcta de la imagen  
-    avatarSeleccionado.setIcon(avatar);
+        ImageIcon avatar = new ImageIcon("src/main/resources/avatars/La_dama.jpg"); // Reemplaza con la ruta correcta de la imagen  
+        avatarSeleccionado.setIcon(avatar);
+        avatarSeleccionado.setEnabled(true);
     }//GEN-LAST:event_laDamaActionPerformed
-
+    /**
+     * This method is an event handler for a user action, in this case clicking
+     * the button, when triggered, it loads an image file named "La_chalupa.jpg"
+     * and sets it as the icon for the GUI component 'avatarSeleccionado'.
+     *
+     * @param evt a button click event
+     */
     private void laChalupaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_laChalupaActionPerformed
-    ImageIcon avatar = new ImageIcon("src/main/resources/avatars/La_chalupa.jpg"); // Reemplaza con la ruta correcta de la imagen  
-    avatarSeleccionado.setIcon(avatar);
+        ImageIcon avatar = new ImageIcon("src/main/resources/avatars/La_chalupa.jpg"); // Reemplaza con la ruta correcta de la imagen  
+        avatarSeleccionado.setIcon(avatar);
+        avatarSeleccionado.setEnabled(true);
     }//GEN-LAST:event_laChalupaActionPerformed
-
+    /**
+     * This method is an event handler for a user action, in this case clicking
+     * the button, when triggered, it loads an image file named "El_diablo.jpg"
+     * and sets it as the icon for the GUI component 'avatarSeleccionado'.
+     *
+     * @param evt a button click event
+     */
     private void elDiablitoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_elDiablitoActionPerformed
-    ImageIcon avatar = new ImageIcon("src/main/resources/avatars/El_diablo.jpg"); // Reemplaza con la ruta correcta de la imagen  
-    avatarSeleccionado.setIcon(avatar);
+        ImageIcon avatar = new ImageIcon("src/main/resources/avatars/El_diablo.jpg"); // Reemplaza con la ruta correcta de la imagen  
+        avatarSeleccionado.setIcon(avatar);
+        avatarSeleccionado.setEnabled(true);
     }//GEN-LAST:event_elDiablitoActionPerformed
-
+    /**
+     * This method is an event handler for a user action, in this case clicking
+     * the button, when triggered, it loads an image file named "El_sol.jpg" and
+     * sets it as the icon for the GUI component 'avatarSeleccionado'.
+     *
+     * @param evt a button click event
+     */
     private void elSolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_elSolActionPerformed
-    ImageIcon avatar = new ImageIcon("src/main/resources/avatars/El_sol.jpg"); // Reemplaza con la ruta correcta de la imagen  
-    avatarSeleccionado.setIcon(avatar);
+        ImageIcon avatar = new ImageIcon("src/main/resources/avatars/El_sol.jpg"); // Reemplaza con la ruta correcta de la imagen  
+        avatarSeleccionado.setIcon(avatar);
+        avatarSeleccionado.setEnabled(true);
     }//GEN-LAST:event_elSolActionPerformed
-    
-    
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Titulo;
