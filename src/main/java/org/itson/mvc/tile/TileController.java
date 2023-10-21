@@ -3,7 +3,7 @@
 * Oct 10, 2023 11:06:10 AM
 */ 
 
-package org.itson.domain.tile;
+package org.itson.mvc.tile;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;

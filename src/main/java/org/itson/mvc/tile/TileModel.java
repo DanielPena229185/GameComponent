@@ -2,9 +2,12 @@
  * TileModel.java
  * Oct 10, 2023 11:05:40 AM
  */
-package org.itson.domain.tile;
+package org.itson.mvc.tile;
 
 import java.awt.image.BufferedImage;
+import org.itson.domaincomponent.domain.FaceTile;
+import org.itson.domaincomponent.enums.Orientation;
+import org.itson.domaincomponent.enums.Side;
 
 /**
  * This class represents the model of the tile, using the MVC model.
@@ -51,12 +54,12 @@ public class TileModel {
      * @param firsFace Firs face of the tile (TOP side as default)
      * @param secondFace Second face of the tile (BOTTOM side as default)
      */
-    public TileModel(int id, FaceTile firsFace, FaceTile secondFace) {
+    public TileModel(int id, FaceTile firstFace, FaceTile secondFace) {
 
-        firsFace.setOnTopSide();
-        secondFace.setOnBottomSide();
+        firstFace.setSide(Side.TOP);
+        firstFace.setSide(Side.BOTTOM);
         this.id = id;
-        this.firstFace = firsFace;
+        this.firstFace = firstFace;
         this.secondFace = secondFace;
 
     }
@@ -91,13 +94,13 @@ public class TileModel {
     private void doRotationByOrientationDefault(Orientation orientation) {
 
         if (orientation == Orientation.VERTICAL) {
-            this.firstFace.setOnTopSide();
-            this.secondFace.setOnBottomSide();
+            firstFace.setSide(Side.TOP);
+            firstFace.setSide(Side.BOTTOM);
         }
 
         if (orientation == Orientation.HORIZONTAL) {
-            this.firstFace.setOnLeftSide();
-            this.secondFace.setOnRightSide();
+            firstFace.setSide(Side.LEFT);
+            firstFace.setSide(Side.RIGHT);
         }
 
     }
@@ -205,8 +208,8 @@ public class TileModel {
 
         int newHeight = height / 2;
 
-        this.firstFace.refreshImage(width, newHeight);
-        this.secondFace.refreshImage(width, newHeight);
+//        this.firstFace.refreshImage(width, newHeight);
+//        this.secondFace.refreshImage(width, newHeight);
     }
 
     /**
@@ -217,10 +220,13 @@ public class TileModel {
      * @return The width of the composite image.
      */
     public int getWidth() {
-        int firstFaceWidth = this.firstFace.getWidth();
-        int secondFaceWidth = this.secondFace.getImg().getWidth();
-        int result = (firstFaceWidth + secondFaceWidth) / 2;
-        return result;
+//        int firstFaceWidth = this.firstFace.getWidth();
+//        int secondFaceWidth = this.secondFace.getImg().getWidth();
+//        int result = (firstFaceWidth + secondFaceWidth) / 2;
+//        return result;
+System.out.println("under work");
+return 0;
+
     }
 
     /**
@@ -231,20 +237,23 @@ public class TileModel {
      * @return The height of the composite image.
      */
     public int getHeight() {
-        int firstFaceHeight = this.firstFace.getHeight();
-        int secondFaceHeight = this.secondFace.getHeight();
-        int result = (firstFaceHeight + secondFaceHeight);
-        return result;
+//        int firstFaceHeight = this.firstFace.getHeight();
+//        int secondFaceHeight = this.secondFace.getHeight();
+//        int result = (firstFaceHeight + secondFaceHeight);
+//        return result;
+System.out.println("under work");
+return 0;
     }
-    
-    public BufferedImage getImage(){
-        
-        BufferedImage firstFaceImage = this.firstFace.getImg();
-        
-        BufferedImage secondFaceImage = this.secondFace.getImg();
-        
+
+    public BufferedImage getImage() {
+
+//        BufferedImage firstFaceImage = this.firstFace.getImg();
+//
+//        BufferedImage secondFaceImage = this.secondFace.getImg();
+System.out.println("under work");
+
         return null;
-        
+
     }
 
     @Override

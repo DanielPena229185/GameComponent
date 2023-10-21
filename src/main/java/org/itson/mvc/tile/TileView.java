@@ -3,7 +3,7 @@
 * Oct 10, 2023 11:05:56 AM
 */ 
 
-package org.itson.domain.tile;
+package org.itson.mvc.tile;
 
 import java.awt.Graphics;
 import javax.swing.JPanel;
