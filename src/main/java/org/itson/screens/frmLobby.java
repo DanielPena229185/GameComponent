@@ -6,15 +6,27 @@ package org.itson.screens;
 
 /**
  *
- * @author paulvazquez
+ * @author Paul Alejandro Vazquez Cervantes
+ * @author Santiago Leyva Bojorquez
  */
 public class frmLobby extends javax.swing.JFrame {
-
+        private static frmLobby lobbyInstance;
     /**
      * Creates new form frmLobby
      */
-    public frmLobby() {
+    private frmLobby() {
         initComponents();
+    }
+    
+    private void closeCurrentWindow(){
+        this.setVisible(false);
+    }
+    
+    public static frmLobby getInstance(){
+        if (lobbyInstance == null){
+            lobbyInstance = new frmLobby();
+        }
+        return lobbyInstance;
     }
 
     /**
@@ -26,57 +38,74 @@ public class frmLobby extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        lbLobby = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        txtPlayers = new javax.swing.JTextArea();
+        lbTable = new javax.swing.JLabel();
+        btnBack = new javax.swing.JButton();
+        btnReady = new javax.swing.JButton();
+        lbBackground = new javax.swing.JLabel();
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lbLobby.setIcon(new javax.swing.ImageIcon(getClass().getResource("/lobby/sala.jpeg"))); // NOI18N
+        getContentPane().add(lbLobby, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 50, -1, -1));
+
+        txtPlayers.setBackground(new java.awt.Color(255, 255, 255));
+        txtPlayers.setColumns(20);
+        txtPlayers.setRows(5);
+        jScrollPane1.setViewportView(txtPlayers);
+
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 350, -1, 130));
+
+        lbTable.setIcon(new javax.swing.ImageIcon(getClass().getResource("/lobby/tablaInfo.jpeg"))); // NOI18N
+        getContentPane().add(lbTable, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 240, -1, -1));
+
+        btnBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/lobby/btnVolver.jpeg"))); // NOI18N
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 590, -1, -1));
+
+        btnReady.setIcon(new javax.swing.ImageIcon(getClass().getResource("/lobby/btnListo.jpeg"))); // NOI18N
+        btnReady.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnReadyActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnReady, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 590, -1, -1));
+
+        lbBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/lobby/fondo.jpeg"))); // NOI18N
+        getContentPane().add(lbBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1280, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        this.setVisible(false);
+        frmHome.getInstance().setVisible(true);
+    }//GEN-LAST:event_btnBackActionPerformed
+
+    private void btnReadyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReadyActionPerformed
+        // TODO add your handling code here:
+        this.setVisible(false);
+        frmMatch.getInstance().setVisible(true);
+    }//GEN-LAST:event_btnReadyActionPerformed
+
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(frmLobby.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(frmLobby.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(frmLobby.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(frmLobby.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new frmLobby().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnBack;
+    private javax.swing.JButton btnReady;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lbBackground;
+    private javax.swing.JLabel lbLobby;
+    private javax.swing.JLabel lbTable;
+    private javax.swing.JTextArea txtPlayers;
     // End of variables declaration//GEN-END:variables
 }

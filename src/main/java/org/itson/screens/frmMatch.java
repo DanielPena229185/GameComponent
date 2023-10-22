@@ -6,15 +6,27 @@ package org.itson.screens;
 
 /**
  *
- * @author paulvazquez
+ * @author Paul Alejandro Vazquez Cervantes
+ * @author Santiago Leyva Bojorquez
  */
 public class frmMatch extends javax.swing.JFrame {
-
+         private static frmMatch matchInstance;
     /**
      * Creates new form frmBoard
      */
-    public frmMatch() {
+    private frmMatch() {
         initComponents();
+    }
+    
+    private void closeCurrentWindow(){
+        this.setVisible(false);
+    }
+    
+    public static frmMatch getInstance(){
+        if (matchInstance == null){
+            matchInstance = new frmMatch();
+        }
+        return matchInstance;
     }
 
     /**
