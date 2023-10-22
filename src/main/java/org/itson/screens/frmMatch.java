@@ -4,6 +4,9 @@
  */
 package org.itson.screens;
 
+import org.itson.classes.Match;
+import org.itson.domaincomponent.domain.Tile;
+
 /**
  *
  * @author Paul Alejandro Vazquez Cervantes
@@ -11,6 +14,9 @@ package org.itson.screens;
  */
 public class frmMatch extends javax.swing.JFrame {
          private static frmMatch matchInstance;
+         
+         private Match match;
+         
     /**
      * Creates new form frmBoard
      */
@@ -28,7 +34,12 @@ public class frmMatch extends javax.swing.JFrame {
         }
         return matchInstance;
     }
-
+    
+    public Tile getTile(){
+        
+        return null;
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -74,7 +85,9 @@ public class frmMatch extends javax.swing.JFrame {
     private void btnPauseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPauseActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnPauseActionPerformed
-
+    
+    
+    
     /**
      * @param args the command line arguments
      */
