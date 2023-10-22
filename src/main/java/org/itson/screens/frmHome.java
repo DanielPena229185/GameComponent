@@ -112,6 +112,8 @@ public class frmHome extends javax.swing.JFrame {
 
     private void btnJoinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnJoinActionPerformed
         // TODO add your handling code here:
+        this.setVisible(false);
+        frmLobby.getInstance().setVisible(true);
     }//GEN-LAST:event_btnJoinActionPerformed
 
     private void btnRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresarActionPerformed
