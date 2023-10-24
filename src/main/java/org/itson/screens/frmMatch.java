@@ -4,7 +4,8 @@
  */
 package org.itson.screens;
 
-import org.itson.classes.Match;
+import java.awt.Graphics;
+import org.itson.classes.MatchClass;
 import org.itson.domaincomponent.domain.Tile;
 
 /**
@@ -15,7 +16,7 @@ import org.itson.domaincomponent.domain.Tile;
 public class frmMatch extends javax.swing.JFrame {
          private static frmMatch matchInstance;
          
-         private Match match;
+         private MatchClass match;
          
     /**
      * Creates new form frmBoard
@@ -33,6 +34,21 @@ public class frmMatch extends javax.swing.JFrame {
             matchInstance = new frmMatch();
         }
         return matchInstance;
+    }
+    
+    public void drawPlayersTiles(){
+        
+    }
+    
+    public Graphics drawPool(){
+        
+        return null;
+    }
+    
+    
+    public Graphics drawTile(){
+        
+        return null;
     }
     
     public Tile getTile(){

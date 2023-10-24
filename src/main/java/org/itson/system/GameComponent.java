@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  */
 
-package org.itson.sistem;
+package org.itson.system;
 
 import org.itson.screens.frmAvatarSelection;
 
@@ -13,6 +13,8 @@ import org.itson.screens.frmAvatarSelection;
 public class GameComponent {
 
     public static void main(String[] args) {
+     
+        new frmAvatarSelection().setVisible(true);
         
     }
 }

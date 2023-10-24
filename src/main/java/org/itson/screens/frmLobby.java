@@ -4,6 +4,9 @@
  */
 package org.itson.screens;
 
+import org.itson.classes.Lobby;
+import org.itson.classes.MatchClass;
+
 /**
  *
  * @author Paul Alejandro Vazquez Cervantes
@@ -11,6 +14,8 @@ package org.itson.screens;
  */
 public class frmLobby extends javax.swing.JFrame {
         private static frmLobby lobbyInstance;
+        Lobby matchClass = new Lobby();
+        
     /**
      * Creates new form frmLobby
      */
@@ -28,7 +33,23 @@ public class frmLobby extends javax.swing.JFrame {
         }
         return lobbyInstance;
     }
-
+    
+    public void getPlayersData(){
+        
+    }
+    
+    public void notifyPlayers(){
+        
+    }
+    
+    public boolean acceptMatch(){
+        return false;
+    }
+    
+    public void dealTiles(){
+       // matchClass.dealTiles();
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
