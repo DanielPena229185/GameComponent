@@ -14,38 +14,33 @@ import org.itson.domaincomponent.exceptions.PoolException;
  *
  * @author PC
  */
-public class Match {
-    
+public class MatchClass {
+
     private Pool pool;
 
-    
-    public Match() {
-  
+    public MatchClass() {
+
     }
-    
-    public Match(Pool pool) {
+
+    public MatchClass(Pool pool) {
         this.pool = pool;
     }
-    
-    
-    
-    public LinkedList<Tile> getTiles(){
-        
-       LinkedList<Tile> tiles = new LinkedList<>();
-       
-       tiles = pool.getTiles();
-        
+
+    public LinkedList<Tile> getTiles() {
+
+        LinkedList<Tile> tiles;
+
+        tiles = pool.getTiles();
+
         return tiles;
     }
-    
-    
-    public Tile searchHighestMule() throws PoolException{
+
+    public Tile searchHighestMule() throws PoolException {
         return pool.getHighestMule();
     }
-    
-    public void swichtTilePossesion(){
-        
+
+    public void swichtTilePossesion() {
+
     }
-    
-    
+
 }

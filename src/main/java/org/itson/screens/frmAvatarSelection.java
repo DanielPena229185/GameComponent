@@ -170,7 +170,7 @@ public class frmAvatarSelection extends javax.swing.JFrame {
         avatarSeleccionado.setEnabled(false);
         fondoPanel.add(avatarSeleccionado, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 280, 150, 220));
 
-        fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/home/Fondo_menu.jpg"))); // NOI18N
+        fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/home/fondo.jpeg"))); // NOI18N
         fondoPanel.add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
