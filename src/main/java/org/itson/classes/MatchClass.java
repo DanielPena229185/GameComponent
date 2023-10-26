@@ -35,8 +35,8 @@ public class MatchClass {
         return tiles;
     }
 
-    public Tile searchHighestMule() throws PoolException {
-        return pool.getHighestMule();
+    public Tile searchHighestMule(LinkedList<Tile>  tiles) throws PoolException {
+        return pool.getHighestMuleOfList(tiles);
     }
 
     public void swichtTilePossesion() {

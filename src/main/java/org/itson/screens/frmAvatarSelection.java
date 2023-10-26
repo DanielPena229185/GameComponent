@@ -9,6 +9,9 @@ import java.awt.Image;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import org.itson.domaincomponent.domain.Player;
+import org.itson.enums.PlayerNames;
+import org.itson.methods.tile.Methods;
 
 /**
  *
@@ -17,6 +20,7 @@ import javax.swing.JPanel;
 public class frmAvatarSelection extends javax.swing.JFrame {
 
     private static frmAvatarSelection avatarSelectionInstance;
+    private Methods methods = new Methods();
 
     /**
      * Creates new form frmAvatarSelection
@@ -34,6 +38,10 @@ public class frmAvatarSelection extends javax.swing.JFrame {
             avatarSelectionInstance = new frmAvatarSelection();
         }
         return avatarSelectionInstance;
+    }
+
+    public Player createPlayer() {
+        return new Player(methods.getSelectedAvatarEnum(avatarSeleccionado.getIcon().toString()).toString());
     }
 
     /**
@@ -58,6 +66,7 @@ public class frmAvatarSelection extends javax.swing.JFrame {
         elSol = new javax.swing.JButton();
         unirse = new javax.swing.JButton();
         avatarSeleccionado = new javax.swing.JLabel();
+        Titulo1 = new javax.swing.JLabel();
         fondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -71,11 +80,13 @@ public class frmAvatarSelection extends javax.swing.JFrame {
         fondoPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         Titulo.setFont(new java.awt.Font("SansSerif", 0, 48)); // NOI18N
+        Titulo.setForeground(new java.awt.Color(0, 0, 0));
         Titulo.setText("Iniciar sesión");
-        fondoPanel.add(Titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 10, -1, 60));
+        fondoPanel.add(Titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 10, -1, 60));
 
         TituloMenor.setBackground(new java.awt.Color(0, 0, 0));
         TituloMenor.setFont(new java.awt.Font("SansSerif", 0, 24)); // NOI18N
+        TituloMenor.setForeground(new java.awt.Color(0, 0, 0));
         TituloMenor.setText("Escoge tu avatar");
         fondoPanel.add(TituloMenor, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 80, 190, 30));
 
@@ -86,7 +97,7 @@ public class frmAvatarSelection extends javax.swing.JFrame {
                 elGalloActionPerformed(evt);
             }
         });
-        fondoPanel.add(elGallo, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 140, -1, -1));
+        fondoPanel.add(elGallo, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 120, -1, -1));
 
         elBorracho.setIcon(new javax.swing.ImageIcon(getClass().getResource("/avatars/El_borracho.jpg"))); // NOI18N
         elBorracho.setBorder(null);
@@ -96,7 +107,7 @@ public class frmAvatarSelection extends javax.swing.JFrame {
                 elBorrachoActionPerformed(evt);
             }
         });
-        fondoPanel.add(elBorracho, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 140, -1, -1));
+        fondoPanel.add(elBorracho, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 120, -1, -1));
 
         laDama.setIcon(new javax.swing.ImageIcon(getClass().getResource("/avatars/La_dama.jpg"))); // NOI18N
         laDama.setBorder(null);
@@ -106,7 +117,7 @@ public class frmAvatarSelection extends javax.swing.JFrame {
                 laDamaActionPerformed(evt);
             }
         });
-        fondoPanel.add(laDama, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 140, -1, -1));
+        fondoPanel.add(laDama, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 120, -1, -1));
 
         elApache.setIcon(new javax.swing.ImageIcon(getClass().getResource("/avatars/El_apache.jpg"))); // NOI18N
         elApache.setBorder(null);
@@ -116,7 +127,7 @@ public class frmAvatarSelection extends javax.swing.JFrame {
                 elApacheActionPerformed(evt);
             }
         });
-        fondoPanel.add(elApache, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 140, -1, -1));
+        fondoPanel.add(elApache, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 120, -1, -1));
 
         elValiente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/avatars/El_Valiente.jpg"))); // NOI18N
         elValiente.setBorder(null);
@@ -126,7 +137,7 @@ public class frmAvatarSelection extends javax.swing.JFrame {
                 elValienteActionPerformed(evt);
             }
         });
-        fondoPanel.add(elValiente, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 380, -1, -1));
+        fondoPanel.add(elValiente, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 360, -1, -1));
 
         laChalupa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/avatars/La_chalupa.jpg"))); // NOI18N
         laChalupa.setBorder(null);
@@ -136,7 +147,7 @@ public class frmAvatarSelection extends javax.swing.JFrame {
                 laChalupaActionPerformed(evt);
             }
         });
-        fondoPanel.add(laChalupa, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 380, -1, -1));
+        fondoPanel.add(laChalupa, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 360, -1, -1));
 
         elDiablito.setIcon(new javax.swing.ImageIcon(getClass().getResource("/avatars/El_diablo.jpg"))); // NOI18N
         elDiablito.setBorder(null);
@@ -146,7 +157,7 @@ public class frmAvatarSelection extends javax.swing.JFrame {
                 elDiablitoActionPerformed(evt);
             }
         });
-        fondoPanel.add(elDiablito, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 380, -1, -1));
+        fondoPanel.add(elDiablito, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 360, -1, -1));
 
         elSol.setIcon(new javax.swing.ImageIcon(getClass().getResource("/avatars/El_sol.jpg"))); // NOI18N
         elSol.setBorder(null);
@@ -156,19 +167,24 @@ public class frmAvatarSelection extends javax.swing.JFrame {
                 elSolActionPerformed(evt);
             }
         });
-        fondoPanel.add(elSol, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 380, -1, -1));
+        fondoPanel.add(elSol, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 360, -1, -1));
 
         unirse.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
-        unirse.setText("Unirse");
+        unirse.setText("Ir al lobby");
         unirse.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 unirseActionPerformed(evt);
             }
         });
-        fondoPanel.add(unirse, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 560, -1, -1));
+        fondoPanel.add(unirse, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 630, -1, -1));
 
         avatarSeleccionado.setEnabled(false);
-        fondoPanel.add(avatarSeleccionado, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 280, 150, 220));
+        fondoPanel.add(avatarSeleccionado, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 250, 150, 220));
+
+        Titulo1.setFont(new java.awt.Font("SansSerif", 0, 48)); // NOI18N
+        Titulo1.setForeground(new java.awt.Color(0, 0, 0));
+        Titulo1.setText("Tu seleccion");
+        fondoPanel.add(Titulo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, 270, 40));
 
         fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/home/fondo.jpeg"))); // NOI18N
         fondoPanel.add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -198,6 +214,7 @@ public class frmAvatarSelection extends javax.swing.JFrame {
      */
     private void elBorrachoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_elBorrachoActionPerformed
         ImageIcon avatar = new ImageIcon("src/main/resources/avatars/El_borracho.jpg"); // Reemplaza con la ruta correcta de la imagen  
+
         avatarSeleccionado.setIcon(avatar);
         avatarSeleccionado.setEnabled(true);
     }//GEN-LAST:event_elBorrachoActionPerformed
@@ -228,14 +245,12 @@ public class frmAvatarSelection extends javax.swing.JFrame {
     }//GEN-LAST:event_elValienteActionPerformed
 
     private void unirseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_unirseActionPerformed
-        if(avatarSeleccionado.isEnabled()==true)
-        {    
-        this.setVisible(false);
-        frmHome.getInstance().setVisible(true);
-        avatarSeleccionado.getIcon();
-        }
-        else
-        {
+        if (avatarSeleccionado.isEnabled()) {
+           
+            frmHome.getInstance().setPlayer(createPlayer());
+            frmHome.getInstance().setVisible(true); 
+            this.setVisible(false);
+        } else {
             JOptionPane.showMessageDialog(this, "Selecciona un avatar para jugar", "avatar no seleccionado", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_unirseActionPerformed
@@ -304,6 +319,7 @@ public class frmAvatarSelection extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Titulo;
+    private javax.swing.JLabel Titulo1;
     private javax.swing.JLabel TituloMenor;
     private javax.swing.JLabel avatarSeleccionado;
     private javax.swing.JButton elApache;
