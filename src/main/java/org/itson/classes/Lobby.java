@@ -24,4 +24,9 @@ public class Lobby {
         match.setPool(Pool.getInstance());
         match.distributeTiles();
     }
+    
+    public ArrayList<Player> getPlayersData(){
+        
+        return null;
+    }
 }

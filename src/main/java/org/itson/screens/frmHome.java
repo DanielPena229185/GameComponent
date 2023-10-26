@@ -4,29 +4,53 @@
  */
 package org.itson.screens;
 
+import javax.swing.JOptionPane;
+import org.itson.domaincomponent.domain.Player;
+
 /**
  *
  * @author paulvazquez
  */
 public class frmHome extends javax.swing.JFrame {
-        private static frmHome homeInstance;
+
+    private static frmHome homeInstance;
+    Player player;
+
     /**
      * Creates new form frmHome
      */
     private frmHome() {
         initComponents();
+        this.player = getPlayer(); // Asignar el objeto Player recibido
+
     }
-    
-    private void closeCurrentWindow(){
+
+    private void closeCurrentWindow() {
         this.setVisible(false);
     }
 
-    public static frmHome getInstance(){
-        if (homeInstance == null){
+    public static frmHome getInstance() {
+        if (homeInstance == null) {
             homeInstance = new frmHome();
         }
         return homeInstance;
     }
+
+    public void resetPlayer() {
+        this.player = null;
+    }
+
+    public void setPlayer(Player player) {
+        this.player = player;
+    }
+
+    public Player getPlayer() {
+        if (player != null) {
+            return player;
+        }
+        return null;
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -111,20 +135,19 @@ public class frmHome extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnJoinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnJoinActionPerformed
-        // TODO add your handling code here:
+
         this.setVisible(false);
         frmLobby.getInstance().setVisible(true);
     }//GEN-LAST:event_btnJoinActionPerformed
 
     private void btnRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresarActionPerformed
-       this.setVisible(false);
-       frmAvatarSelection.getInstance().setVisible(true);
+        this.setVisible(false);
+        frmAvatarSelection.getInstance().setVisible(true);
     }//GEN-LAST:event_btnRegresarActionPerformed
 
     /**
      * @param args the command line arguments
      */
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnJoin;
