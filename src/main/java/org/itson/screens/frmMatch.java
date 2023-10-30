@@ -21,7 +21,7 @@ public class frmMatch extends javax.swing.JFrame {
     /**
      * Creates new form frmBoard
      */
-    private frmMatch() {
+    public frmMatch() {
         initComponents();
     }
     

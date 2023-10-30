@@ -38,7 +38,19 @@ public class TileModel {
      * Orientation of the tile (Horizontal, Vertical)
      */
     private Orientation orientation = Orientation.VERTICAL;
+    
+    
+    public String firstFacePath; 
+    
+    public String secondFacePath; 
+    
+    private int height=45;
+    
+    private int width=45;
+    
+    private int cordX;
 
+    private int cordY;
     /**
      * Default constructor
      */
@@ -61,7 +73,8 @@ public class TileModel {
         this.id = id;
         this.firstFace = firstFace;
         this.secondFace = secondFace;
-
+        this.firstFacePath="src/main/resources/tiles/Face-Tile-Vaue-"+firstFace.getValue()+".png";    
+        this.secondFacePath="src/main/resources/tiles/Face-Tile-Vaue-"+secondFace.getValue()+".png";
     }
 
     /**
@@ -103,6 +116,22 @@ public class TileModel {
             firstFace.setSide(Side.RIGHT);
         }
 
+    }
+
+    public int getCordX() {
+        return cordX;
+    }
+
+    public void setCordX(int cordX) {
+        this.cordX = cordX;
+    }
+
+    public int getCordY() {
+        return cordY;
+    }
+
+    public void setCordY(int cordY) {
+        this.cordY = cordY;
     }
 
     /**
@@ -220,12 +249,8 @@ public class TileModel {
      * @return The width of the composite image.
      */
     public int getWidth() {
-//        int firstFaceWidth = this.firstFace.getWidth();
-//        int secondFaceWidth = this.secondFace.getImg().getWidth();
-//        int result = (firstFaceWidth + secondFaceWidth) / 2;
-//        return result;
-System.out.println("under work");
-return 0;
+
+    return this.width;
 
     }
 
@@ -237,24 +262,11 @@ return 0;
      * @return The height of the composite image.
      */
     public int getHeight() {
-//        int firstFaceHeight = this.firstFace.getHeight();
-//        int secondFaceHeight = this.secondFace.getHeight();
-//        int result = (firstFaceHeight + secondFaceHeight);
-//        return result;
-System.out.println("under work");
-return 0;
+
+    return this.height;
     }
 
-    public BufferedImage getImage() {
-
-//        BufferedImage firstFaceImage = this.firstFace.getImg();
-//
-//        BufferedImage secondFaceImage = this.secondFace.getImg();
-System.out.println("under work");
-
-        return null;
-
-    }
+    
 
     @Override
     public String toString() {

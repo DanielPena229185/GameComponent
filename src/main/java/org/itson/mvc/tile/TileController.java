@@ -5,8 +5,13 @@
 
 package org.itson.mvc.tile;
 
-import java.awt.event.ActionEvent;
+
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * 
@@ -15,7 +20,7 @@ import java.awt.event.ActionListener;
  * @author Paul Alejandro Vazquez Cervantes ID:241400
  * @author Jose Eduardo Hinojosa Romero ID: 2356666
  */
-public class TileController {
+public class TileController extends MouseAdapter{
     
     private TileModel tileModel;
     private TileView tileView;
@@ -28,12 +33,18 @@ public class TileController {
         this.tileView = tileView;
     }
     
-    class RotateTile implements ActionListener{
+    
 
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            tileModel.doRotation();
+    @Override
+    public void mouseClicked(MouseEvent e) {
+        System.out.println(e.getX()+" "+e.getY());
+        try {
+            tileModel.setCordX(e.getX());
+            tileModel.setCordY(e.getY());
+            tileView.drawTile();
+            tileView.repaint();
+        } catch (IOException ex) {
+            Logger.getLogger(TileController.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
     }
 }

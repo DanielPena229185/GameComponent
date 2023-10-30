@@ -6,6 +6,16 @@
 package org.itson.mvc.tile;
 
 import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.imageio.ImageIO;
 import javax.swing.JPanel;
 
 /**
@@ -19,6 +29,7 @@ import javax.swing.JPanel;
 public class TileView extends JPanel{
 
     private TileModel tileModel;
+     private BufferedImage tile;
     
     /**
      *
@@ -26,11 +37,33 @@ public class TileView extends JPanel{
     public TileView(TileModel tileModel){
         this.tileModel = tileModel;
     }
+    
+   public void drawTile() throws IOException {
+        BufferedImage firstFace = ImageIO.read(new File(tileModel.firstFacePath));
+        BufferedImage secondFace = ImageIO.read(new File(tileModel.secondFacePath));
+        
+            
+            this.tile = new BufferedImage(tileModel.getWidth(), tileModel.getHeight(), BufferedImage.TYPE_INT_ARGB);
 
-    @Override
-    public void paint(Graphics g) {
-        super.paint(g);
+
+            
+            Graphics2D g2d = this.tile.createGraphics();
+            g2d.drawImage(firstFace, 0, 0, null);
+            g2d.drawImage(secondFace, 0, firstFace.getHeight(), null);
+            g2d.dispose();
+            repaint();
+                    }
+   
+@Override    
+protected void paintComponent(Graphics g) {
+    super.paintComponent(g);
+    
+    
+    g.drawImage(this.tile, tileModel.getCordX(), tileModel.getCordY(), null); 
+    System.out.println(this.tile);
+    
     }
-    
-    
 }
+
+    
+
