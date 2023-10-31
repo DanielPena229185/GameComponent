@@ -4,7 +4,7 @@
  */
 package org.itson.mvc.tile;
 
-import java.awt.image.BufferedImage;
+
 import org.itson.domaincomponent.domain.FaceTile;
 import org.itson.domaincomponent.enums.Orientation;
 import org.itson.domaincomponent.enums.Side;
@@ -40,13 +40,13 @@ public class TileModel {
     private Orientation orientation = Orientation.VERTICAL;
     
     
-    public String firstFacePath; 
+    public String firstFacePath="src/main/resources/tiles/Face-Tile-Vaue-5.png"; 
     
-    public String secondFacePath; 
+    public String secondFacePath="src/main/resources/tiles/Face-Tile-Vaue-4.png"; 
     
-    private int height=45;
+    private int height=176;
     
-    private int width=45;
+    private int width=88;
     
     private int cordX;
 
@@ -73,8 +73,8 @@ public class TileModel {
         this.id = id;
         this.firstFace = firstFace;
         this.secondFace = secondFace;
-        this.firstFacePath="src/main/resources/tiles/Face-Tile-Vaue-"+firstFace.getValue()+".png";    
-        this.secondFacePath="src/main/resources/tiles/Face-Tile-Vaue-"+secondFace.getValue()+".png";
+        this.firstFacePath="src/main/resources/tiles/Face-Tile-Vaue-3.png";    
+        this.secondFacePath="src/main/resources/tiles/Face-Tile-Vaue-3.png";
     }
 
     /**

@@ -39,10 +39,9 @@ public class TileController extends MouseAdapter{
     public void mouseClicked(MouseEvent e) {
         System.out.println(e.getX()+" "+e.getY());
         try {
-            tileModel.setCordX(e.getX());
-            tileModel.setCordY(e.getY());
+            tileModel.setCordX(e.getX()-50);
+            tileModel.setCordY(e.getY()-120);
             tileView.drawTile();
-            tileView.repaint();
         } catch (IOException ex) {
             Logger.getLogger(TileController.class.getName()).log(Level.SEVERE, null, ex);
         }

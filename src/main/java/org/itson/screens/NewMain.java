@@ -4,6 +4,9 @@
  */
 package org.itson.screens;
 
+import java.awt.Dimension;
+import java.awt.FlowLayout;
+import javax.swing.JFrame;
 import org.itson.domaincomponent.domain.FaceTile;
 import org.itson.domaincomponent.domain.Tile;
 import org.itson.mvc.tile.TileController;
@@ -21,18 +24,30 @@ public class NewMain {
      */
     public static void main(String[] args) {
         
-       NewJFrame formulario= new NewJFrame();
-       formulario.setVisible(true);
-       FaceTile ft = new FaceTile();
-       ft.setValue(3);
-       Tile tile = new Tile();
-       tile.setFirstFace(ft);
-       tile.setSecondFace(ft);
-       TileModel model= new TileModel(0,ft,ft);
+         JFrame frame = new JFrame("My JFrame");
+
+        // Set the size of the JFrame
+        frame.setSize(600, 600);
+
+        // Set the location of the JFrame
+        frame.setLocationRelativeTo(null);
+
+        // Make the JFrame visible on the screen
+        frame.setVisible(true);
+        
+        TileModel model= new TileModel();
        TileView view= new TileView(model);
        TileController controller= new TileController(model,view);
-      formulario.addMouseListener(controller);
+       frame.addMouseListener(controller);
+       System.out.println(frame.add(view));
+        frame.pack();
+       frame.add(view);
+       
        
     }
-    
 }
+       
+      
+       
+   
+

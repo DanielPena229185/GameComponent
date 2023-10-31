@@ -5,6 +5,7 @@
 
 package org.itson.mvc.tile;
 
+import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.event.ActionListener;
@@ -42,6 +43,7 @@ public class TileView extends JPanel{
         BufferedImage firstFace = ImageIO.read(new File(tileModel.firstFacePath));
         BufferedImage secondFace = ImageIO.read(new File(tileModel.secondFacePath));
         
+        
             
             this.tile = new BufferedImage(tileModel.getWidth(), tileModel.getHeight(), BufferedImage.TYPE_INT_ARGB);
 
@@ -52,16 +54,21 @@ public class TileView extends JPanel{
             g2d.drawImage(secondFace, 0, firstFace.getHeight(), null);
             g2d.dispose();
             repaint();
+          
                     }
    
 @Override    
 protected void paintComponent(Graphics g) {
     super.paintComponent(g);
-    
+   
     
     g.drawImage(this.tile, tileModel.getCordX(), tileModel.getCordY(), null); 
-    System.out.println(this.tile);
+   
     
+    }
+@Override
+    public Dimension getPreferredSize() {
+        return new Dimension(600, 600);
     }
 }
 
