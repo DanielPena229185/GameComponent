@@ -5,8 +5,12 @@
 package org.itson.screens;
 
 import java.awt.Graphics;
+import javax.swing.BoxLayout;
 import org.itson.classes.MatchClass;
 import org.itson.domaincomponent.domain.Tile;
+import org.itson.mvc.tile.TileController;
+import org.itson.mvc.tile.TileModel;
+import org.itson.mvc.tile.TileView;
 
 /**
  *
@@ -22,7 +26,13 @@ public class frmMatch extends javax.swing.JFrame {
      * Creates new form frmBoard
      */
     public frmMatch() {
+        TileModel model= new TileModel();
+       TileView view= new TileView(model);
+       TileController controller= new TileController(model,view);
+       this.addMouseListener(controller);
         initComponents();
+        jPanel1.add(view, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1280, 720));
+        this.pack();
     }
     
     private void closeCurrentWindow(){

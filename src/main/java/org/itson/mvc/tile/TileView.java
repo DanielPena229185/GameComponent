@@ -8,6 +8,7 @@ package org.itson.mvc.tile;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.LayoutManager;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -30,8 +31,8 @@ import javax.swing.JPanel;
 public class TileView extends JPanel{
 
     private TileModel tileModel;
-     private BufferedImage tile;
-    
+    private BufferedImage tile;
+    private BufferedImage fondo;
     /**
      *
      */
@@ -42,7 +43,7 @@ public class TileView extends JPanel{
    public void drawTile() throws IOException {
         BufferedImage firstFace = ImageIO.read(new File(tileModel.firstFacePath));
         BufferedImage secondFace = ImageIO.read(new File(tileModel.secondFacePath));
-        
+        this.fondo = ImageIO.read(new File("src/main/resources/match/Fondo.jpeg"));
         
             
             this.tile = new BufferedImage(tileModel.getWidth(), tileModel.getHeight(), BufferedImage.TYPE_INT_ARGB);
@@ -60,7 +61,8 @@ public class TileView extends JPanel{
 @Override    
 protected void paintComponent(Graphics g) {
     super.paintComponent(g);
-   
+    
+    g.drawImage(fondo, 0, 0, null);
     
     g.drawImage(this.tile, tileModel.getCordX(), tileModel.getCordY(), null); 
    
@@ -68,8 +70,10 @@ protected void paintComponent(Graphics g) {
     }
 @Override
     public Dimension getPreferredSize() {
-        return new Dimension(600, 600);
+        return new Dimension(1280, 720);
     }
+    
+    
 }
 
     
