@@ -4,10 +4,10 @@
  */
 package org.itson.mvc.tile;
 
-
 import org.itson.domaincomponent.domain.FaceTile;
 import org.itson.domaincomponent.enums.Orientation;
 import org.itson.domaincomponent.enums.Side;
+import org.itson.enums.TilesFaceSRC;
 
 /**
  * This class represents the model of the tile, using the MVC model.
@@ -38,19 +38,19 @@ public class TileModel {
      * Orientation of the tile (Horizontal, Vertical)
      */
     private Orientation orientation = Orientation.VERTICAL;
-    
-    
-    public String firstFacePath="src/main/resources/tiles/Face-Tile-Vaue-5.png"; 
-    
-    public String secondFacePath="src/main/resources/tiles/Face-Tile-Vaue-4.png"; 
-    
-    private int height=176;
-    
-    private int width=88;
-    
+
+    public String firstFacePath  ;
+
+    public String secondFacePath;
+
+    private int height= 140;
+
+    private int width = 80;
+
     private int cordX;
 
     private int cordY;
+
     /**
      * Default constructor
      */
@@ -66,15 +66,17 @@ public class TileModel {
      * @param firsFace Firs face of the tile (TOP side as default)
      * @param secondFace Second face of the tile (BOTTOM side as default)
      */
-    public TileModel(int id, FaceTile firstFace, FaceTile secondFace) {
+    public TileModel(int id, FaceTile firstFace, FaceTile secondFace, Integer width, Integer height) {
 
         firstFace.setSide(Side.TOP);
         firstFace.setSide(Side.BOTTOM);
         this.id = id;
         this.firstFace = firstFace;
         this.secondFace = secondFace;
-        this.firstFacePath="src/main/resources/tiles/Face-Tile-Vaue-3.png";    
-        this.secondFacePath="src/main/resources/tiles/Face-Tile-Vaue-3.png";
+        this.firstFacePath = getFaceTileImage(firstFace);
+        this.secondFacePath = getFaceTileImage(secondFace);
+        this.width = width;
+        this.height = height;
     }
 
     /**
@@ -94,6 +96,27 @@ public class TileModel {
         this.secondFace = secondFace;
         this.doRotationByOrientationDefault(orientation);
         this.orientation = orientation;
+    }
+
+    public String getFaceTileImage(FaceTile faceTile) {
+        switch (faceTile.getValue()) {
+            case 0:
+                return TilesFaceSRC.getSOURCE_IMAGE_TILE_FACE_0();
+            case 1:
+                return TilesFaceSRC.getSOURCE_IMAGE_TILE_FACE_1();
+            case 2:
+                return TilesFaceSRC.getSOURCE_IMAGE_TILE_FACE_2();
+            case 3:
+                return TilesFaceSRC.getSOURCE_IMAGE_TILE_FACE_3();
+            case 4:
+                return TilesFaceSRC.getSOURCE_IMAGE_TILE_FACE_4();
+            case 5:
+                return TilesFaceSRC.getSOURCE_IMAGE_TILE_FACE_5();
+            case 6:
+                return TilesFaceSRC.getSOURCE_IMAGE_TILE_FACE_6();
+            default:
+                return null;
+        }
     }
 
     /**
@@ -132,6 +155,11 @@ public class TileModel {
 
     public void setCordY(int cordY) {
         this.cordY = cordY;
+    }
+
+    public void setWidth(int width) {
+        this.width = width;
+        this.height = width * 2;
     }
 
     /**
@@ -250,7 +278,7 @@ public class TileModel {
      */
     public int getWidth() {
 
-    return this.width;
+        return this.width;
 
     }
 
@@ -263,10 +291,8 @@ public class TileModel {
      */
     public int getHeight() {
 
-    return this.height;
+        return this.height;
     }
-
-    
 
     @Override
     public String toString() {

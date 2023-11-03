@@ -6,8 +6,10 @@ package org.itson.classes;
 
 import java.awt.List;
 import java.util.LinkedList;
+import org.itson.domaincomponent.domain.Player;
 import org.itson.domaincomponent.domain.Pool;
 import org.itson.domaincomponent.domain.Tile;
+import org.itson.domaincomponent.exceptions.PlayerException;
 import org.itson.domaincomponent.exceptions.PoolException;
 
 /**
@@ -17,30 +19,29 @@ import org.itson.domaincomponent.exceptions.PoolException;
 public class MatchClass {
 
     private Pool pool;
-
-    public MatchClass() {
-
-    }
-
-    public MatchClass(Pool pool) {
-        this.pool = pool;
+    private Player[] players;
+    
+    public MatchClass(Player[] players) {
+        this.pool = Pool.getInstance();
+        this.players = players;
     }
 
     public LinkedList<Tile> getTiles() {
-
         LinkedList<Tile> tiles;
-
         tiles = pool.getTiles();
-
         return tiles;
     }
-
+    
     public Tile searchHighestMule(LinkedList<Tile>  tiles) throws PoolException {
         return pool.getHighestMuleOfList(tiles);
+    }   
+
+    public void swichtTilesPossesionToPlayer(Player player, LinkedList<Tile> tiles) throws PlayerException {
+     player.addTiles(tiles);
     }
-
-    public void swichtTilePossesion() {
-
+    
+    public void swichtTilePossesionToPlayer(Player player, Tile tile) throws PlayerException {
+     player.addTile(tile);
     }
 
 }

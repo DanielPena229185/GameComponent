@@ -4,15 +4,21 @@
  */
 package org.itson.classes;
 
+import org.itson.mvc.tile.TileGraphic;
+
 /**
  *
  * @author PC
  */
-public class TileClass {
-    
-    
-    public TileClass getTile(){
+public class TileClass implements TileGraphic{
+
+    public TileClass getTile() {
         return null;
     }
-            }
 
+    @Override
+    public void draw() {
+    //do something
+    
+    }
+}

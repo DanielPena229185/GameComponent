@@ -7,7 +7,10 @@ package org.itson.screens;
 import java.awt.Graphics;
 import javax.swing.BoxLayout;
 import org.itson.classes.MatchClass;
+import org.itson.domaincomponent.domain.FaceTile;
 import org.itson.domaincomponent.domain.Tile;
+import org.itson.domaincomponent.enums.Orientation;
+import org.itson.domaincomponent.enums.Side;
 import org.itson.mvc.tile.TileController;
 import org.itson.mvc.tile.TileModel;
 import org.itson.mvc.tile.TileView;
@@ -15,57 +18,65 @@ import org.itson.mvc.tile.TileView;
 /**
  *
  * @author Paul Alejandro Vazquez Cervantes
- * @author Santiago Leyva Bojorquez
+ * @author Santiago Leyva Bojorquez 
  */
 public class frmMatch extends javax.swing.JFrame {
-         private static frmMatch matchInstance;
-         
-         private MatchClass match;
-         
+
+    private static frmMatch matchInstance;
+
+    private MatchClass match;
+
     /**
      * Creates new form frmBoard
      */
     public frmMatch() {
-        TileModel model= new TileModel();
-       TileView view= new TileView(model);
-       TileController controller= new TileController(model,view);
-       this.addMouseListener(controller);
+        Tile tile = new Tile(0, new FaceTile(Side.TOP, 2), 
+                new FaceTile(Side.TOP, 4), Orientation.HORIZONTAL);
+        
+        TileModel model = new TileModel(tile.getId(),tile.getFirstFace() , tile.getSecondFace(),
+                80, 240);
+        
+        TileView view = new TileView(model);
+        
+        TileController controller = new TileController(model, view);
+        
+        this.addMouseListener(controller);
+        
         initComponents();
         jPanel1.add(view, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1280, 720));
         this.pack();
     }
-    
-    private void closeCurrentWindow(){
+
+    private void closeCurrentWindow() {
         this.setVisible(false);
     }
-    
-    public static frmMatch getInstance(){
-        if (matchInstance == null){
+
+    public static frmMatch getInstance() {
+        if (matchInstance == null) {
             matchInstance = new frmMatch();
         }
         return matchInstance;
     }
-    
-    public void drawPlayersTiles(){
-        
+
+    public void drawPlayersTiles() {
+
     }
-    
-    public Graphics drawPool(){
-        
+
+    public Graphics drawPool() {
+
         return null;
     }
-    
-    
-    public Graphics drawTile(){
-        
+
+    public Graphics drawTile() {
+
         return null;
     }
-    
-    public Tile getTile(){
-        
+
+    public Tile getTile() {
+
         return null;
     }
-    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -111,13 +122,10 @@ public class frmMatch extends javax.swing.JFrame {
     private void btnPauseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPauseActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnPauseActionPerformed
-    
-    
-    
+
     /**
      * @param args the command line arguments
      */
-    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnPause;
