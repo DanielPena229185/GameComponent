@@ -16,12 +16,12 @@ import org.itson.domaincomponent.exceptions.PoolException;
  *
  * @author PC
  */
-public class MatchClass {
+public class DomainMatch {
 
     private Pool pool;
     private Player[] players;
     
-    public MatchClass(Player[] players) {
+    public DomainMatch(Player[] players) {
         this.pool = Pool.getInstance();
         this.players = players;
     }

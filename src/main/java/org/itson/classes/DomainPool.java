@@ -6,12 +6,12 @@ import org.itson.domaincomponent.domain.Pool;
 import org.itson.domaincomponent.domain.Tile;
 import org.itson.domaincomponent.exceptions.PoolException;
 
-public class PoolClass {
+public class DomainPool {
 
     private Pool pool;
-    private MatchClass matchClass;
+    private DomainMatch matchClass;
     
-    public PoolClass() {
+    public DomainPool() {
         this.pool = Pool.getInstance();
     }
     

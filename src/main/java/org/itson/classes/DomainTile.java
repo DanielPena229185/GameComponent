@@ -10,9 +10,9 @@ import org.itson.mvc.tile.TileGraphic;
  *
  * @author PC
  */
-public class TileClass implements TileGraphic{
+public class DomainTile implements TileGraphic{
 
-    public TileClass getTile() {
+    public DomainTile getTile() {
         return null;
     }
 
