@@ -5,7 +5,7 @@
 package org.itson.screens;
 
 import org.itson.classes.Lobby;
-import org.itson.classes.MatchClass;
+import org.itson.classes.DomainMatch;
 import org.itson.domaincomponent.domain.Player;
 
 /**

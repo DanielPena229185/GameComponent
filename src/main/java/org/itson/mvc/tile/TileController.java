@@ -1,39 +1,44 @@
-/**
-* TileController.java
-* Oct 10, 2023 11:06:10 AM
-*/ 
-
 package org.itson.mvc.tile;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import javax.swing.SwingUtilities;
+import org.itson.classes.DomainMatch;
+import org.itson.classes.DomainPool;
+import org.itson.domaincomponent.domain.Player;
+import org.itson.domaincomponent.domain.Tile;
+import org.itson.domaincomponent.exceptions.PlayerException;
+import org.itson.domaincomponent.exceptions.PoolException;
 
-/**
- * 
- * @author Daniel Armando Peña Garcia ID:229185
- * @author Santiago Bojórquez Leyva ID:228475
- * @author Paul Alejandro Vazquez Cervantes ID:241400
- * @author Jose Eduardo Hinojosa Romero ID: 2356666
- */
-public class TileController {
-    
+public class TileController extends MouseAdapter {
     private TileModel tileModel;
     private TileView tileView;
 
-    /**
-     *
-     */
-    public TileController(TileModel tileModel, TileView tileView){
+    public TileController(TileModel tileModel, TileView tileView) {
         this.tileModel = tileModel;
         this.tileView = tileView;
     }
     
-    class RotateTile implements ActionListener{
+    @Override
+    public void mouseClicked(MouseEvent e) {
+        System.out.println(e.getX() + " " + e.getY());
+        tileModel.setCordX(e.getX() - 50);
+        tileModel.setCordY(e.getY() - 120);
 
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            tileModel.doRotation();
-        }
-        
+        SwingUtilities.invokeLater(() -> {
+            tileView.drawTile();
+        });
+    }
+
+
+    private void playerTakesTileFromPool(Player player, DomainPool pool) throws PoolException, PlayerException {
+        Tile tile = pool.getPool().getRandomTile();
+        player.addTile(tile);
+    }
+
+    private void changeTilePossessionToMatch(Player player, DomainMatch match) {
+        //obtengo la ficha que quiera poner o cambiar de posesion el jugador.
+        //luego se la elimino y se la envio al match
     }
 }
+

@@ -5,8 +5,15 @@
 package org.itson.screens;
 
 import java.awt.Graphics;
-import org.itson.classes.MatchClass;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import org.itson.classes.DomainMatch;
+import org.itson.domaincomponent.domain.Pool;
 import org.itson.domaincomponent.domain.Tile;
+import org.itson.domaincomponent.exceptions.PoolException;
+import org.itson.mvc.tile.TileController;
+import org.itson.mvc.tile.TileModel;
+import org.itson.mvc.tile.TileView;
 
 /**
  *
@@ -14,48 +21,67 @@ import org.itson.domaincomponent.domain.Tile;
  * @author Santiago Leyva Bojorquez
  */
 public class frmMatch extends javax.swing.JFrame {
-         private static frmMatch matchInstance;
-         
-         private MatchClass match;
-         
+
+    private static frmMatch matchInstance;
+
+    private DomainMatch match;
+    Pool pool;
+
     /**
      * Creates new form frmBoard
      */
-    private frmMatch() {
-        initComponents();
+    public frmMatch()  {
+        try {
+            pool = Pool.getInstance();
+            
+            pool.createDominoTiles();
+            TileModel model = new TileModel(pool.getRandomTile());
+            
+            TileView view = new TileView(model);
+            
+            TileController controller = new TileController(model, view);
+            
+            
+            
+            initComponents();
+    this.addMouseListener(controller);
+            jPanel1.add(view, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1280, 720));
+            this.pack();
+        } catch (PoolException ex) {
+            Logger.getLogger(frmMatch.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
-    
-    private void closeCurrentWindow(){
+
+    private void closeCurrentWindow() {
         this.setVisible(false);
     }
-    
-    public static frmMatch getInstance(){
-        if (matchInstance == null){
+
+    public static frmMatch getInstance() {
+        if (matchInstance == null) {
             matchInstance = new frmMatch();
         }
         return matchInstance;
     }
-    
-    public void drawPlayersTiles(){
-        
+
+    public void drawPlayersTiles() {
+
     }
-    
-    public Graphics drawPool(){
-        
+
+    public Graphics drawPool() {
+
         return null;
     }
-    
-    
-    public Graphics drawTile(){
-        
+
+    public Graphics drawTile() {
+
         return null;
     }
-    
-    public Tile getTile(){
-        
+
+    public Tile getTile() {
+
         return null;
     }
-    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -67,6 +93,9 @@ public class frmMatch extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         btnPause = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
+        jPanel3 = new javax.swing.JPanel();
+        jPanel4 = new javax.swing.JPanel();
         lbFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -80,6 +109,45 @@ public class frmMatch extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btnPause, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 40, 50));
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 880, Short.MAX_VALUE)
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 560, Short.MAX_VALUE)
+        );
+
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 40, 880, 560));
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 740, Short.MAX_VALUE)
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 90, Short.MAX_VALUE)
+        );
+
+        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 570, 740, 90));
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 120, Short.MAX_VALUE)
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 130, Short.MAX_VALUE)
+        );
+
+        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(1110, 260, 120, 130));
 
         lbFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/match/Fondo.jpeg"))); // NOI18N
         jPanel1.add(lbFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1280, 720));
@@ -101,17 +169,17 @@ public class frmMatch extends javax.swing.JFrame {
     private void btnPauseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPauseActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnPauseActionPerformed
-    
-    
-    
+
     /**
      * @param args the command line arguments
      */
-    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnPause;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JLabel lbFondo;
     // End of variables declaration//GEN-END:variables
 }

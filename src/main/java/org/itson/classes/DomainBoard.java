@@ -8,11 +8,6 @@ package org.itson.classes;
  *
  * @author PC
  */
-public class TileClass {
+public class DomainBoard {
     
-    
-    public TileClass getTile(){
-        return null;
-    }
-            }
-
+}
