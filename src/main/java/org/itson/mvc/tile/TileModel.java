@@ -53,10 +53,6 @@ public class TileModel {
         this.secondFacePath = getFaceTileImage(tile.getSecondFace());
     }
 
-//   
-//    public TileModel(Tile tile) {
-//       this.
-//    }
     public static String getFaceTileImage(FaceTile faceTile) {
         switch (faceTile.getValue()) {
             case 0:

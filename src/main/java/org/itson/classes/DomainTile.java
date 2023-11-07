@@ -4,21 +4,14 @@
  */
 package org.itson.classes;
 
-import org.itson.mvc.tile.TileGraphic;
-
 /**
  *
  * @author PC
  */
-public class DomainTile implements TileGraphic{
+public class DomainTile {
 
     public DomainTile getTile() {
         return null;
     }
 
-    @Override
-    public void draw() {
-    //do something
-    
-    }
 }
