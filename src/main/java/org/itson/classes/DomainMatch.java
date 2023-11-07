@@ -36,6 +36,11 @@ public class DomainMatch {
         return pool.getHighestMuleOfList(tiles);
     }   
 
+    
+    //Escuhcar click al pozo
+    
+    //Hacer logica.
+    
     public void swichtTilesPossesionToPlayer(Player player, LinkedList<Tile> tiles) throws PlayerException {
      player.addTiles(tiles);
     }
