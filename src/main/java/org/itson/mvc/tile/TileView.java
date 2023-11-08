@@ -31,7 +31,6 @@ public class TileView extends JPanel {
         try {
             firstFaceImage = ImageIO.read(new File(tileModel.getFirstFacePath()));
             secondFaceImage = ImageIO.read(new File(tileModel.getSecondFacePath()));
-            fondo = ImageIO.read(new File("src/main/resources/match/Fondo.jpeg"));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -46,15 +45,13 @@ public class TileView extends JPanel {
             g2d.drawImage(secondFaceImage, 0, firstFaceImage.getHeight(), null);
             g2d.dispose();
             repaint();
+            System.out.println("trishula");
         }
     }
 
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-        if (fondo != null) {
-            g.drawImage(fondo, 0, 0, null);
-        }
         if (tile != null) {
             g.drawImage(tile, tileModel.getCordX(), tileModel.getCordY(), null);
         }
