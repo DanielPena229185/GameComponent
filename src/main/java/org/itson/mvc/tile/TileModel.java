@@ -26,7 +26,7 @@ public class TileModel {
 
     private String secondFacePath;
 
-    private int height = 240;
+    private int height = 80;
 
     private int width = 80;
 
