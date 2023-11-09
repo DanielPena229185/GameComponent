@@ -31,7 +31,7 @@ public class PoolView extends JPanel{
     // Método para cargar las imágenes de las caras de la ficha
     private void loadFaceImages() {
         try {
-            poolImage = ImageIO.read(new File(poolModel.getBoardImagePath()));
+            poolImage = ImageIO.read(new File(poolModel.getPoolImagePath()));
             
         } catch (IOException e) {
             e.printStackTrace();
