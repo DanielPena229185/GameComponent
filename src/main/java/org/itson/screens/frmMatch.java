@@ -277,7 +277,6 @@ public class frmMatch extends javax.swing.JFrame {
                 panelPrincipalMouseClicked(evt);
             }
         });
-        panelPrincipal.setLayout(null);
 
         javax.swing.GroupLayout jPanel149Layout = new javax.swing.GroupLayout(jPanel149);
         jPanel149.setLayout(jPanel149Layout);
@@ -291,7 +290,6 @@ public class frmMatch extends javax.swing.JFrame {
         );
 
         panelPrincipal.add(jPanel149);
-        jPanel149.setBounds(1, 2, 84, 48);
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
@@ -305,7 +303,6 @@ public class frmMatch extends javax.swing.JFrame {
         );
 
         panelPrincipal.add(jPanel6);
-        jPanel6.setBounds(85, 2, 84, 48);
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
@@ -319,7 +316,6 @@ public class frmMatch extends javax.swing.JFrame {
         );
 
         panelPrincipal.add(jPanel7);
-        jPanel7.setBounds(169, 2, 84, 48);
 
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
         jPanel8.setLayout(jPanel8Layout);
@@ -333,7 +329,6 @@ public class frmMatch extends javax.swing.JFrame {
         );
 
         panelPrincipal.add(jPanel8);
-        jPanel8.setBounds(253, 2, 84, 48);
 
         javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
         jPanel9.setLayout(jPanel9Layout);
@@ -347,7 +342,6 @@ public class frmMatch extends javax.swing.JFrame {
         );
 
         panelPrincipal.add(jPanel9);
-        jPanel9.setBounds(337, 2, 84, 48);
 
         javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
         jPanel10.setLayout(jPanel10Layout);
@@ -361,7 +355,6 @@ public class frmMatch extends javax.swing.JFrame {
         );
 
         panelPrincipal.add(jPanel10);
-        jPanel10.setBounds(421, 2, 84, 48);
 
         javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
         jPanel11.setLayout(jPanel11Layout);
@@ -375,7 +368,6 @@ public class frmMatch extends javax.swing.JFrame {
         );
 
         panelPrincipal.add(jPanel11);
-        jPanel11.setBounds(505, 2, 84, 48);
 
         javax.swing.GroupLayout jPanel12Layout = new javax.swing.GroupLayout(jPanel12);
         jPanel12.setLayout(jPanel12Layout);
@@ -389,7 +381,6 @@ public class frmMatch extends javax.swing.JFrame {
         );
 
         panelPrincipal.add(jPanel12);
-        jPanel12.setBounds(589, 2, 84, 48);
 
         javax.swing.GroupLayout jPanel13Layout = new javax.swing.GroupLayout(jPanel13);
         jPanel13.setLayout(jPanel13Layout);
@@ -403,7 +394,6 @@ public class frmMatch extends javax.swing.JFrame {
         );
 
         panelPrincipal.add(jPanel13);
-        jPanel13.setBounds(673, 2, 84, 48);
 
         javax.swing.GroupLayout jPanel14Layout = new javax.swing.GroupLayout(jPanel14);
         jPanel14.setLayout(jPanel14Layout);
@@ -417,7 +407,6 @@ public class frmMatch extends javax.swing.JFrame {
         );
 
         panelPrincipal.add(jPanel14);
-        jPanel14.setBounds(757, 2, 84, 48);
 
         javax.swing.GroupLayout jPanel15Layout = new javax.swing.GroupLayout(jPanel15);
         jPanel15.setLayout(jPanel15Layout);
@@ -431,7 +420,6 @@ public class frmMatch extends javax.swing.JFrame {
         );
 
         panelPrincipal.add(jPanel15);
-        jPanel15.setBounds(841, 2, 84, 48);
 
         javax.swing.GroupLayout jPanel16Layout = new javax.swing.GroupLayout(jPanel16);
         jPanel16.setLayout(jPanel16Layout);
@@ -445,7 +433,6 @@ public class frmMatch extends javax.swing.JFrame {
         );
 
         panelPrincipal.add(jPanel16);
-        jPanel16.setBounds(925, 2, 84, 48);
 
         javax.swing.GroupLayout jPanel17Layout = new javax.swing.GroupLayout(jPanel17);
         jPanel17.setLayout(jPanel17Layout);
@@ -459,7 +446,6 @@ public class frmMatch extends javax.swing.JFrame {
         );
 
         panelPrincipal.add(jPanel17);
-        jPanel17.setBounds(1, 50, 84, 48);
 
         javax.swing.GroupLayout jPanel18Layout = new javax.swing.GroupLayout(jPanel18);
         jPanel18.setLayout(jPanel18Layout);
@@ -473,7 +459,6 @@ public class frmMatch extends javax.swing.JFrame {
         );
 
         panelPrincipal.add(jPanel18);
-        jPanel18.setBounds(85, 50, 84, 48);
 
         javax.swing.GroupLayout jPanel19Layout = new javax.swing.GroupLayout(jPanel19);
         jPanel19.setLayout(jPanel19Layout);
@@ -487,7 +472,6 @@ public class frmMatch extends javax.swing.JFrame {
         );
 
         panelPrincipal.add(jPanel19);
-        jPanel19.setBounds(169, 50, 84, 48);
 
         javax.swing.GroupLayout jPanel20Layout = new javax.swing.GroupLayout(jPanel20);
         jPanel20.setLayout(jPanel20Layout);
@@ -501,7 +485,6 @@ public class frmMatch extends javax.swing.JFrame {
         );
 
         panelPrincipal.add(jPanel20);
-        jPanel20.setBounds(253, 50, 84, 48);
 
         javax.swing.GroupLayout jPanel21Layout = new javax.swing.GroupLayout(jPanel21);
         jPanel21.setLayout(jPanel21Layout);
@@ -515,7 +498,6 @@ public class frmMatch extends javax.swing.JFrame {
         );
 
         panelPrincipal.add(jPanel21);
-        jPanel21.setBounds(337, 50, 84, 48);
 
         javax.swing.GroupLayout jPanel22Layout = new javax.swing.GroupLayout(jPanel22);
         jPanel22.setLayout(jPanel22Layout);
@@ -529,7 +511,6 @@ public class frmMatch extends javax.swing.JFrame {
         );
 
         panelPrincipal.add(jPanel22);
-        jPanel22.setBounds(421, 50, 84, 48);
 
         javax.swing.GroupLayout jPanel23Layout = new javax.swing.GroupLayout(jPanel23);
         jPanel23.setLayout(jPanel23Layout);
@@ -543,7 +524,6 @@ public class frmMatch extends javax.swing.JFrame {
         );
 
         panelPrincipal.add(jPanel23);
-        jPanel23.setBounds(505, 50, 84, 48);
 
         javax.swing.GroupLayout jPanel24Layout = new javax.swing.GroupLayout(jPanel24);
         jPanel24.setLayout(jPanel24Layout);
@@ -557,7 +537,6 @@ public class frmMatch extends javax.swing.JFrame {
         );
 
         panelPrincipal.add(jPanel24);
-        jPanel24.setBounds(589, 50, 84, 48);
 
         javax.swing.GroupLayout jPanel25Layout = new javax.swing.GroupLayout(jPanel25);
         jPanel25.setLayout(jPanel25Layout);
@@ -571,7 +550,6 @@ public class frmMatch extends javax.swing.JFrame {
         );
 
         panelPrincipal.add(jPanel25);
-        jPanel25.setBounds(673, 50, 84, 48);
 
         javax.swing.GroupLayout jPanel26Layout = new javax.swing.GroupLayout(jPanel26);
         jPanel26.setLayout(jPanel26Layout);
@@ -585,7 +563,6 @@ public class frmMatch extends javax.swing.JFrame {
         );
 
         panelPrincipal.add(jPanel26);
-        jPanel26.setBounds(757, 50, 84, 48);
 
         javax.swing.GroupLayout jPanel27Layout = new javax.swing.GroupLayout(jPanel27);
         jPanel27.setLayout(jPanel27Layout);
@@ -599,7 +576,6 @@ public class frmMatch extends javax.swing.JFrame {
         );
 
         panelPrincipal.add(jPanel27);
-        jPanel27.setBounds(841, 50, 84, 48);
 
         javax.swing.GroupLayout jPanel28Layout = new javax.swing.GroupLayout(jPanel28);
         jPanel28.setLayout(jPanel28Layout);
@@ -613,7 +589,6 @@ public class frmMatch extends javax.swing.JFrame {
         );
 
         panelPrincipal.add(jPanel28);
-        jPanel28.setBounds(925, 50, 84, 48);
 
         javax.swing.GroupLayout jPanel29Layout = new javax.swing.GroupLayout(jPanel29);
         jPanel29.setLayout(jPanel29Layout);
@@ -627,7 +602,6 @@ public class frmMatch extends javax.swing.JFrame {
         );
 
         panelPrincipal.add(jPanel29);
-        jPanel29.setBounds(1, 98, 84, 48);
 
         javax.swing.GroupLayout jPanel30Layout = new javax.swing.GroupLayout(jPanel30);
         jPanel30.setLayout(jPanel30Layout);
@@ -641,7 +615,6 @@ public class frmMatch extends javax.swing.JFrame {
         );
 
         panelPrincipal.add(jPanel30);
-        jPanel30.setBounds(85, 98, 84, 48);
 
         javax.swing.GroupLayout jPanel31Layout = new javax.swing.GroupLayout(jPanel31);
         jPanel31.setLayout(jPanel31Layout);
@@ -655,7 +628,6 @@ public class frmMatch extends javax.swing.JFrame {
         );
 
         panelPrincipal.add(jPanel31);
-        jPanel31.setBounds(169, 98, 84, 48);
 
         javax.swing.GroupLayout jPanel32Layout = new javax.swing.GroupLayout(jPanel32);
         jPanel32.setLayout(jPanel32Layout);
@@ -669,7 +641,6 @@ public class frmMatch extends javax.swing.JFrame {
         );
 
         panelPrincipal.add(jPanel32);
-        jPanel32.setBounds(253, 98, 84, 48);
 
         javax.swing.GroupLayout jPanel33Layout = new javax.swing.GroupLayout(jPanel33);
         jPanel33.setLayout(jPanel33Layout);
@@ -683,7 +654,6 @@ public class frmMatch extends javax.swing.JFrame {
         );
 
         panelPrincipal.add(jPanel33);
-        jPanel33.setBounds(337, 98, 84, 48);
 
         javax.swing.GroupLayout jPanel34Layout = new javax.swing.GroupLayout(jPanel34);
         jPanel34.setLayout(jPanel34Layout);
@@ -697,7 +667,6 @@ public class frmMatch extends javax.swing.JFrame {
         );
 
         panelPrincipal.add(jPanel34);
-        jPanel34.setBounds(421, 98, 84, 48);
 
         javax.swing.GroupLayout jPanel35Layout = new javax.swing.GroupLayout(jPanel35);
         jPanel35.setLayout(jPanel35Layout);
@@ -711,7 +680,6 @@ public class frmMatch extends javax.swing.JFrame {
         );
 
         panelPrincipal.add(jPanel35);
-        jPanel35.setBounds(505, 98, 84, 48);
 
         javax.swing.GroupLayout jPanel36Layout = new javax.swing.GroupLayout(jPanel36);
         jPanel36.setLayout(jPanel36Layout);
@@ -725,7 +693,6 @@ public class frmMatch extends javax.swing.JFrame {
         );
 
         panelPrincipal.add(jPanel36);
-        jPanel36.setBounds(589, 98, 84, 48);
 
         javax.swing.GroupLayout jPanel37Layout = new javax.swing.GroupLayout(jPanel37);
         jPanel37.setLayout(jPanel37Layout);
@@ -739,7 +706,6 @@ public class frmMatch extends javax.swing.JFrame {
         );
 
         panelPrincipal.add(jPanel37);
-        jPanel37.setBounds(673, 98, 84, 48);
 
         javax.swing.GroupLayout jPanel38Layout = new javax.swing.GroupLayout(jPanel38);
         jPanel38.setLayout(jPanel38Layout);
@@ -753,7 +719,6 @@ public class frmMatch extends javax.swing.JFrame {
         );
 
         panelPrincipal.add(jPanel38);
-        jPanel38.setBounds(757, 98, 84, 48);
 
         javax.swing.GroupLayout jPanel39Layout = new javax.swing.GroupLayout(jPanel39);
         jPanel39.setLayout(jPanel39Layout);
@@ -767,7 +732,6 @@ public class frmMatch extends javax.swing.JFrame {
         );
 
         panelPrincipal.add(jPanel39);
-        jPanel39.setBounds(841, 98, 84, 48);
 
         javax.swing.GroupLayout jPanel40Layout = new javax.swing.GroupLayout(jPanel40);
         jPanel40.setLayout(jPanel40Layout);
@@ -781,7 +745,6 @@ public class frmMatch extends javax.swing.JFrame {
         );
 
         panelPrincipal.add(jPanel40);
-        jPanel40.setBounds(925, 98, 84, 48);
 
         javax.swing.GroupLayout jPanel41Layout = new javax.swing.GroupLayout(jPanel41);
         jPanel41.setLayout(jPanel41Layout);
@@ -795,7 +758,6 @@ public class frmMatch extends javax.swing.JFrame {
         );
 
         panelPrincipal.add(jPanel41);
-        jPanel41.setBounds(1, 146, 84, 48);
 
         javax.swing.GroupLayout jPanel42Layout = new javax.swing.GroupLayout(jPanel42);
         jPanel42.setLayout(jPanel42Layout);
@@ -809,7 +771,6 @@ public class frmMatch extends javax.swing.JFrame {
         );
 
         panelPrincipal.add(jPanel42);
-        jPanel42.setBounds(85, 146, 84, 48);
 
         javax.swing.GroupLayout jPanel43Layout = new javax.swing.GroupLayout(jPanel43);
         jPanel43.setLayout(jPanel43Layout);
@@ -823,7 +784,6 @@ public class frmMatch extends javax.swing.JFrame {
         );
 
         panelPrincipal.add(jPanel43);
-        jPanel43.setBounds(169, 146, 84, 48);
 
         javax.swing.GroupLayout jPanel44Layout = new javax.swing.GroupLayout(jPanel44);
         jPanel44.setLayout(jPanel44Layout);
@@ -837,7 +797,6 @@ public class frmMatch extends javax.swing.JFrame {
         );
 
         panelPrincipal.add(jPanel44);
-        jPanel44.setBounds(253, 146, 84, 48);
 
         javax.swing.GroupLayout jPanel45Layout = new javax.swing.GroupLayout(jPanel45);
         jPanel45.setLayout(jPanel45Layout);
@@ -851,7 +810,6 @@ public class frmMatch extends javax.swing.JFrame {
         );
 
         panelPrincipal.add(jPanel45);
-        jPanel45.setBounds(337, 146, 84, 48);
 
         javax.swing.GroupLayout jPanel46Layout = new javax.swing.GroupLayout(jPanel46);
         jPanel46.setLayout(jPanel46Layout);
@@ -865,7 +823,6 @@ public class frmMatch extends javax.swing.JFrame {
         );
 
         panelPrincipal.add(jPanel46);
-        jPanel46.setBounds(421, 146, 84, 48);
 
         javax.swing.GroupLayout jPanel47Layout = new javax.swing.GroupLayout(jPanel47);
         jPanel47.setLayout(jPanel47Layout);
@@ -879,7 +836,6 @@ public class frmMatch extends javax.swing.JFrame {
         );
 
         panelPrincipal.add(jPanel47);
-        jPanel47.setBounds(505, 146, 84, 48);
 
         javax.swing.GroupLayout jPanel48Layout = new javax.swing.GroupLayout(jPanel48);
         jPanel48.setLayout(jPanel48Layout);
@@ -893,7 +849,6 @@ public class frmMatch extends javax.swing.JFrame {
         );
 
         panelPrincipal.add(jPanel48);
-        jPanel48.setBounds(589, 146, 84, 48);
 
         javax.swing.GroupLayout jPanel49Layout = new javax.swing.GroupLayout(jPanel49);
         jPanel49.setLayout(jPanel49Layout);
@@ -907,7 +862,6 @@ public class frmMatch extends javax.swing.JFrame {
         );
 
         panelPrincipal.add(jPanel49);
-        jPanel49.setBounds(673, 146, 84, 48);
 
         javax.swing.GroupLayout jPanel50Layout = new javax.swing.GroupLayout(jPanel50);
         jPanel50.setLayout(jPanel50Layout);
@@ -921,7 +875,6 @@ public class frmMatch extends javax.swing.JFrame {
         );
 
         panelPrincipal.add(jPanel50);
-        jPanel50.setBounds(757, 146, 84, 48);
 
         javax.swing.GroupLayout jPanel51Layout = new javax.swing.GroupLayout(jPanel51);
         jPanel51.setLayout(jPanel51Layout);
@@ -935,7 +888,6 @@ public class frmMatch extends javax.swing.JFrame {
         );
 
         panelPrincipal.add(jPanel51);
-        jPanel51.setBounds(841, 146, 84, 48);
 
         javax.swing.GroupLayout jPanel52Layout = new javax.swing.GroupLayout(jPanel52);
         jPanel52.setLayout(jPanel52Layout);
@@ -949,7 +901,6 @@ public class frmMatch extends javax.swing.JFrame {
         );
 
         panelPrincipal.add(jPanel52);
-        jPanel52.setBounds(925, 146, 84, 48);
 
         javax.swing.GroupLayout jPanel53Layout = new javax.swing.GroupLayout(jPanel53);
         jPanel53.setLayout(jPanel53Layout);
@@ -963,7 +914,6 @@ public class frmMatch extends javax.swing.JFrame {
         );
 
         panelPrincipal.add(jPanel53);
-        jPanel53.setBounds(1, 194, 84, 48);
 
         javax.swing.GroupLayout jPanel54Layout = new javax.swing.GroupLayout(jPanel54);
         jPanel54.setLayout(jPanel54Layout);
@@ -977,7 +927,6 @@ public class frmMatch extends javax.swing.JFrame {
         );
 
         panelPrincipal.add(jPanel54);
-        jPanel54.setBounds(85, 194, 84, 48);
 
         javax.swing.GroupLayout jPanel55Layout = new javax.swing.GroupLayout(jPanel55);
         jPanel55.setLayout(jPanel55Layout);
@@ -991,7 +940,6 @@ public class frmMatch extends javax.swing.JFrame {
         );
 
         panelPrincipal.add(jPanel55);
-        jPanel55.setBounds(169, 194, 84, 48);
 
         javax.swing.GroupLayout jPanel56Layout = new javax.swing.GroupLayout(jPanel56);
         jPanel56.setLayout(jPanel56Layout);
@@ -1005,7 +953,6 @@ public class frmMatch extends javax.swing.JFrame {
         );
 
         panelPrincipal.add(jPanel56);
-        jPanel56.setBounds(253, 194, 84, 48);
 
         javax.swing.GroupLayout jPanel57Layout = new javax.swing.GroupLayout(jPanel57);
         jPanel57.setLayout(jPanel57Layout);
@@ -1019,7 +966,6 @@ public class frmMatch extends javax.swing.JFrame {
         );
 
         panelPrincipal.add(jPanel57);
-        jPanel57.setBounds(337, 194, 84, 48);
 
         javax.swing.GroupLayout jPanel58Layout = new javax.swing.GroupLayout(jPanel58);
         jPanel58.setLayout(jPanel58Layout);
@@ -1033,7 +979,6 @@ public class frmMatch extends javax.swing.JFrame {
         );
 
         panelPrincipal.add(jPanel58);
-        jPanel58.setBounds(421, 194, 84, 48);
 
         javax.swing.GroupLayout jPanel59Layout = new javax.swing.GroupLayout(jPanel59);
         jPanel59.setLayout(jPanel59Layout);
@@ -1047,7 +992,6 @@ public class frmMatch extends javax.swing.JFrame {
         );
 
         panelPrincipal.add(jPanel59);
-        jPanel59.setBounds(505, 194, 84, 48);
 
         javax.swing.GroupLayout jPanel60Layout = new javax.swing.GroupLayout(jPanel60);
         jPanel60.setLayout(jPanel60Layout);
@@ -1061,7 +1005,6 @@ public class frmMatch extends javax.swing.JFrame {
         );
 
         panelPrincipal.add(jPanel60);
-        jPanel60.setBounds(589, 194, 84, 48);
 
         javax.swing.GroupLayout jPanel61Layout = new javax.swing.GroupLayout(jPanel61);
         jPanel61.setLayout(jPanel61Layout);
@@ -1075,7 +1018,6 @@ public class frmMatch extends javax.swing.JFrame {
         );
 
         panelPrincipal.add(jPanel61);
-        jPanel61.setBounds(673, 194, 84, 48);
 
         javax.swing.GroupLayout jPanel62Layout = new javax.swing.GroupLayout(jPanel62);
         jPanel62.setLayout(jPanel62Layout);
@@ -1089,7 +1031,6 @@ public class frmMatch extends javax.swing.JFrame {
         );
 
         panelPrincipal.add(jPanel62);
-        jPanel62.setBounds(757, 194, 84, 48);
 
         javax.swing.GroupLayout jPanel63Layout = new javax.swing.GroupLayout(jPanel63);
         jPanel63.setLayout(jPanel63Layout);
@@ -1103,7 +1044,6 @@ public class frmMatch extends javax.swing.JFrame {
         );
 
         panelPrincipal.add(jPanel63);
-        jPanel63.setBounds(841, 194, 84, 48);
 
         javax.swing.GroupLayout jPanel64Layout = new javax.swing.GroupLayout(jPanel64);
         jPanel64.setLayout(jPanel64Layout);
@@ -1117,7 +1057,6 @@ public class frmMatch extends javax.swing.JFrame {
         );
 
         panelPrincipal.add(jPanel64);
-        jPanel64.setBounds(925, 194, 84, 48);
 
         javax.swing.GroupLayout jPanel65Layout = new javax.swing.GroupLayout(jPanel65);
         jPanel65.setLayout(jPanel65Layout);
@@ -1131,7 +1070,6 @@ public class frmMatch extends javax.swing.JFrame {
         );
 
         panelPrincipal.add(jPanel65);
-        jPanel65.setBounds(1, 242, 84, 48);
 
         javax.swing.GroupLayout jPanel66Layout = new javax.swing.GroupLayout(jPanel66);
         jPanel66.setLayout(jPanel66Layout);
@@ -1145,7 +1083,6 @@ public class frmMatch extends javax.swing.JFrame {
         );
 
         panelPrincipal.add(jPanel66);
-        jPanel66.setBounds(85, 242, 84, 48);
 
         javax.swing.GroupLayout jPanel67Layout = new javax.swing.GroupLayout(jPanel67);
         jPanel67.setLayout(jPanel67Layout);
@@ -1159,7 +1096,6 @@ public class frmMatch extends javax.swing.JFrame {
         );
 
         panelPrincipal.add(jPanel67);
-        jPanel67.setBounds(169, 242, 84, 48);
 
         javax.swing.GroupLayout jPanel68Layout = new javax.swing.GroupLayout(jPanel68);
         jPanel68.setLayout(jPanel68Layout);
@@ -1173,7 +1109,6 @@ public class frmMatch extends javax.swing.JFrame {
         );
 
         panelPrincipal.add(jPanel68);
-        jPanel68.setBounds(253, 242, 84, 48);
 
         javax.swing.GroupLayout jPanel69Layout = new javax.swing.GroupLayout(jPanel69);
         jPanel69.setLayout(jPanel69Layout);
@@ -1187,7 +1122,6 @@ public class frmMatch extends javax.swing.JFrame {
         );
 
         panelPrincipal.add(jPanel69);
-        jPanel69.setBounds(337, 242, 84, 48);
 
         javax.swing.GroupLayout jPanel70Layout = new javax.swing.GroupLayout(jPanel70);
         jPanel70.setLayout(jPanel70Layout);
@@ -1201,7 +1135,6 @@ public class frmMatch extends javax.swing.JFrame {
         );
 
         panelPrincipal.add(jPanel70);
-        jPanel70.setBounds(421, 242, 84, 48);
 
         javax.swing.GroupLayout jPanel71Layout = new javax.swing.GroupLayout(jPanel71);
         jPanel71.setLayout(jPanel71Layout);
@@ -1215,7 +1148,6 @@ public class frmMatch extends javax.swing.JFrame {
         );
 
         panelPrincipal.add(jPanel71);
-        jPanel71.setBounds(505, 242, 84, 48);
 
         javax.swing.GroupLayout jPanel72Layout = new javax.swing.GroupLayout(jPanel72);
         jPanel72.setLayout(jPanel72Layout);
@@ -1229,7 +1161,6 @@ public class frmMatch extends javax.swing.JFrame {
         );
 
         panelPrincipal.add(jPanel72);
-        jPanel72.setBounds(589, 242, 84, 48);
 
         javax.swing.GroupLayout jPanel73Layout = new javax.swing.GroupLayout(jPanel73);
         jPanel73.setLayout(jPanel73Layout);
@@ -1243,7 +1174,6 @@ public class frmMatch extends javax.swing.JFrame {
         );
 
         panelPrincipal.add(jPanel73);
-        jPanel73.setBounds(673, 242, 84, 48);
 
         javax.swing.GroupLayout jPanel74Layout = new javax.swing.GroupLayout(jPanel74);
         jPanel74.setLayout(jPanel74Layout);
@@ -1257,7 +1187,6 @@ public class frmMatch extends javax.swing.JFrame {
         );
 
         panelPrincipal.add(jPanel74);
-        jPanel74.setBounds(757, 242, 84, 48);
 
         javax.swing.GroupLayout jPanel75Layout = new javax.swing.GroupLayout(jPanel75);
         jPanel75.setLayout(jPanel75Layout);
@@ -1271,7 +1200,6 @@ public class frmMatch extends javax.swing.JFrame {
         );
 
         panelPrincipal.add(jPanel75);
-        jPanel75.setBounds(841, 242, 84, 48);
 
         javax.swing.GroupLayout jPanel76Layout = new javax.swing.GroupLayout(jPanel76);
         jPanel76.setLayout(jPanel76Layout);
@@ -1285,7 +1213,6 @@ public class frmMatch extends javax.swing.JFrame {
         );
 
         panelPrincipal.add(jPanel76);
-        jPanel76.setBounds(925, 242, 84, 48);
 
         javax.swing.GroupLayout jPanel77Layout = new javax.swing.GroupLayout(jPanel77);
         jPanel77.setLayout(jPanel77Layout);
@@ -1299,7 +1226,6 @@ public class frmMatch extends javax.swing.JFrame {
         );
 
         panelPrincipal.add(jPanel77);
-        jPanel77.setBounds(1, 290, 84, 48);
 
         javax.swing.GroupLayout jPanel78Layout = new javax.swing.GroupLayout(jPanel78);
         jPanel78.setLayout(jPanel78Layout);
@@ -1313,7 +1239,6 @@ public class frmMatch extends javax.swing.JFrame {
         );
 
         panelPrincipal.add(jPanel78);
-        jPanel78.setBounds(85, 290, 84, 48);
 
         javax.swing.GroupLayout jPanel79Layout = new javax.swing.GroupLayout(jPanel79);
         jPanel79.setLayout(jPanel79Layout);
@@ -1327,7 +1252,6 @@ public class frmMatch extends javax.swing.JFrame {
         );
 
         panelPrincipal.add(jPanel79);
-        jPanel79.setBounds(169, 290, 84, 48);
 
         javax.swing.GroupLayout jPanel80Layout = new javax.swing.GroupLayout(jPanel80);
         jPanel80.setLayout(jPanel80Layout);
@@ -1341,7 +1265,6 @@ public class frmMatch extends javax.swing.JFrame {
         );
 
         panelPrincipal.add(jPanel80);
-        jPanel80.setBounds(253, 290, 84, 48);
 
         javax.swing.GroupLayout jPanel81Layout = new javax.swing.GroupLayout(jPanel81);
         jPanel81.setLayout(jPanel81Layout);
@@ -1355,7 +1278,6 @@ public class frmMatch extends javax.swing.JFrame {
         );
 
         panelPrincipal.add(jPanel81);
-        jPanel81.setBounds(337, 290, 84, 48);
 
         javax.swing.GroupLayout jPanel82Layout = new javax.swing.GroupLayout(jPanel82);
         jPanel82.setLayout(jPanel82Layout);
@@ -1369,7 +1291,6 @@ public class frmMatch extends javax.swing.JFrame {
         );
 
         panelPrincipal.add(jPanel82);
-        jPanel82.setBounds(421, 290, 84, 48);
 
         javax.swing.GroupLayout jPanel83Layout = new javax.swing.GroupLayout(jPanel83);
         jPanel83.setLayout(jPanel83Layout);
@@ -1383,7 +1304,6 @@ public class frmMatch extends javax.swing.JFrame {
         );
 
         panelPrincipal.add(jPanel83);
-        jPanel83.setBounds(505, 290, 84, 48);
 
         javax.swing.GroupLayout jPanel84Layout = new javax.swing.GroupLayout(jPanel84);
         jPanel84.setLayout(jPanel84Layout);
@@ -1397,7 +1317,6 @@ public class frmMatch extends javax.swing.JFrame {
         );
 
         panelPrincipal.add(jPanel84);
-        jPanel84.setBounds(589, 290, 84, 48);
 
         javax.swing.GroupLayout jPanel85Layout = new javax.swing.GroupLayout(jPanel85);
         jPanel85.setLayout(jPanel85Layout);
@@ -1411,7 +1330,6 @@ public class frmMatch extends javax.swing.JFrame {
         );
 
         panelPrincipal.add(jPanel85);
-        jPanel85.setBounds(673, 290, 84, 48);
 
         javax.swing.GroupLayout jPanel86Layout = new javax.swing.GroupLayout(jPanel86);
         jPanel86.setLayout(jPanel86Layout);
@@ -1425,7 +1343,6 @@ public class frmMatch extends javax.swing.JFrame {
         );
 
         panelPrincipal.add(jPanel86);
-        jPanel86.setBounds(757, 290, 84, 48);
 
         javax.swing.GroupLayout jPanel87Layout = new javax.swing.GroupLayout(jPanel87);
         jPanel87.setLayout(jPanel87Layout);
@@ -1439,7 +1356,6 @@ public class frmMatch extends javax.swing.JFrame {
         );
 
         panelPrincipal.add(jPanel87);
-        jPanel87.setBounds(841, 290, 84, 48);
 
         javax.swing.GroupLayout jPanel88Layout = new javax.swing.GroupLayout(jPanel88);
         jPanel88.setLayout(jPanel88Layout);
@@ -1453,7 +1369,6 @@ public class frmMatch extends javax.swing.JFrame {
         );
 
         panelPrincipal.add(jPanel88);
-        jPanel88.setBounds(925, 290, 84, 48);
 
         javax.swing.GroupLayout jPanel89Layout = new javax.swing.GroupLayout(jPanel89);
         jPanel89.setLayout(jPanel89Layout);
@@ -1467,7 +1382,6 @@ public class frmMatch extends javax.swing.JFrame {
         );
 
         panelPrincipal.add(jPanel89);
-        jPanel89.setBounds(1, 338, 84, 48);
 
         javax.swing.GroupLayout jPanel90Layout = new javax.swing.GroupLayout(jPanel90);
         jPanel90.setLayout(jPanel90Layout);
@@ -1481,7 +1395,6 @@ public class frmMatch extends javax.swing.JFrame {
         );
 
         panelPrincipal.add(jPanel90);
-        jPanel90.setBounds(85, 338, 84, 48);
 
         javax.swing.GroupLayout jPanel91Layout = new javax.swing.GroupLayout(jPanel91);
         jPanel91.setLayout(jPanel91Layout);
@@ -1495,7 +1408,6 @@ public class frmMatch extends javax.swing.JFrame {
         );
 
         panelPrincipal.add(jPanel91);
-        jPanel91.setBounds(169, 338, 84, 48);
 
         javax.swing.GroupLayout jPanel92Layout = new javax.swing.GroupLayout(jPanel92);
         jPanel92.setLayout(jPanel92Layout);
@@ -1509,7 +1421,6 @@ public class frmMatch extends javax.swing.JFrame {
         );
 
         panelPrincipal.add(jPanel92);
-        jPanel92.setBounds(253, 338, 84, 48);
 
         javax.swing.GroupLayout jPanel93Layout = new javax.swing.GroupLayout(jPanel93);
         jPanel93.setLayout(jPanel93Layout);
@@ -1523,7 +1434,6 @@ public class frmMatch extends javax.swing.JFrame {
         );
 
         panelPrincipal.add(jPanel93);
-        jPanel93.setBounds(337, 338, 84, 48);
 
         javax.swing.GroupLayout jPanel94Layout = new javax.swing.GroupLayout(jPanel94);
         jPanel94.setLayout(jPanel94Layout);
@@ -1537,7 +1447,6 @@ public class frmMatch extends javax.swing.JFrame {
         );
 
         panelPrincipal.add(jPanel94);
-        jPanel94.setBounds(421, 338, 84, 48);
 
         javax.swing.GroupLayout jPanel95Layout = new javax.swing.GroupLayout(jPanel95);
         jPanel95.setLayout(jPanel95Layout);
@@ -1551,7 +1460,6 @@ public class frmMatch extends javax.swing.JFrame {
         );
 
         panelPrincipal.add(jPanel95);
-        jPanel95.setBounds(505, 338, 84, 48);
 
         javax.swing.GroupLayout jPanel96Layout = new javax.swing.GroupLayout(jPanel96);
         jPanel96.setLayout(jPanel96Layout);
@@ -1565,7 +1473,6 @@ public class frmMatch extends javax.swing.JFrame {
         );
 
         panelPrincipal.add(jPanel96);
-        jPanel96.setBounds(589, 338, 84, 48);
 
         javax.swing.GroupLayout jPanel97Layout = new javax.swing.GroupLayout(jPanel97);
         jPanel97.setLayout(jPanel97Layout);
@@ -1579,7 +1486,6 @@ public class frmMatch extends javax.swing.JFrame {
         );
 
         panelPrincipal.add(jPanel97);
-        jPanel97.setBounds(673, 338, 84, 48);
 
         javax.swing.GroupLayout jPanel98Layout = new javax.swing.GroupLayout(jPanel98);
         jPanel98.setLayout(jPanel98Layout);
@@ -1593,7 +1499,6 @@ public class frmMatch extends javax.swing.JFrame {
         );
 
         panelPrincipal.add(jPanel98);
-        jPanel98.setBounds(757, 338, 84, 48);
 
         javax.swing.GroupLayout jPanel99Layout = new javax.swing.GroupLayout(jPanel99);
         jPanel99.setLayout(jPanel99Layout);
@@ -1607,7 +1512,6 @@ public class frmMatch extends javax.swing.JFrame {
         );
 
         panelPrincipal.add(jPanel99);
-        jPanel99.setBounds(841, 338, 84, 48);
 
         javax.swing.GroupLayout jPanel100Layout = new javax.swing.GroupLayout(jPanel100);
         jPanel100.setLayout(jPanel100Layout);
@@ -1621,7 +1525,6 @@ public class frmMatch extends javax.swing.JFrame {
         );
 
         panelPrincipal.add(jPanel100);
-        jPanel100.setBounds(925, 338, 84, 48);
 
         javax.swing.GroupLayout jPanel101Layout = new javax.swing.GroupLayout(jPanel101);
         jPanel101.setLayout(jPanel101Layout);
@@ -1635,7 +1538,6 @@ public class frmMatch extends javax.swing.JFrame {
         );
 
         panelPrincipal.add(jPanel101);
-        jPanel101.setBounds(1, 386, 84, 48);
 
         javax.swing.GroupLayout jPanel102Layout = new javax.swing.GroupLayout(jPanel102);
         jPanel102.setLayout(jPanel102Layout);
@@ -1649,7 +1551,6 @@ public class frmMatch extends javax.swing.JFrame {
         );
 
         panelPrincipal.add(jPanel102);
-        jPanel102.setBounds(85, 386, 84, 48);
 
         javax.swing.GroupLayout jPanel103Layout = new javax.swing.GroupLayout(jPanel103);
         jPanel103.setLayout(jPanel103Layout);
@@ -1663,7 +1564,6 @@ public class frmMatch extends javax.swing.JFrame {
         );
 
         panelPrincipal.add(jPanel103);
-        jPanel103.setBounds(169, 386, 84, 48);
 
         javax.swing.GroupLayout jPanel104Layout = new javax.swing.GroupLayout(jPanel104);
         jPanel104.setLayout(jPanel104Layout);
@@ -1677,7 +1577,6 @@ public class frmMatch extends javax.swing.JFrame {
         );
 
         panelPrincipal.add(jPanel104);
-        jPanel104.setBounds(253, 386, 84, 48);
 
         javax.swing.GroupLayout jPanel105Layout = new javax.swing.GroupLayout(jPanel105);
         jPanel105.setLayout(jPanel105Layout);
@@ -1691,7 +1590,6 @@ public class frmMatch extends javax.swing.JFrame {
         );
 
         panelPrincipal.add(jPanel105);
-        jPanel105.setBounds(337, 386, 84, 48);
 
         javax.swing.GroupLayout jPanel106Layout = new javax.swing.GroupLayout(jPanel106);
         jPanel106.setLayout(jPanel106Layout);
@@ -1705,7 +1603,6 @@ public class frmMatch extends javax.swing.JFrame {
         );
 
         panelPrincipal.add(jPanel106);
-        jPanel106.setBounds(421, 386, 84, 48);
 
         javax.swing.GroupLayout jPanel107Layout = new javax.swing.GroupLayout(jPanel107);
         jPanel107.setLayout(jPanel107Layout);
@@ -1719,7 +1616,6 @@ public class frmMatch extends javax.swing.JFrame {
         );
 
         panelPrincipal.add(jPanel107);
-        jPanel107.setBounds(505, 386, 84, 48);
 
         javax.swing.GroupLayout jPanel108Layout = new javax.swing.GroupLayout(jPanel108);
         jPanel108.setLayout(jPanel108Layout);
@@ -1733,7 +1629,6 @@ public class frmMatch extends javax.swing.JFrame {
         );
 
         panelPrincipal.add(jPanel108);
-        jPanel108.setBounds(589, 386, 84, 48);
 
         javax.swing.GroupLayout jPanel109Layout = new javax.swing.GroupLayout(jPanel109);
         jPanel109.setLayout(jPanel109Layout);
@@ -1747,7 +1642,6 @@ public class frmMatch extends javax.swing.JFrame {
         );
 
         panelPrincipal.add(jPanel109);
-        jPanel109.setBounds(673, 386, 84, 48);
 
         javax.swing.GroupLayout jPanel110Layout = new javax.swing.GroupLayout(jPanel110);
         jPanel110.setLayout(jPanel110Layout);
@@ -1761,7 +1655,6 @@ public class frmMatch extends javax.swing.JFrame {
         );
 
         panelPrincipal.add(jPanel110);
-        jPanel110.setBounds(757, 386, 84, 48);
 
         javax.swing.GroupLayout jPanel111Layout = new javax.swing.GroupLayout(jPanel111);
         jPanel111.setLayout(jPanel111Layout);
@@ -1775,7 +1668,6 @@ public class frmMatch extends javax.swing.JFrame {
         );
 
         panelPrincipal.add(jPanel111);
-        jPanel111.setBounds(841, 386, 84, 48);
 
         javax.swing.GroupLayout jPanel112Layout = new javax.swing.GroupLayout(jPanel112);
         jPanel112.setLayout(jPanel112Layout);
@@ -1789,7 +1681,6 @@ public class frmMatch extends javax.swing.JFrame {
         );
 
         panelPrincipal.add(jPanel112);
-        jPanel112.setBounds(925, 386, 84, 48);
 
         javax.swing.GroupLayout jPanel113Layout = new javax.swing.GroupLayout(jPanel113);
         jPanel113.setLayout(jPanel113Layout);
@@ -1803,7 +1694,6 @@ public class frmMatch extends javax.swing.JFrame {
         );
 
         panelPrincipal.add(jPanel113);
-        jPanel113.setBounds(1, 434, 84, 48);
 
         javax.swing.GroupLayout jPanel114Layout = new javax.swing.GroupLayout(jPanel114);
         jPanel114.setLayout(jPanel114Layout);
@@ -1817,7 +1707,6 @@ public class frmMatch extends javax.swing.JFrame {
         );
 
         panelPrincipal.add(jPanel114);
-        jPanel114.setBounds(85, 434, 84, 48);
 
         javax.swing.GroupLayout jPanel115Layout = new javax.swing.GroupLayout(jPanel115);
         jPanel115.setLayout(jPanel115Layout);
@@ -1831,7 +1720,6 @@ public class frmMatch extends javax.swing.JFrame {
         );
 
         panelPrincipal.add(jPanel115);
-        jPanel115.setBounds(169, 434, 84, 48);
 
         javax.swing.GroupLayout jPanel116Layout = new javax.swing.GroupLayout(jPanel116);
         jPanel116.setLayout(jPanel116Layout);
@@ -1845,7 +1733,6 @@ public class frmMatch extends javax.swing.JFrame {
         );
 
         panelPrincipal.add(jPanel116);
-        jPanel116.setBounds(253, 434, 84, 48);
 
         javax.swing.GroupLayout jPanel117Layout = new javax.swing.GroupLayout(jPanel117);
         jPanel117.setLayout(jPanel117Layout);
@@ -1859,7 +1746,6 @@ public class frmMatch extends javax.swing.JFrame {
         );
 
         panelPrincipal.add(jPanel117);
-        jPanel117.setBounds(337, 434, 84, 48);
 
         javax.swing.GroupLayout jPanel118Layout = new javax.swing.GroupLayout(jPanel118);
         jPanel118.setLayout(jPanel118Layout);
@@ -1873,7 +1759,6 @@ public class frmMatch extends javax.swing.JFrame {
         );
 
         panelPrincipal.add(jPanel118);
-        jPanel118.setBounds(421, 434, 84, 48);
 
         javax.swing.GroupLayout jPanel119Layout = new javax.swing.GroupLayout(jPanel119);
         jPanel119.setLayout(jPanel119Layout);
@@ -1887,7 +1772,6 @@ public class frmMatch extends javax.swing.JFrame {
         );
 
         panelPrincipal.add(jPanel119);
-        jPanel119.setBounds(505, 434, 84, 48);
 
         javax.swing.GroupLayout jPanel120Layout = new javax.swing.GroupLayout(jPanel120);
         jPanel120.setLayout(jPanel120Layout);
@@ -1901,7 +1785,6 @@ public class frmMatch extends javax.swing.JFrame {
         );
 
         panelPrincipal.add(jPanel120);
-        jPanel120.setBounds(589, 434, 84, 48);
 
         javax.swing.GroupLayout jPanel121Layout = new javax.swing.GroupLayout(jPanel121);
         jPanel121.setLayout(jPanel121Layout);
@@ -1915,7 +1798,6 @@ public class frmMatch extends javax.swing.JFrame {
         );
 
         panelPrincipal.add(jPanel121);
-        jPanel121.setBounds(673, 434, 84, 48);
 
         javax.swing.GroupLayout jPanel122Layout = new javax.swing.GroupLayout(jPanel122);
         jPanel122.setLayout(jPanel122Layout);
@@ -1929,7 +1811,6 @@ public class frmMatch extends javax.swing.JFrame {
         );
 
         panelPrincipal.add(jPanel122);
-        jPanel122.setBounds(757, 434, 84, 48);
 
         javax.swing.GroupLayout jPanel123Layout = new javax.swing.GroupLayout(jPanel123);
         jPanel123.setLayout(jPanel123Layout);
@@ -1943,7 +1824,6 @@ public class frmMatch extends javax.swing.JFrame {
         );
 
         panelPrincipal.add(jPanel123);
-        jPanel123.setBounds(841, 434, 84, 48);
 
         javax.swing.GroupLayout jPanel124Layout = new javax.swing.GroupLayout(jPanel124);
         jPanel124.setLayout(jPanel124Layout);
@@ -1957,7 +1837,6 @@ public class frmMatch extends javax.swing.JFrame {
         );
 
         panelPrincipal.add(jPanel124);
-        jPanel124.setBounds(925, 434, 84, 48);
 
         javax.swing.GroupLayout jPanel125Layout = new javax.swing.GroupLayout(jPanel125);
         jPanel125.setLayout(jPanel125Layout);
@@ -1971,7 +1850,6 @@ public class frmMatch extends javax.swing.JFrame {
         );
 
         panelPrincipal.add(jPanel125);
-        jPanel125.setBounds(1, 482, 84, 48);
 
         javax.swing.GroupLayout jPanel126Layout = new javax.swing.GroupLayout(jPanel126);
         jPanel126.setLayout(jPanel126Layout);
@@ -1985,7 +1863,6 @@ public class frmMatch extends javax.swing.JFrame {
         );
 
         panelPrincipal.add(jPanel126);
-        jPanel126.setBounds(85, 482, 84, 48);
 
         javax.swing.GroupLayout jPanel127Layout = new javax.swing.GroupLayout(jPanel127);
         jPanel127.setLayout(jPanel127Layout);
@@ -1999,7 +1876,6 @@ public class frmMatch extends javax.swing.JFrame {
         );
 
         panelPrincipal.add(jPanel127);
-        jPanel127.setBounds(169, 482, 84, 48);
 
         javax.swing.GroupLayout jPanel128Layout = new javax.swing.GroupLayout(jPanel128);
         jPanel128.setLayout(jPanel128Layout);
@@ -2013,7 +1889,6 @@ public class frmMatch extends javax.swing.JFrame {
         );
 
         panelPrincipal.add(jPanel128);
-        jPanel128.setBounds(253, 482, 84, 48);
 
         javax.swing.GroupLayout jPanel129Layout = new javax.swing.GroupLayout(jPanel129);
         jPanel129.setLayout(jPanel129Layout);
@@ -2027,7 +1902,6 @@ public class frmMatch extends javax.swing.JFrame {
         );
 
         panelPrincipal.add(jPanel129);
-        jPanel129.setBounds(337, 482, 84, 48);
 
         javax.swing.GroupLayout jPanel130Layout = new javax.swing.GroupLayout(jPanel130);
         jPanel130.setLayout(jPanel130Layout);
@@ -2041,7 +1915,6 @@ public class frmMatch extends javax.swing.JFrame {
         );
 
         panelPrincipal.add(jPanel130);
-        jPanel130.setBounds(421, 482, 84, 48);
 
         javax.swing.GroupLayout jPanel131Layout = new javax.swing.GroupLayout(jPanel131);
         jPanel131.setLayout(jPanel131Layout);
@@ -2055,7 +1928,6 @@ public class frmMatch extends javax.swing.JFrame {
         );
 
         panelPrincipal.add(jPanel131);
-        jPanel131.setBounds(505, 482, 84, 48);
 
         javax.swing.GroupLayout jPanel132Layout = new javax.swing.GroupLayout(jPanel132);
         jPanel132.setLayout(jPanel132Layout);
@@ -2069,7 +1941,6 @@ public class frmMatch extends javax.swing.JFrame {
         );
 
         panelPrincipal.add(jPanel132);
-        jPanel132.setBounds(589, 482, 84, 48);
 
         javax.swing.GroupLayout jPanel133Layout = new javax.swing.GroupLayout(jPanel133);
         jPanel133.setLayout(jPanel133Layout);
@@ -2083,7 +1954,6 @@ public class frmMatch extends javax.swing.JFrame {
         );
 
         panelPrincipal.add(jPanel133);
-        jPanel133.setBounds(673, 482, 84, 48);
 
         javax.swing.GroupLayout jPanel134Layout = new javax.swing.GroupLayout(jPanel134);
         jPanel134.setLayout(jPanel134Layout);
@@ -2097,7 +1967,6 @@ public class frmMatch extends javax.swing.JFrame {
         );
 
         panelPrincipal.add(jPanel134);
-        jPanel134.setBounds(757, 482, 84, 48);
 
         javax.swing.GroupLayout jPanel135Layout = new javax.swing.GroupLayout(jPanel135);
         jPanel135.setLayout(jPanel135Layout);
@@ -2111,7 +1980,6 @@ public class frmMatch extends javax.swing.JFrame {
         );
 
         panelPrincipal.add(jPanel135);
-        jPanel135.setBounds(841, 482, 84, 48);
 
         javax.swing.GroupLayout jPanel136Layout = new javax.swing.GroupLayout(jPanel136);
         jPanel136.setLayout(jPanel136Layout);
@@ -2125,7 +1993,6 @@ public class frmMatch extends javax.swing.JFrame {
         );
 
         panelPrincipal.add(jPanel136);
-        jPanel136.setBounds(925, 482, 84, 48);
 
         javax.swing.GroupLayout jPanel137Layout = new javax.swing.GroupLayout(jPanel137);
         jPanel137.setLayout(jPanel137Layout);
@@ -2139,7 +2006,6 @@ public class frmMatch extends javax.swing.JFrame {
         );
 
         panelPrincipal.add(jPanel137);
-        jPanel137.setBounds(1, 530, 84, 48);
 
         javax.swing.GroupLayout jPanel138Layout = new javax.swing.GroupLayout(jPanel138);
         jPanel138.setLayout(jPanel138Layout);
@@ -2153,7 +2019,6 @@ public class frmMatch extends javax.swing.JFrame {
         );
 
         panelPrincipal.add(jPanel138);
-        jPanel138.setBounds(85, 530, 84, 48);
 
         javax.swing.GroupLayout jPanel139Layout = new javax.swing.GroupLayout(jPanel139);
         jPanel139.setLayout(jPanel139Layout);
@@ -2167,7 +2032,6 @@ public class frmMatch extends javax.swing.JFrame {
         );
 
         panelPrincipal.add(jPanel139);
-        jPanel139.setBounds(169, 530, 84, 48);
 
         javax.swing.GroupLayout jPanel140Layout = new javax.swing.GroupLayout(jPanel140);
         jPanel140.setLayout(jPanel140Layout);
@@ -2181,7 +2045,6 @@ public class frmMatch extends javax.swing.JFrame {
         );
 
         panelPrincipal.add(jPanel140);
-        jPanel140.setBounds(253, 530, 84, 48);
 
         javax.swing.GroupLayout jPanel141Layout = new javax.swing.GroupLayout(jPanel141);
         jPanel141.setLayout(jPanel141Layout);
@@ -2195,7 +2058,6 @@ public class frmMatch extends javax.swing.JFrame {
         );
 
         panelPrincipal.add(jPanel141);
-        jPanel141.setBounds(337, 530, 84, 48);
 
         javax.swing.GroupLayout jPanel142Layout = new javax.swing.GroupLayout(jPanel142);
         jPanel142.setLayout(jPanel142Layout);
@@ -2209,7 +2071,6 @@ public class frmMatch extends javax.swing.JFrame {
         );
 
         panelPrincipal.add(jPanel142);
-        jPanel142.setBounds(421, 530, 84, 48);
 
         javax.swing.GroupLayout jPanel143Layout = new javax.swing.GroupLayout(jPanel143);
         jPanel143.setLayout(jPanel143Layout);
@@ -2223,7 +2084,6 @@ public class frmMatch extends javax.swing.JFrame {
         );
 
         panelPrincipal.add(jPanel143);
-        jPanel143.setBounds(505, 530, 84, 48);
 
         javax.swing.GroupLayout jPanel144Layout = new javax.swing.GroupLayout(jPanel144);
         jPanel144.setLayout(jPanel144Layout);
@@ -2237,7 +2097,6 @@ public class frmMatch extends javax.swing.JFrame {
         );
 
         panelPrincipal.add(jPanel144);
-        jPanel144.setBounds(589, 530, 84, 48);
 
         javax.swing.GroupLayout jPanel145Layout = new javax.swing.GroupLayout(jPanel145);
         jPanel145.setLayout(jPanel145Layout);
@@ -2251,7 +2110,6 @@ public class frmMatch extends javax.swing.JFrame {
         );
 
         panelPrincipal.add(jPanel145);
-        jPanel145.setBounds(673, 530, 84, 48);
 
         javax.swing.GroupLayout jPanel146Layout = new javax.swing.GroupLayout(jPanel146);
         jPanel146.setLayout(jPanel146Layout);
@@ -2265,7 +2123,6 @@ public class frmMatch extends javax.swing.JFrame {
         );
 
         panelPrincipal.add(jPanel146);
-        jPanel146.setBounds(757, 530, 84, 48);
 
         javax.swing.GroupLayout jPanel147Layout = new javax.swing.GroupLayout(jPanel147);
         jPanel147.setLayout(jPanel147Layout);
@@ -2279,7 +2136,6 @@ public class frmMatch extends javax.swing.JFrame {
         );
 
         panelPrincipal.add(jPanel147);
-        jPanel147.setBounds(841, 530, 84, 48);
 
         javax.swing.GroupLayout jPanel148Layout = new javax.swing.GroupLayout(jPanel148);
         jPanel148.setLayout(jPanel148Layout);
@@ -2293,7 +2149,6 @@ public class frmMatch extends javax.swing.JFrame {
         );
 
         panelPrincipal.add(jPanel148);
-        jPanel148.setBounds(925, 530, 84, 48);
 
         jPanel1.add(panelPrincipal, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 20, 1010, 580));
 

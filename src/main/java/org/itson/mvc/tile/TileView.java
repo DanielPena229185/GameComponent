@@ -55,15 +55,15 @@ public class TileView extends JPanel {
 
    
         Image scaledFirstFaceImage = firstFaceImage.getScaledInstance(
-            tileModel.getWidth(), tileModel.getHeight() / 4, Image.SCALE_SMOOTH
+            tileModel.getWidth(), tileModel.getHeight() / 3, Image.SCALE_SMOOTH
         );
 
         Image scaledSecondFaceImage = secondFaceImage.getScaledInstance(
-            tileModel.getWidth(), tileModel.getHeight() / 4, Image.SCALE_SMOOTH
+            tileModel.getWidth(), tileModel.getHeight() / 3, Image.SCALE_SMOOTH
         );
 
         g2d.drawImage(scaledFirstFaceImage, 0, 0, null);
-        g2d.drawImage(scaledSecondFaceImage, 0, tileModel.getHeight() / 4, null);
+        g2d.drawImage(scaledSecondFaceImage, 0, tileModel.getHeight() / 3, null);
 
         g2d.dispose();
         repaint();
