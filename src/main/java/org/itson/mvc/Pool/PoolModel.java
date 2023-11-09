@@ -4,10 +4,96 @@
  */
 package org.itson.mvc.Pool;
 
+import java.util.LinkedList;
+import org.itson.domaincomponent.domain.Tile;
+import org.itson.enums.ImagesSourcers;
+
 /**
  *
  * @author PC
  */
 public class PoolModel {
+
+    LinkedList<Tile> tiles;
+
+    String boardImagePath;
+
+    int coordX;
+
+    int coordY;
+
+    int width;
+
+    int height;
+
+    public PoolModel() {
+    }
+
     
+     public PoolModel(int weight, int height) {
+        this.width = weight;
+        this.height = height;
+        this.boardImagePath = ImagesSourcers.getSOURCE_IMAGE_BOARD();
+        tiles = new LinkedList<>();
+    }
+    
+    public PoolModel(int coordX, int coordY, int weight, int height) {
+        this.coordX = coordX;
+        this.coordY = coordY;
+        this.width = weight;
+        this.height = height;
+        this.boardImagePath = ImagesSourcers.getSOURCE_IMAGE_BOARD();
+        tiles = new LinkedList<>();
+    }
+
+    public LinkedList<Tile> getTiles() {
+        return tiles;
+    }
+
+    public void setTiles(LinkedList<Tile> tiles) {
+        this.tiles = tiles;
+    }
+
+    public int getWidth() {
+        return width;
+    }
+
+    public void setWidth(int weight) {
+        this.width = weight;
+    }
+
+    public int getHeight() {
+        return height;
+    }
+
+    public void setHeight(int height) {
+        this.height = height;
+    }
+
+    
+    
+    public String getBoardImagePath() {
+        return boardImagePath;
+    }
+
+    public void setBoardImagePath(String boardImagePath) {
+        this.boardImagePath = boardImagePath;
+    }
+
+    public int getCoordX() {
+        return coordX;
+    }
+
+    public void setCoordX(int coordX) {
+        this.coordX = coordX;
+    }
+
+    public int getCoordY() {
+        return coordY;
+    }
+
+    public void setCoordY(int coordY) {
+        this.coordY = coordY;
+    }
+
 }

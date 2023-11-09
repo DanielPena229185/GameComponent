@@ -17,6 +17,11 @@ public class PoolComponent {
     PoolModel poolModel;
     PoolView poolView;
 
+    public PoolComponent() {
+    }
+
+    
+    
     public PoolComponent(PoolController poolController, PoolModel poolModel, PoolView poolView) {
         this.poolController = poolController;
         this.poolModel = poolModel;

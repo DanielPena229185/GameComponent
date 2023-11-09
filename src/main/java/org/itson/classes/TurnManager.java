@@ -6,8 +6,8 @@ package org.itson.classes;
 
 /**
  *
- * @author PC
+ * @author TheMM
  */
-public class Match {
+public class TurnManager {
     
 }

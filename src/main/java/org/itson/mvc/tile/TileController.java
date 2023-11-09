@@ -26,10 +26,8 @@ public class TileController extends MouseAdapter {
         tileModel.setCordY(e.getY() - 120);
         
         SwingUtilities.invokeLater(() -> {
-            tileView.paintTileOnPanel((JPanel) e.getSource());
+            tileView.drawTile();
         });
-        
-        tileView.drawTile();
     }
 
 

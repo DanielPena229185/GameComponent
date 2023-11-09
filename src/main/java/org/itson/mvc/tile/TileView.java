@@ -38,15 +38,7 @@ public class TileView extends JPanel {
             e.printStackTrace();
         }
     }
-    public void paintTileOnPanel(JPanel panel) {
-        if (tile != null) {
-            Graphics g = panel.getGraphics();
-            g.drawImage(tile, 0, 0, null);
-            g.dispose();
-        }
-    }
-
-
+    
     public void drawTile() {
     // Verifica que las imágenes estén cargadas antes de dibujar
     if (firstFaceImage != null && secondFaceImage != null) {
@@ -69,21 +61,7 @@ public class TileView extends JPanel {
         repaint();
     }
 }
-
     
-//    public void drawTile() {
-//        // Verifica que las imágenes estén cargadas antes de dibujar
-//        if (firstFaceImage != null && secondFaceImage != null) {
-//            tile = new BufferedImage(tileModel.getWidth(), tileModel.getHeight(), BufferedImage.TYPE_INT_ARGB);
-//            Graphics2D g2d = tile.createGraphics();
-//            g2d.drawImage(firstFaceImage, 0, 0, null);
-//            g2d.drawImage(secondFaceImage, 0, firstFaceImage.getHeight(), null);
-//            g2d.dispose();
-//            repaint();
-//            System.out.println("trishula");
-//        }
-//    }
-
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);

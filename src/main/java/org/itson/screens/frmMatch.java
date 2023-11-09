@@ -4,12 +4,8 @@
  */
 package org.itson.screens;
 
-import java.awt.Component;
 import java.awt.Graphics;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 import java.util.HashSet;
-import java.util.LinkedList;
 import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -18,9 +14,11 @@ import org.itson.classes.DomainMatch;
 import org.itson.domaincomponent.domain.Pool;
 import org.itson.domaincomponent.domain.Tile;
 import org.itson.domaincomponent.exceptions.PoolException;
-import org.itson.mvc.tile.TileController;
-import org.itson.mvc.tile.TileModel;
-import org.itson.mvc.tile.TileView;
+import org.itson.mvc.Pool.PoolController;
+import org.itson.mvc.Pool.PoolModel;
+import org.itson.mvc.Pool.PoolView;
+import org.itson.mvc.components.PoolComponent;
+import org.itson.mvc.components.poolSingleton;
 
 /**
  *
@@ -44,25 +42,28 @@ public class frmMatch extends javax.swing.JFrame {
             pool = Pool.getInstance();
             pool.createDominoTiles();
             initComponents();
+            
+//
+//            for (Component component : panelPrincipal.getComponents()) {
+//                if (component instanceof JPanel) {
+//                    JPanel smallPanel = (JPanel) component;
+//
+//                    if (smallPanel != playerTilesPannel && smallPanel != poolPanel) {
+//
+//                        TileModel model = new TileModel(pool.getRandomTile());
+//                        TileView view = new TileView(model);
+//                        pool.setTiles(new LinkedList<>());
+//                        pool.createDominoTiles();
+//                        TileController controller = new TileController(model, view);
+//
+//                        smallPanel.addMouseListener(controller);
+//                        smallPanel.add(view);
+//                    }
+//                }
+//            }
 
-            for (Component component : panelPrincipal.getComponents()) {
-                if (component instanceof JPanel) {
-                    JPanel smallPanel = (JPanel) component;
-
-                    if (smallPanel != playerTilesPannel && smallPanel != poolPanel) {
-
-                        TileModel model = new TileModel(pool.getRandomTile());
-                        TileView view = new TileView(model);
-                        pool.setTiles(new LinkedList<>());
-                        pool.createDominoTiles();
-                        TileController controller = new TileController(model, view);
-
-                        smallPanel.addMouseListener(controller);
-                        smallPanel.add(view);
-                     //  view.drawTile();
-                    }
-                }
-            }
+        
+    
 
             this.pack();
         } catch (PoolException ex) {
@@ -70,6 +71,17 @@ public class frmMatch extends javax.swing.JFrame {
         }
     }
 
+    private void drawPoolAtPoolPannel(){
+        poolSingleton  poolInstance = new poolSingleton();
+        
+        PoolComponent poolComponent = poolSingleton.getInstance();
+        PoolModel poolModel= new PoolModel();
+        PoolView poolView= new PoolView(poolModel);
+        PoolController poolController = new PoolController(poolView,poolModel);
+        
+        poolComponent.setPoolController(poolController);
+    }
+    
     private void closeCurrentWindow() {
         this.setVisible(false);
     }

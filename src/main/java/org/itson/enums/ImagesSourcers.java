@@ -8,7 +8,9 @@ package org.itson.enums;
  *
  * @author TheMM
  */
-public class TilesFaceSRC {
+public class ImagesSourcers {
+    
+    //Tiles
     private static final String SOURCE_IMAGE_TILE_FACE_0 =  "src/main/resources/tiles/Face-Tile-Vaue-0.png";
     private static final String SOURCE_IMAGE_TILE_FACE_1 =  "src/main/resources/tiles/Face-Tile-Vaue-1.png";
     private static final String SOURCE_IMAGE_TILE_FACE_2 =  "src/main/resources/tiles/Face-Tile-Vaue-2.png";
@@ -16,7 +18,12 @@ public class TilesFaceSRC {
     private static final String SOURCE_IMAGE_TILE_FACE_4 =  "src/main/resources/tiles/Face-Tile-Vaue-4.png";
     private static final String SOURCE_IMAGE_TILE_FACE_5 =  "src/main/resources/tiles/Face-Tile-Vaue-5.png";
     private static final String SOURCE_IMAGE_TILE_FACE_6 =  "src/main/resources/tiles/Face-Tile-Vaue-6.png";
-
+    
+    //Board image
+    private static final String SOURCE_IMAGE_BOARD = "src/main/resources/match/Tablero.jpg";
+    
+    
+    //Tiles
     public static String getSOURCE_IMAGE_TILE_FACE_0() {
         return SOURCE_IMAGE_TILE_FACE_0;
     }
@@ -45,5 +52,10 @@ public class TilesFaceSRC {
         return SOURCE_IMAGE_TILE_FACE_6;
     }
     
-     
+     //Board
+
+    public static String getSOURCE_IMAGE_BOARD() {
+        return SOURCE_IMAGE_BOARD;
+    }
+        
 }

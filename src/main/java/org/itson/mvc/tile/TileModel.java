@@ -8,12 +8,12 @@ import org.itson.domaincomponent.domain.FaceTile;
 import org.itson.domaincomponent.domain.Tile;
 import org.itson.domaincomponent.enums.Orientation;
 import org.itson.domaincomponent.enums.Side;
-import org.itson.enums.TilesFaceSRC;
+import org.itson.enums.ImagesSourcers;
 
 /**
  * This class represents the model of the tile, using the MVC model.
  *
- * @author Daniel Armando Peña Garcia ID:229185
+ * 
  * @author Santiago Bojórquez Leyva ID:228475
  * @author Paul Alejandro Vazquez Cervantes ID:241400
  * @author Jose Eduardo Hinojosa Romero ID: 2356666
@@ -56,19 +56,19 @@ public class TileModel {
     public static String getFaceTileImage(FaceTile faceTile) {
         switch (faceTile.getValue()) {
             case 0:
-                return TilesFaceSRC.getSOURCE_IMAGE_TILE_FACE_0();
+                return ImagesSourcers.getSOURCE_IMAGE_TILE_FACE_0();
             case 1:
-                return TilesFaceSRC.getSOURCE_IMAGE_TILE_FACE_1();
+                return ImagesSourcers.getSOURCE_IMAGE_TILE_FACE_1();
             case 2:
-                return TilesFaceSRC.getSOURCE_IMAGE_TILE_FACE_2();
+                return ImagesSourcers.getSOURCE_IMAGE_TILE_FACE_2();
             case 3:
-                return TilesFaceSRC.getSOURCE_IMAGE_TILE_FACE_3();
+                return ImagesSourcers.getSOURCE_IMAGE_TILE_FACE_3();
             case 4:
-                return TilesFaceSRC.getSOURCE_IMAGE_TILE_FACE_4();
+                return ImagesSourcers.getSOURCE_IMAGE_TILE_FACE_4();
             case 5:
-                return TilesFaceSRC.getSOURCE_IMAGE_TILE_FACE_5();
+                return ImagesSourcers.getSOURCE_IMAGE_TILE_FACE_5();
             case 6:
-                return TilesFaceSRC.getSOURCE_IMAGE_TILE_FACE_6();
+                return ImagesSourcers.getSOURCE_IMAGE_TILE_FACE_6();
             default:
                 return null;
         }
