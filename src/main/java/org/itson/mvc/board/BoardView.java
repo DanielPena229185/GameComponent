@@ -6,8 +6,9 @@ package org.itson.mvc.board;
 
 import java.awt.FlowLayout;
 import javax.swing.*;
-import java.awt.*;
 import org.itson.domaincomponent.domain.Tile;
+import org.itson.mvc.tile.TileModel;
+import org.itson.mvc.tile.TileView;
 
 /**
  *
@@ -23,21 +24,25 @@ public class BoardView extends JPanel {
     }
 
     public BoardView() {
-        setSize(1010, 580);
         mainPanel = new JPanel();
+        mainPanel.setSize(1010, 580);
         mainPanel.setLayout(new FlowLayout(FlowLayout.RIGHT));
 
         add(mainPanel);
-        setVisible(true);
-    }
-    Tile tile = new Tile();
+        //setVisible(true);
+        
+        // Crear y agregar imágenes de fichas al panel principal desde BoardModel
+        for (Tile tile : boardModel.getTiles()) {
+            TileView tileView = new TileView(new TileModel(tile));  // Crear una nueva instancia de TileModel según tu implementación
+            tileView.drawTile();  // Dibujar la ficha en la vista
+            mainPanel.add(tileView);
+        }
 
-    public void addTile(Tile tile) {
-        refreshView();
-    }
+        // Agregar el panel principal a la ventana
+        add(mainPanel);
 
-    public void refreshView() {
-        revalidate();
-        repaint();
+        // Hacer visible la ventana
+        //setVisible(true);
+    
     }
 }

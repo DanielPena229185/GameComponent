@@ -4,10 +4,30 @@
  */
 package org.itson.mvc.board;
 
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import javax.swing.SwingUtilities;
+
 /**
  *
  * @author PC
  */
-public class BoardController {
+public class BoardController extends MouseAdapter{
+    private BoardModel boardModel;
+    private BoardView boardView;
     
+    public BoardController(BoardModel boardModel, BoardView boardView){
+        this.boardModel = boardModel;
+        this.boardView = boardView;
+    }
+    
+    @Override
+    public void mouseClicked(MouseEvent e) {
+        boardModel.setCoordX(e.getX() - 50);
+        boardModel.setCoordY(e.getY() - 120);
+        
+        SwingUtilities.invokeLater(() -> {
+            
+        });
+    }
 }
