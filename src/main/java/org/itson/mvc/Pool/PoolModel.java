@@ -16,15 +16,15 @@ public class PoolModel {
 
     LinkedList<Tile> tiles;
 
-    String poolImagePath;
+    String poolImagePath = ImagesSourcers.getSOURCE_IMAGE_POOL();
 
     int coordX;
 
     int coordY;
 
-    int width;
+    int width=100;
 
-    int height;
+    int height=100;
 
     public PoolModel() {
     }

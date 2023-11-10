@@ -24,6 +24,7 @@ public class PoolView extends JPanel{
     private BufferedImage poolImage; // Imagen de la primera cara
     public PoolView(PoolModel poolModel) {
         this.poolModel = poolModel;
+        loadFaceImages(); 
     }
 
 
@@ -31,6 +32,7 @@ public class PoolView extends JPanel{
     // Método para cargar las imágenes de las caras de la ficha
     private void loadFaceImages() {
         try {
+            
             poolImage = ImageIO.read(new File(poolModel.getPoolImagePath()));
             
         } catch (IOException e) {
@@ -38,31 +40,36 @@ public class PoolView extends JPanel{
         }
     }
     
-    public void drawTile() {
+    public void drawPool() {
+      
     // Verifica que las imágenes estén cargadas antes de dibujar
     if (poolImage != null) {
         poolImage = new BufferedImage(poolModel.getWidth(), poolModel.getHeight(), BufferedImage.TYPE_INT_ARGB);
         Graphics2D g2d = poolImage.createGraphics();
 
   
-        g2d.drawImage(poolImage, 100, 100, null);
+        g2d.drawImage(poolImage, 0, 0, null);
 
         g2d.dispose();
+        
         repaint();
+        System.out.println(poolImage);
     }
 }
     
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
+        System.out.println("sss");
         if (poolImage != null) {
             g.drawImage(poolImage, poolModel.getCoordX(), poolModel.getCoordY(), null);
+           
         }
     }
 
     @Override
     public Dimension getPreferredSize() {
-        return new Dimension(1280, 720);
+        return new Dimension(120, 130);
     }
     
 }

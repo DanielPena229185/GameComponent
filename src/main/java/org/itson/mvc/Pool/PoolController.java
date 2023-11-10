@@ -27,7 +27,9 @@ public class PoolController  extends MouseAdapter {
         poolModel.setCoordY(e.getY() - 120);
         
         SwingUtilities.invokeLater(() -> {
-            poolView.drawTile();
+          
+            poolView.drawPool();
+            
         });
     }
 

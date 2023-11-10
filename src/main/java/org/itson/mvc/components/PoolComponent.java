@@ -13,6 +13,7 @@ import org.itson.mvc.Pool.PoolView;
  * @author PC
  */
 public class PoolComponent {
+    private static PoolComponent poolComponent;
     PoolController poolController;
     PoolModel poolModel;
     PoolView poolView;
@@ -52,6 +53,12 @@ public class PoolComponent {
         this.poolView = poolView;
     }
     
+    public static PoolComponent getInstance() {
+        if (poolComponent == null) {
+            poolComponent = new PoolComponent();
+        }
+        return poolComponent;
+    }
     
     
 }
