@@ -22,6 +22,9 @@ public class ImagesSourcers {
     //Board image
     private static final String SOURCE_IMAGE_BOARD = "src/main/resources/match/Tablero.jpg";
     
+    //Pool image
+    private static final String SOURCE_IMAGE_POOL ="src/main/resources/match/pozo.jpg";
+    
     
     //Tiles
     public static String getSOURCE_IMAGE_TILE_FACE_0() {
@@ -57,5 +60,13 @@ public class ImagesSourcers {
     public static String getSOURCE_IMAGE_BOARD() {
         return SOURCE_IMAGE_BOARD;
     }
+    
+    //Pool
+    
+    public static String getSOURCE_IMAGE_POOL() {
+        return SOURCE_IMAGE_POOL;
+    }
+    
+    
         
 }

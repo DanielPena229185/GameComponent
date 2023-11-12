@@ -16,15 +16,15 @@ public class PoolModel {
 
     LinkedList<Tile> tiles;
 
-    String boardImagePath;
+    String poolImagePath = ImagesSourcers.getSOURCE_IMAGE_POOL();
 
     int coordX;
 
     int coordY;
 
-    int width;
+    int width=100;
 
-    int height;
+    int height=100;
 
     public PoolModel() {
     }
@@ -33,7 +33,7 @@ public class PoolModel {
      public PoolModel(int weight, int height) {
         this.width = weight;
         this.height = height;
-        this.boardImagePath = ImagesSourcers.getSOURCE_IMAGE_BOARD();
+        this.poolImagePath = ImagesSourcers.getSOURCE_IMAGE_POOL();
         tiles = new LinkedList<>();
     }
     
@@ -42,7 +42,7 @@ public class PoolModel {
         this.coordY = coordY;
         this.width = weight;
         this.height = height;
-        this.boardImagePath = ImagesSourcers.getSOURCE_IMAGE_BOARD();
+        this.poolImagePath = ImagesSourcers.getSOURCE_IMAGE_POOL();
         tiles = new LinkedList<>();
     }
 
@@ -70,14 +70,12 @@ public class PoolModel {
         this.height = height;
     }
 
-    
-    
-    public String getBoardImagePath() {
-        return boardImagePath;
+    public String getPoolImagePath() {
+        return poolImagePath;
     }
 
-    public void setBoardImagePath(String boardImagePath) {
-        this.boardImagePath = boardImagePath;
+    public void setPoolImagePath(String poolImagePath) {
+        this.poolImagePath = poolImagePath;
     }
 
     public int getCoordX() {

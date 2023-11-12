@@ -73,15 +73,19 @@ public class frmMatch extends javax.swing.JFrame {
         }
     }
 
-    private void drawPoolAtPoolPannel(){
-        poolSingleton  poolInstance = new poolSingleton();
+    public void drawPoolAtPoolPannel(){
+        PoolComponent  pool = new PoolComponent();
         
-        PoolComponent poolComponent = poolSingleton.getInstance();
         PoolModel poolModel= new PoolModel();
         PoolView poolView= new PoolView(poolModel);
         PoolController poolController = new PoolController(poolView,poolModel);
         
-        poolComponent.setPoolController(poolController);
+        pool.setPoolController(poolController);
+        pool.setPoolView(poolView);
+        pool.setPoolModel(poolModel);
+        poolPanel.addMouseListener(poolController);
+        poolPanel.add(poolView);
+        this.pack();
     }
     
     private void closeCurrentWindow() {
