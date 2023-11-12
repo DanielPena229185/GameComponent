@@ -4,6 +4,9 @@
  */
 package org.itson.screens;
 
+import java.awt.Color;
+import org.itson.mvc.Pool.PoolModel;
+import org.itson.mvc.Pool.PoolView;
 import org.itson.mvc.tile.TileModel;
 import org.itson.mvc.tile.TileView;
 
@@ -18,7 +21,13 @@ public class NewJFrame extends javax.swing.JFrame {
      */
     public NewJFrame() {
         initComponents();
-        
+        PoolModel poolModel= new PoolModel();
+        PoolView poolView= new PoolView(poolModel);
+        poolView.setSize(120, 130);
+        poolView.setLocation(0,0);
+        this.add(poolView);
+        poolView.setBackground(Color.red);
+        poolView.drawPool();
     }
 
     /**

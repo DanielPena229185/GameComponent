@@ -7,8 +7,8 @@ package org.itson.mvc.Pool;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
-import java.awt.Image;
 import java.awt.image.BufferedImage;
+import java.awt.Image;
 import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
@@ -20,49 +20,58 @@ import javax.swing.JPanel;
  */
 public class PoolView extends JPanel{
     private PoolModel poolModel;
-
-    private BufferedImage poolImage; // Imagen de la primera cara
+    private BufferedImage poolImage; 
+    private BufferedImage pool;
+    
     public PoolView(PoolModel poolModel) {
         this.poolModel = poolModel;
+        loadPoolImage();
+        
+        
     }
 
 
  
-    // Método para cargar las imágenes de las caras de la ficha
-    private void loadFaceImages() {
+   
+    private void loadPoolImage() {
         try {
-            poolImage = ImageIO.read(new File(poolModel.getBoardImagePath()));
+            
+            poolImage = ImageIO.read(new File(poolModel.getPoolImagePath()));
             
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
     
-    public void drawTile() {
-    // Verifica que las imágenes estén cargadas antes de dibujar
+    public void drawPool() {
     if (poolImage != null) {
-        poolImage = new BufferedImage(poolModel.getWidth(), poolModel.getHeight(), BufferedImage.TYPE_INT_ARGB);
-        Graphics2D g2d = poolImage.createGraphics();
+        // Crea un nuevo BufferedImage con las dimensiones de la imagen cargada
+        pool = new BufferedImage(poolImage.getWidth(), poolImage.getHeight(), BufferedImage.TYPE_INT_ARGB);
+        Graphics2D g2d = pool.createGraphics();
 
-  
-        g2d.drawImage(poolImage, 100, 100, null);
+        // Dibuja la imagen cargada en el nuevo BufferedImage
+        g2d.drawImage(poolImage, 0, 0, null);
 
         g2d.dispose();
+        revalidate();
         repaint();
+     
     }
 }
     
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-        if (poolImage != null) {
-            g.drawImage(poolImage, poolModel.getCoordX(), poolModel.getCoordY(), null);
+       
+        if (pool != null) {
+            g.drawImage(pool, poolModel.getCoordX(), poolModel.getCoordY(), null);
+             
         }
     }
 
     @Override
     public Dimension getPreferredSize() {
-        return new Dimension(1280, 720);
+        return new Dimension(120, 130);
     }
     
 }

@@ -25,7 +25,9 @@ public class NewMain {
     public static void main(String[] args) {
     
         frmMatch formulario= new frmMatch();
+        formulario.drawPoolAtPoolPannel();
         formulario.setVisible(true);
+        
         
         
     }

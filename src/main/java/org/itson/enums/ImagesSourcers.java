@@ -22,6 +22,18 @@ public class ImagesSourcers {
     //Board image
     private static final String SOURCE_IMAGE_BOARD = "src/main/resources/match/Tablero.jpg";
     
+    //Pool image
+    private static final String SOURCE_IMAGE_POOL ="src/main/resources/match/pozo.jpg";
+    
+    //Avatars image
+    private static final String SOURCE_IMAGE_AVATAR_El_Gallo =  "src/main/resources/avatars/El_Gallo.png";
+    private static final String SOURCE_IMAGE_AVATAR_La_dama =  "src/main/resources/avatars/La_dama.png";
+    private static final String SOURCE_IMAGE_AVATAR_La_chalupa =  "src/main/resources/avatars/La_chalupa.png";
+    private static final String SOURCE_IMAGE_AVATAR_El_diablito =  "src/main/resources/avatars/El_diablo.png";
+    private static final String SOURCE_IMAGE_AVATAR_El_sol =  "src/main/resources/avatars/El_sol.png";
+    private static final String SOURCE_IMAGE_AVATAR_El_borracho =  "src/main/resources/avatars/El_borracho.png";
+    private static final String SOURCE_IMAGE_AVATAR_El_apache =  "src/main/resources/avatars/El_apache.png";
+    private static final String SOURCE_IMAGE_AVATAR_El_Valiente =  "src/main/resources/avatars/El_Valiente.png";
     
     //Tiles
     public static String getSOURCE_IMAGE_TILE_FACE_0() {
@@ -53,9 +65,48 @@ public class ImagesSourcers {
     }
     
      //Board
-
     public static String getSOURCE_IMAGE_BOARD() {
         return SOURCE_IMAGE_BOARD;
     }
+    
+    //Pool
+    public static String getSOURCE_IMAGE_POOL() {
+        return SOURCE_IMAGE_POOL;
+    }
+    
+    //avatars
+    public static String getSOURCE_IMAGE_AVATAR_El_Gallo() {
+        return SOURCE_IMAGE_AVATAR_El_Gallo;
+    }
+
+    public static String getSOURCE_IMAGE_AVATAR_La_dama() {
+        return SOURCE_IMAGE_AVATAR_La_dama;
+    }
+
+    public static String getSOURCE_IMAGE_AVATAR_La_chalupa() {
+        return SOURCE_IMAGE_AVATAR_La_chalupa;
+    }
+
+    public static String getSOURCE_IMAGE_AVATAR_El_diablito() {
+        return SOURCE_IMAGE_AVATAR_El_diablito;
+    }
+
+    public static String getSOURCE_IMAGE_AVATAR_El_sol() {
+        return SOURCE_IMAGE_AVATAR_El_sol;
+    }
+
+    public static String getSOURCE_IMAGE_AVATAR_El_borracho() {
+        return SOURCE_IMAGE_AVATAR_El_borracho;
+    }
+
+    public static String getSOURCE_IMAGE_AVATAR_El_apache() {
+        return SOURCE_IMAGE_AVATAR_El_apache;
+    }
+
+    public static String getSOURCE_IMAGE_AVATAR_El_Valiente() {
+        return SOURCE_IMAGE_AVATAR_El_Valiente;
+    }
+    
+    
         
 }
