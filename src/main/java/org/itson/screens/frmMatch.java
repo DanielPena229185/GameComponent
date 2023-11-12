@@ -4,6 +4,8 @@
  */
 package org.itson.screens;
 
+import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Graphics;
 import java.util.HashSet;
 import java.util.Set;
@@ -33,17 +35,20 @@ public class frmMatch extends javax.swing.JFrame {
 
     private DomainMatch match;
     Pool pool;
-
+    
     /**
      * Creates new form frmBoard
      */
     public frmMatch() {
         try {
-            pool = Pool.getInstance();
-            pool.createDominoTiles();
+            
+            
             initComponents();
             
-//
+            drawPoolAtPoolPannel();
+            pool = Pool.getInstance();
+            pool.createDominoTiles();
+//  
 //            for (Component component : panelPrincipal.getComponents()) {
 //                if (component instanceof JPanel) {
 //                    JPanel smallPanel = (JPanel) component;
@@ -72,18 +77,20 @@ public class frmMatch extends javax.swing.JFrame {
     }
 
     public void drawPoolAtPoolPannel(){
-        PoolComponent  pool = new PoolComponent();
         
         PoolModel poolModel= new PoolModel();
         PoolView poolView= new PoolView(poolModel);
-        PoolController poolController = new PoolController(poolView,poolModel);
-        
-        pool.setPoolController(poolController);
-        pool.setPoolView(poolView);
-        pool.setPoolModel(poolModel);
-        poolPanel.addMouseListener(poolController);
+       PoolController poolController= new PoolController(poolView,poolModel);
+        poolView.setSize(120, 130);
+       poolPanel.addMouseListener(poolController);
         poolPanel.add(poolView);
-        this.pack();
+        poolView.drawPool();
+        
+   
+   
+        
+       
+        
     }
     
     private void closeCurrentWindow() {

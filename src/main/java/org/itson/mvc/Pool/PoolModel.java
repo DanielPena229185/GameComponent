@@ -18,15 +18,16 @@ public class PoolModel {
 
     String poolImagePath = ImagesSourcers.getSOURCE_IMAGE_POOL();
 
-    int coordX;
+    int coordX=0;
 
-    int coordY;
+    int coordY=0;
 
-    int width=100;
+    int width=120;
 
-    int height=100;
+    int height=130;
 
     public PoolModel() {
+    this.poolImagePath = ImagesSourcers.getSOURCE_IMAGE_POOL();   
     }
 
     

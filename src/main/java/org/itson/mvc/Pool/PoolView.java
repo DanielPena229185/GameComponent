@@ -7,8 +7,8 @@ package org.itson.mvc.Pool;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
-import java.awt.Image;
 import java.awt.image.BufferedImage;
+import java.awt.Image;
 import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
@@ -20,17 +20,20 @@ import javax.swing.JPanel;
  */
 public class PoolView extends JPanel{
     private PoolModel poolModel;
-
-    private BufferedImage poolImage; // Imagen de la primera cara
+    private BufferedImage poolImage; 
+    private BufferedImage pool;
+    
     public PoolView(PoolModel poolModel) {
         this.poolModel = poolModel;
-        loadFaceImages(); 
+        loadPoolImage();
+        
+        
     }
 
 
  
-    // Método para cargar las imágenes de las caras de la ficha
-    private void loadFaceImages() {
+   
+    private void loadPoolImage() {
         try {
             
             poolImage = ImageIO.read(new File(poolModel.getPoolImagePath()));
@@ -41,29 +44,28 @@ public class PoolView extends JPanel{
     }
     
     public void drawPool() {
-      
-    // Verifica que las imágenes estén cargadas antes de dibujar
     if (poolImage != null) {
-        poolImage = new BufferedImage(poolModel.getWidth(), poolModel.getHeight(), BufferedImage.TYPE_INT_ARGB);
-        Graphics2D g2d = poolImage.createGraphics();
+        // Crea un nuevo BufferedImage con las dimensiones de la imagen cargada
+        pool = new BufferedImage(poolImage.getWidth(), poolImage.getHeight(), BufferedImage.TYPE_INT_ARGB);
+        Graphics2D g2d = pool.createGraphics();
 
-  
+        // Dibuja la imagen cargada en el nuevo BufferedImage
         g2d.drawImage(poolImage, 0, 0, null);
 
         g2d.dispose();
-        
+        revalidate();
         repaint();
-        System.out.println(poolImage);
+     
     }
 }
     
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-        System.out.println("sss");
-        if (poolImage != null) {
-            g.drawImage(poolImage, poolModel.getCoordX(), poolModel.getCoordY(), null);
-           
+       
+        if (pool != null) {
+            g.drawImage(pool, poolModel.getCoordX(), poolModel.getCoordY(), null);
+             
         }
     }
 

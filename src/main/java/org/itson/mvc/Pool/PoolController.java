@@ -21,11 +21,11 @@ public class PoolController  extends MouseAdapter {
         this.poolModel = poolModel;
     }
     
+    
+    
    @Override
     public void mouseClicked(MouseEvent e) {
-        poolModel.setCoordX(e.getX() - 50);
-        poolModel.setCoordY(e.getY() - 120);
-        
+       
         SwingUtilities.invokeLater(() -> {
           
             poolView.drawPool();

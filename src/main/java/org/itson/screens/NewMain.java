@@ -29,6 +29,7 @@ public class NewMain {
         formulario.setVisible(true);
         
         
+        
     }
 }
        
