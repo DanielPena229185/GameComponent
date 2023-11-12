@@ -11,12 +11,17 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JPanel;
 import org.itson.classes.DomainMatch;
+import org.itson.domaincomponent.domain.Board;
 import org.itson.domaincomponent.domain.Pool;
 import org.itson.domaincomponent.domain.Tile;
 import org.itson.domaincomponent.exceptions.PoolException;
 import org.itson.mvc.Pool.PoolController;
 import org.itson.mvc.Pool.PoolModel;
 import org.itson.mvc.Pool.PoolView;
+import org.itson.mvc.board.BoardController;
+import org.itson.mvc.board.BoardModel;
+import org.itson.mvc.board.BoardView;
+import org.itson.mvc.components.BoardComponent;
 import org.itson.mvc.components.PoolComponent;
 import org.itson.mvc.components.poolSingleton;
 
@@ -33,6 +38,7 @@ public class frmMatch extends javax.swing.JFrame {
 
     private DomainMatch match;
     Pool pool;
+    Board board;
     
 
     /**
@@ -42,6 +48,8 @@ public class frmMatch extends javax.swing.JFrame {
         try {
             pool = Pool.getInstance();
             pool.createDominoTiles();
+            
+            board = Board.getInstance();
             
             initComponents();
             
@@ -86,6 +94,18 @@ public class frmMatch extends javax.swing.JFrame {
         poolPanel.addMouseListener(poolController);
         poolPanel.add(poolView);
         this.pack();
+    }
+    
+    public void drawBoardAtPannel(){
+        BoardComponent board = new BoardComponent();
+        BoardModel boardModel = new BoardModel();
+        BoardView boardView = new BoardView(boardModel);
+        BoardController boardController = new BoardController(boardModel, boardView);
+        
+        board.setBoardController(boardController);
+        board.setBoardView(boardView);
+        board.setBoardModel(boardModel);
+        
     }
     
     private void closeCurrentWindow() {

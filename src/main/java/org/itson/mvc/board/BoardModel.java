@@ -27,7 +27,9 @@ public class BoardModel {
     int height;
     
     private LinkedList<Tile> tiles;
-    
+  
+    public BoardModel(){
+    }
   
     public BoardModel(Board board){
       this.board = board;

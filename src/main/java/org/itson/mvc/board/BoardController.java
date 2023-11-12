@@ -27,7 +27,7 @@ public class BoardController extends MouseAdapter{
         boardModel.setCoordY(e.getY() - 120);
         
         SwingUtilities.invokeLater(() -> {
-            
+            boardView.drawBoard();
         });
     }
 }

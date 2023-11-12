@@ -13,9 +13,13 @@ import org.itson.mvc.board.BoardView;
  * @author PC
  */
 public class BoardComponent {
+    private static BoardComponent boardComponent;
     BoardController boardController;
     BoardModel boardModel;
     BoardView boardView;
+    
+    public BoardComponent(){
+    }
 
     public BoardComponent(BoardController boardController, BoardModel boardModel, BoardView boardView) {
         this.boardController = boardController;
