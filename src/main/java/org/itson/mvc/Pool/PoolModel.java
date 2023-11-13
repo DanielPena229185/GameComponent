@@ -13,40 +13,22 @@ import org.itson.enums.ImagesSourcers;
  * @author PC
  */
 public class PoolModel {
-
-    LinkedList<Tile> tiles;
-
-    String poolImagePath = ImagesSourcers.getSOURCE_IMAGE_POOL();
-
-    int coordX=0;
-
-    int coordY=0;
-
-    int width=120;
-
-    int height=130;
+    private LinkedList<Tile> tiles;
+    private String poolImagePath;
+    private int coordX;
+    private int coordY;
+    private int width;
+    private int height;
 
     public PoolModel() {
-    this.poolImagePath = ImagesSourcers.getSOURCE_IMAGE_POOL();   
-    }
-
-    
-     public PoolModel(int weight, int height) {
-        this.width = weight;
-        this.height = height;
         this.poolImagePath = ImagesSourcers.getSOURCE_IMAGE_POOL();
-        tiles = new LinkedList<>();
+        this.width = 120;
+        this.height = 130;
+        this.tiles = new LinkedList<>();
+        this.coordX = 1110;
+        this.coordY = 260;
     }
     
-    public PoolModel(int coordX, int coordY, int weight, int height) {
-        this.coordX = coordX;
-        this.coordY = coordY;
-        this.width = weight;
-        this.height = height;
-        this.poolImagePath = ImagesSourcers.getSOURCE_IMAGE_POOL();
-        tiles = new LinkedList<>();
-    }
-
     public LinkedList<Tile> getTiles() {
         return tiles;
     }

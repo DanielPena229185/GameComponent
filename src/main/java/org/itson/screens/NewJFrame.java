@@ -27,7 +27,7 @@ public class NewJFrame extends javax.swing.JFrame {
         poolView.setLocation(0,0);
         this.add(poolView);
         poolView.setBackground(Color.red);
-        poolView.drawPool();
+      //  poolView.drawPool();
     }
 
     /**

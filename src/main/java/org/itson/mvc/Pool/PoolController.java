@@ -19,17 +19,16 @@ public class PoolController  extends MouseAdapter {
     public PoolController(PoolView poolView, PoolModel poolModel) {
         this.poolView = poolView;
         this.poolModel = poolModel;
+
+        // Agrega el MouseListener al PoolView
+        poolView.addMouseListener(this);
     }
-    
-    
-    
-   @Override
+
+    @Override
     public void mouseClicked(MouseEvent e) {
-       
         SwingUtilities.invokeLater(() -> {
-          
-            poolView.drawPool();
-            
+            // Manejar el evento de clic en el panel de pool
+            System.out.println("Me diste click, soy el pozo!");
         });
     }
 
