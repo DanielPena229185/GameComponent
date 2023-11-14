@@ -4,26 +4,25 @@
  */
 package org.itson.screens;
 
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.FlowLayout;
 import java.awt.Graphics;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 import org.itson.classes.DomainMatch;
-import org.itson.domaincomponent.domain.Board;
 import org.itson.domaincomponent.domain.Pool;
 import org.itson.domaincomponent.domain.Tile;
 import org.itson.domaincomponent.exceptions.PoolException;
 import org.itson.mvc.Pool.PoolController;
 import org.itson.mvc.Pool.PoolModel;
 import org.itson.mvc.Pool.PoolView;
-import org.itson.mvc.board.BoardController;
-import org.itson.mvc.board.BoardModel;
-import org.itson.mvc.board.BoardView;
-import org.itson.mvc.components.BoardComponent;
-import org.itson.mvc.components.PoolComponent;
-import org.itson.mvc.components.poolSingleton;
 
 /**
  *
@@ -32,82 +31,52 @@ import org.itson.mvc.components.poolSingleton;
  */
 public class frmMatch extends javax.swing.JFrame {
 
-    private Set<JPanel> occupiedPanels = new HashSet<>();
-
     private static frmMatch matchInstance;
-
+    private PoolModel poolModel;
+    private PoolView poolView;
+    private PoolController poolController;
     private DomainMatch match;
     Pool pool;
-    Board board;
-    
 
     /**
      * Creates new form frmBoard
      */
-    public frmMatch() {
-        try {
-            pool = Pool.getInstance();
-            pool.createDominoTiles();
-            
-            board = Board.getInstance();
-            
-            initComponents();
-            
-//
-//            for (Component component : panelPrincipal.getComponents()) {
-//                if (component instanceof JPanel) {
-//                    JPanel smallPanel = (JPanel) component;
-//
-//                    if (smallPanel != playerTilesPannel && smallPanel != poolPanel) {
-//
-//                        TileModel model = new TileModel(pool.getRandomTile());
-//                        TileView view = new TileView(model);
-//                        pool.setTiles(new LinkedList<>());
-//                        pool.createDominoTiles();
-//                        TileController controller = new TileController(model, view);
-//
-//                        smallPanel.addMouseListener(controller);
-//                        smallPanel.add(view);
-//                    }
-//                }
-//            }
+ public frmMatch() {
+    try {
+        initComponents();
 
-        
-    
+        poolModel = new PoolModel();
+        poolView = new PoolView(poolModel);
+        poolController = new PoolController(poolView, poolModel);
 
-            this.pack();
-        } catch (PoolException ex) {
-            Logger.getLogger(frmMatch.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
+        poolView.setPreferredSize(new Dimension(120, 130));
 
-    public void drawPoolAtPoolPannel(){
-        PoolComponent  pool = new PoolComponent();
+        // Mantén el AbsoluteLayout
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        // Agrega poolView con restricciones
+        jPanel1.add(lbFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1290, 730));
+        jPanel1.add(poolView, new org.netbeans.lib.awtextra.AbsoluteConstraints(poolModel.getCoordX(), poolModel.getCoordY(), -1, -1));
         
-        PoolModel poolModel= new PoolModel();
-        PoolView poolView= new PoolView(poolModel);
-        PoolController poolController = new PoolController(poolView,poolModel);
-        
-        pool.setPoolController(poolController);
-        pool.setPoolView(poolView);
-        pool.setPoolModel(poolModel);
-        poolPanel.addMouseListener(poolController);
-        poolPanel.add(poolView);
+        lbFondo.setIcon(new ImageIcon("src/main/resources/match/Fondo.jpeg"));
+        // Cambia la posición z de poolView a la parte superior
+        jPanel1.setComponentZOrder(poolView, 0);
+
+        pool = Pool.getInstance();
+        pool.createDominoTiles();
+
         this.pack();
+    } catch (PoolException ex) {
+        Logger.getLogger(frmMatch.class.getName()).log(Level.SEVERE, null, ex);
     }
-    
-    public void drawBoardAtPannel(){
-        BoardComponent board = new BoardComponent();
-        BoardModel boardModel = new BoardModel();
-        BoardView boardView = new BoardView(boardModel);
-        BoardController boardController = new BoardController(boardModel, boardView);
-        
-        board.setBoardController(boardController);
-        board.setBoardView(boardView);
-        board.setBoardModel(boardModel);
-        
+}
+
+
+    public void drawPoolPanel() {
+        // Actualiza la representación visual del pool llamando a repaint() en el PoolView
+        poolView.repaint();
     }
-    
+
     private void closeCurrentWindow() {
         this.setVisible(false);
     }
@@ -148,22 +117,13 @@ public class frmMatch extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        btnPause = new javax.swing.JButton();
         playerTilesPannel = new javax.swing.JPanel();
-        poolPanel = new javax.swing.JPanel();
+        btnPause = new javax.swing.JButton();
         lbFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        btnPause.setIcon(new javax.swing.ImageIcon(getClass().getResource("/match/Pausa.jpg"))); // NOI18N
-        btnPause.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnPauseActionPerformed(evt);
-            }
-        });
-        jPanel1.add(btnPause, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 40, 50));
 
         javax.swing.GroupLayout playerTilesPannelLayout = new javax.swing.GroupLayout(playerTilesPannel);
         playerTilesPannel.setLayout(playerTilesPannelLayout);
@@ -178,21 +138,14 @@ public class frmMatch extends javax.swing.JFrame {
 
         jPanel1.add(playerTilesPannel, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 600, 740, 90));
 
-        javax.swing.GroupLayout poolPanelLayout = new javax.swing.GroupLayout(poolPanel);
-        poolPanel.setLayout(poolPanelLayout);
-        poolPanelLayout.setHorizontalGroup(
-            poolPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 120, Short.MAX_VALUE)
-        );
-        poolPanelLayout.setVerticalGroup(
-            poolPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 130, Short.MAX_VALUE)
-        );
-
-        jPanel1.add(poolPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(1110, 260, 120, 130));
-
-        lbFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/match/Fondo.jpeg"))); // NOI18N
-        jPanel1.add(lbFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1280, 720));
+        btnPause.setIcon(new javax.swing.ImageIcon(getClass().getResource("/match/Pausa.jpg"))); // NOI18N
+        btnPause.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPauseActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnPause, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 40, 50));
+        jPanel1.add(lbFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 0, 1290, 730));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -209,7 +162,7 @@ public class frmMatch extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnPauseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPauseActionPerformed
-        // TODO add your handling code here:
+        poolView.repaint();
     }//GEN-LAST:event_btnPauseActionPerformed
 
     /**
@@ -221,6 +174,5 @@ public class frmMatch extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lbFondo;
     private javax.swing.JPanel playerTilesPannel;
-    private javax.swing.JPanel poolPanel;
     // End of variables declaration//GEN-END:variables
 }

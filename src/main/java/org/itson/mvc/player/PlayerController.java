@@ -10,4 +10,15 @@ package org.itson.mvc.player;
  */
 public class PlayerController {
     
+    private PlayerModel playerModel;
+    
+    private PlayerView playerView;
+
+    public PlayerController(PlayerModel playerModel, PlayerView playerView) {
+        this.playerModel = playerModel;
+        this.playerView = playerView;
+    }
+    
+    
+    
 }

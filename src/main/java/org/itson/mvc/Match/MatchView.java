@@ -13,5 +13,4 @@ package org.itson.mvc.Match;
 public class MatchView {
 
 
-
 }
