@@ -8,6 +8,7 @@ import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -24,55 +25,37 @@ import org.itson.mvc.tile.TileView;
 public class BoardView extends JPanel {
 
     private BoardModel boardModel;
-    private BufferedImage boardImage; // Imagen de la primera cara
-    //private JPanel mainPanel;
+    private Image boardImage; // Imagen de la primera cara
+    private int boardWidth;
+    private int boardHeight;
 
     public BoardView(BoardModel boardModel) {
         this.boardModel = boardModel;
-        loadFaceImages();
+        loadBoardImage();
+        setPreferredSize(new Dimension(120, 360));
     }
     
     
-    private void loadFaceImages() {
+    private void loadBoardImage() {
         try {
             
             boardImage = ImageIO.read(new File(boardModel.getBoardImagePath()));
-            
+            boardWidth = 1010;
+            boardHeight = 580;
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
     
-    public void drawBoard() {
-      
-    // Verifica que las imágenes estén cargadas antes de dibujar
-    if (boardImage != null) {
-        boardImage = new BufferedImage(boardModel.getWidth(), boardModel.getHeight(), BufferedImage.TYPE_INT_ARGB);
-        Graphics2D g2d = boardImage.createGraphics();
-
-  
-        g2d.drawImage(boardImage, 0, 0, null);
-
-        g2d.dispose();
-        
-        repaint();
-        System.out.println(boardImage);
-    }
-}
-    
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-        System.out.println("sss");
-        if (boardImage != null) {
-            g.drawImage(boardImage, boardModel.getCoordX(), boardModel.getCoordY(), null);
-           
-        }
-    }
 
-    @Override
-    public Dimension getPreferredSize() {
-        return new Dimension(120, 130);
+        if (boardImage != null) {
+            Graphics2D g2d = (Graphics2D) g.create();
+            g2d.drawImage(boardImage, 0, 0, this);
+            g2d.dispose();
+        }
     }
 
     /*public BoardView() {

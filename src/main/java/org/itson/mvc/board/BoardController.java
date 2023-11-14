@@ -13,21 +13,22 @@ import javax.swing.SwingUtilities;
  * @author PC
  */
 public class BoardController extends MouseAdapter{
-    private BoardModel boardModel;
     private BoardView boardView;
+    private BoardModel boardModel;
     
-    public BoardController(BoardModel boardModel, BoardView boardView){
+    public BoardController(BoardView boardView, BoardModel boardModel){
         this.boardModel = boardModel;
         this.boardView = boardView;
+        
+        // Agrega el MouseListener al BoardView
+        boardView.addMouseListener(this);
     }
     
     @Override
     public void mouseClicked(MouseEvent e) {
-        boardModel.setCoordX(e.getX() - 50);
-        boardModel.setCoordY(e.getY() - 120);
-        
         SwingUtilities.invokeLater(() -> {
-            boardView.drawBoard();
+            // Manejar el evento de clic en el panel de pool
+            System.out.println("Me diste click, soy el board!");
         });
     }
 }
