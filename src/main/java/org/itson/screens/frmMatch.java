@@ -17,12 +17,16 @@ import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 import org.itson.classes.DomainMatch;
+import org.itson.domaincomponent.domain.Board;
 import org.itson.domaincomponent.domain.Pool;
 import org.itson.domaincomponent.domain.Tile;
 import org.itson.domaincomponent.exceptions.PoolException;
 import org.itson.mvc.Pool.PoolController;
 import org.itson.mvc.Pool.PoolModel;
 import org.itson.mvc.Pool.PoolView;
+import org.itson.mvc.board.BoardController;
+import org.itson.mvc.board.BoardModel;
+import org.itson.mvc.board.BoardView;
 
 /**
  *
@@ -32,50 +36,38 @@ import org.itson.mvc.Pool.PoolView;
 public class frmMatch extends javax.swing.JFrame {
 
     private static frmMatch matchInstance;
-    private PoolModel poolModel;
-    private PoolView poolView;
-    private PoolController poolController;
-    private DomainMatch match;
-    Pool pool;
+    
 
     /**
      * Creates new form frmBoard
      */
  public frmMatch() {
-    try {
+
         initComponents();
-
-        poolModel = new PoolModel();
-        poolView = new PoolView(poolModel);
-        poolController = new PoolController(poolView, poolModel);
-
-        poolView.setPreferredSize(new Dimension(120, 130));
+        
+        
 
         // Mantén el AbsoluteLayout
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        // Agrega poolView con restricciones
+        // Agrega boardView y poolView con restricciones
         jPanel1.add(lbFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1290, 730));
-        jPanel1.add(poolView, new org.netbeans.lib.awtextra.AbsoluteConstraints(poolModel.getCoordX(), poolModel.getCoordY(), -1, -1));
+//        jPanel1.add(boardView, new org.netbeans.lib.awtextra.AbsoluteConstraints(boardModel.getCoordX(), boardModel.getCoordY(), -1, -1));
+//        jPanel1.add(poolView, new org.netbeans.lib.awtextra.AbsoluteConstraints(poolModel.getCoordX(), poolModel.getCoordY(), -1, -1));
         
         lbFondo.setIcon(new ImageIcon("src/main/resources/match/Fondo.jpeg"));
         // Cambia la posición z de poolView a la parte superior
-        jPanel1.setComponentZOrder(poolView, 0);
+        
+        
 
-        pool = Pool.getInstance();
-        pool.createDominoTiles();
+//        board = Board.getInstance();// aqui me quedé
+//        //board.addTileBeginning(newTile);
+//        pool = Pool.getInstance();
+//        pool.createDominoTiles();
 
         this.pack();
-    } catch (PoolException ex) {
-        Logger.getLogger(frmMatch.class.getName()).log(Level.SEVERE, null, ex);
-    }
+    
 }
-
-
-    public void drawPoolPanel() {
-        // Actualiza la representación visual del pool llamando a repaint() en el PoolView
-        poolView.repaint();
-    }
 
     private void closeCurrentWindow() {
         this.setVisible(false);
@@ -162,7 +154,7 @@ public class frmMatch extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnPauseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPauseActionPerformed
-        poolView.repaint();
+        
     }//GEN-LAST:event_btnPauseActionPerformed
 
     /**
