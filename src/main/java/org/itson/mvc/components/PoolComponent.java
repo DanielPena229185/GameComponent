@@ -13,52 +13,31 @@ import org.itson.mvc.Pool.PoolView;
  * @author PC
  */
 public class PoolComponent {
+
     private static PoolComponent poolComponent;
-    PoolController poolController;
     PoolModel poolModel;
     PoolView poolView;
+    PoolController poolController;
 
     public PoolComponent() {
+        poolModel = new PoolModel();
+        poolView = new PoolView(poolModel);
+        poolController = new PoolController(poolView, poolModel);
     }
 
-    
-    
-    public PoolComponent(PoolController poolController, PoolModel poolModel, PoolView poolView) {
-        this.poolController = poolController;
-        this.poolModel = poolModel;
-        this.poolView = poolView;
-    }
-    
-    public PoolController getPoolController() {
+    public PoolController getController() {
         return poolController;
     }
 
-    public void setPoolController(PoolController poolController) {
-        this.poolController = poolController;
-    }
-
-    public PoolModel getPoolModel() {
-        return poolModel;
-    }
-
-    public void setPoolModel(PoolModel poolModel) {
-        this.poolModel = poolModel;
-    }
-
-    public PoolView getPoolView() {
+    public PoolView getView() {
         return poolView;
     }
 
-    public void setPoolView(PoolView poolView) {
-        this.poolView = poolView;
-    }
-    
     public static PoolComponent getInstance() {
         if (poolComponent == null) {
             poolComponent = new PoolComponent();
         }
         return poolComponent;
     }
-    
-    
+
 }

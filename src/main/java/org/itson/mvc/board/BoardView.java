@@ -9,5 +9,10 @@ package org.itson.mvc.board;
  * @author PC
  */
 public class BoardView {
-    
+private BoardModel boardModel;
+
+public BoardView(BoardModel boardModel) {
+      
+    this.boardModel = boardModel;
+}
 }

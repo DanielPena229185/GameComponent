@@ -13,38 +13,31 @@ import org.itson.mvc.board.BoardView;
  * @author PC
  */
 public class BoardComponent {
+    private static BoardComponent boardComponent;
     BoardController boardController;
     BoardModel boardModel;
     BoardView boardView;
 
-    public BoardComponent(BoardController boardController, BoardModel boardModel, BoardView boardView) {
-        this.boardController = boardController;
-        this.boardModel = boardModel;
-        this.boardView = boardView;
+    public BoardComponent() {
+        boardModel = new BoardModel();
+        boardView = new BoardView(boardModel);
+        boardController = new BoardController(boardView, boardModel);
     }
 
     public BoardController getBoardController() {
         return boardController;
     }
 
-    public void setBoardController(BoardController boardController) {
-        this.boardController = boardController;
-    }
-
-    public BoardModel getBoardModel() {
-        return boardModel;
-    }
-
-    public void setBoardModel(BoardModel boardModel) {
-        this.boardModel = boardModel;
-    }
-
+   
     public BoardView getBoardView() {
         return boardView;
     }
 
-    public void setBoardView(BoardView boardView) {
-        this.boardView = boardView;
+    public static BoardComponent getInstance() {
+        if (boardComponent == null) {
+            boardComponent = new BoardComponent();
+        }
+        return boardComponent;
     }
     
 }

@@ -18,9 +18,9 @@ public class PoolModel {
 
     String poolImagePath = ImagesSourcers.getSOURCE_IMAGE_POOL();
 
-    int coordX=0;
+    int coordX=1110;
 
-    int coordY=0;
+    int coordY=260;
 
     int width=120;
 

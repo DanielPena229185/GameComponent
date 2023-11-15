@@ -23,6 +23,7 @@ public class PoolView extends JPanel{
     private BufferedImage poolImage; 
     private BufferedImage pool;
     
+    
     public PoolView(PoolModel poolModel) {
         this.poolModel = poolModel;
         loadPoolImage();
@@ -53,7 +54,7 @@ public class PoolView extends JPanel{
         g2d.drawImage(poolImage, 0, 0, null);
 
         g2d.dispose();
-        revalidate();
+        
         repaint();
      
     }
@@ -64,7 +65,7 @@ public class PoolView extends JPanel{
         super.paintComponent(g);
        
         if (pool != null) {
-            g.drawImage(pool, poolModel.getCoordX(), poolModel.getCoordY(), null);
+            g.drawImage(pool, 0, 0, null);
              
         }
     }
