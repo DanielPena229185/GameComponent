@@ -4,9 +4,7 @@
  */
 package org.itson.mvc.player;
 
-import org.itson.mvc.player.PlayerController;
-import org.itson.mvc.player.PlayerModel;
-import org.itson.mvc.player.PlayerView;
+import org.itson.domaincomponent.domain.Player;
 
 /**
  *
@@ -55,7 +53,9 @@ public class PlayerComponent {
     }
     
     public PlayerComponent createPlayerComponent(){
+  
         this.playerModel = new PlayerModel();
+        this.playerModel.setPlayer(new Player("pepe"));
         this.playerView = new PlayerView(playerModel);
         this.playerController = new PlayerController(playerModel, playerView);
         return playerComponent;

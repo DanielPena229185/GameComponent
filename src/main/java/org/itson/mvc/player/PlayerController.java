@@ -20,5 +20,8 @@ public class PlayerController {
     }
     
     
+    public void refreshPlayerView(){
+        playerView.repaint();   
+    }
     
 }

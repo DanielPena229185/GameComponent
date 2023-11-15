@@ -20,9 +20,6 @@ public class PoolComponent {
     PoolController poolController;
 
     public PoolComponent() {
-        poolModel = new PoolModel();
-        poolView = new PoolView(poolModel);
-        poolController = new PoolController(poolView, poolModel);
     }
 
     public PoolModel getModel(){
@@ -45,6 +42,7 @@ public class PoolComponent {
     }
     
     public PoolComponent createPoolComponent(){
+         getInstance();
         this.poolModel = new PoolModel();
         this.poolView = new PoolView(poolModel);
         this.poolController = new PoolController(poolView, poolModel);

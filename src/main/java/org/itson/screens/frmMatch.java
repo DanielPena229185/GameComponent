@@ -11,7 +11,7 @@ import javax.swing.ImageIcon;
 
 import org.itson.domaincomponent.domain.Tile;
 import org.itson.domaincomponent.exceptions.PoolException;
-import org.itson.events.Match;
+import org.itson.game.Match;
 
 /**
  *

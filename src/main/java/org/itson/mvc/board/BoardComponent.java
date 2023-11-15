@@ -48,6 +48,8 @@ public class BoardComponent {
     }
 
     public BoardComponent createBoardComponent() {
+        getInstance();
+        
         this.boardModel = new BoardModel();
         this.boardView = new BoardView(boardModel);
         this.boardController = new BoardController(boardView, boardModel);

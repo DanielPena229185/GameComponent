@@ -16,13 +16,15 @@ import org.itson.enums.ImagesSourcers;
 public class PlayerModel {
     
     private Player player;
-   
- 
+    
+    
+    private LinkedList<Player> players;
+    
     private String avatarPath;
     
     private String name;
     
-    public LinkedList<Tile> tiles;
+    public LinkedList<Tile> tiles = new LinkedList<>();
     
     public int turn;
     
@@ -61,6 +63,16 @@ public class PlayerModel {
         };
     }
 
+    public Player getPlayer() {
+        return player;
+    }
+
+    public void setPlayer(Player player) {
+        this.player = player;
+    }
+
+    
+    
     public int getWidth() {
         return width;
     }
@@ -82,7 +94,7 @@ public class PlayerModel {
     }
     
     public Tile addTile(Tile tile){
-        this.tiles.add(tile);
+         this.getTiles().add(tile);
         return tile;
     }
 
