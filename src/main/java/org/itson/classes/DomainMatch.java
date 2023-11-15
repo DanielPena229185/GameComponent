@@ -18,22 +18,23 @@ import org.itson.domaincomponent.exceptions.PoolException;
  */
 public class DomainMatch {
 
-    private Pool pool;
+    private DomainPool domainPool;
     private Player[] players;
     
     public DomainMatch(Player[] players) {
-        this.pool = Pool.getInstance();
+                      
         this.players = players;
     }
 
     public LinkedList<Tile> getTiles() {
         LinkedList<Tile> tiles;
-        tiles = pool.getTiles();
-        return tiles;
+      //  tiles = pool.getTiles();
+        return null;
     }
     
     public Tile searchHighestMule(LinkedList<Tile>  tiles) throws PoolException {
-        return pool.getHighestMuleOfList(tiles);
+    return null;
+        //   return pool.getHighestMuleOfList(tiles);
     }   
 
     

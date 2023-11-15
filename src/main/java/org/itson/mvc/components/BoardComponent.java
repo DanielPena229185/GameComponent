@@ -17,6 +17,9 @@ public class BoardComponent {
     BoardController boardController;
     BoardModel boardModel;
     BoardView boardView;
+    
+    public BoardComponent(){
+    }
 
     public BoardComponent() {
         boardModel = new BoardModel();
