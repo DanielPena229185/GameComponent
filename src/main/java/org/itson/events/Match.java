@@ -41,28 +41,28 @@ import org.itson.mvc.tile.TileView;
  * @author TheMM
  */
 public class Match {
+
     DomainBoard domainBoard;
-    
-    
+
     BoardComponent boardComponent;
     private BoardModel boardModel;
     private BoardView boardView;
     private BoardController boardController;
     Board board;
-    
+
     private PoolModel poolModel;
     private PoolView poolView;
     private PoolController poolController;
     private DomainMatch match;
     Pool pool;
     PoolComponent poolComponent;
-    
+
     private PlayerModel playerModel;
     private PlayerView playerView;
-    private PlayerController  playerController;
+    private PlayerController playerController;
     Player player;
     //PlayerComponent playerComponent;
-    
+
     private TileComponent tileComponent;
     private TileModel tileModel;
     private TileView tileView;
@@ -83,31 +83,34 @@ public class Match {
         mainPanel.setComponentZOrder(boardView, 0);
         board = Board.getInstance();
         //board.addTileBeginning(playerTileSelected);
-        
+
     }
 
-    public void drawPool(JPanel mainPanel) throws PoolException {
+    public PoolView drawPool(JPanel mainPanel) throws PoolException {
         poolComponent = new PoolComponent();
         poolModel = new PoolModel();
         poolView = new PoolView(poolModel);
         poolController = new PoolController(poolView, poolModel);
+        
+        
         poolView.setPreferredSize(new Dimension(120, 130));
+          mainPanel.add(poolView, new org.netbeans.lib.awtextra.AbsoluteConstraints(1110, 226, -1, -1));
         mainPanel.setComponentZOrder(poolView, 0);
         pool = Pool.getInstance();
         pool.createDominoTiles();
+        poolView.repaint();
+        return poolView;
     }
-    
-    public void drawPlayer(JPanel mainPanel){
+
+    public void drawPlayer(JPanel mainPanel) {
         playerModel = new PlayerModel();
         playerView = new PlayerView(playerModel);
         playerController = new PlayerController(playerModel, playerView);
         playerView.setPreferredSize(new Dimension(740, 90));
         mainPanel.setComponentZOrder(playerView, 0);
     }
-    
-    
 
-    public MouseListener boardPanelClickEvent = new MouseAdapter(){
+    public MouseListener boardPanelClickEvent = new MouseAdapter() {
         @Override
         public void mouseClicked(MouseEvent e) {
             // Display a message box
@@ -117,7 +120,7 @@ public class Match {
             System.out.println("Haz dado click en el panel board");
         }
     };
-    
+
     public MouseListener poolPanelClickEvent = new MouseAdapter() {
         @Override
         public void mouseClicked(MouseEvent e) {
@@ -128,9 +131,8 @@ public class Match {
             System.out.println("Haz dado click en el panel pool");
         }
     };
-    
 
-    public void addListenerToBoardView(BoardView boardView){
+    public void addListenerToBoardView(BoardView boardView) {
         boardView.addMouseListener(boardPanelClickEvent);
     }
 
