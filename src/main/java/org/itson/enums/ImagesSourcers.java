@@ -26,14 +26,14 @@ public class ImagesSourcers {
     private static final String SOURCE_IMAGE_POOL ="src/main/resources/match/pozo.jpg";
     
     //Avatars image
-    private static final String SOURCE_IMAGE_AVATAR_El_Gallo =  "src/main/resources/avatars/El_Gallo.png";
-    private static final String SOURCE_IMAGE_AVATAR_La_dama =  "src/main/resources/avatars/La_dama.png";
-    private static final String SOURCE_IMAGE_AVATAR_La_chalupa =  "src/main/resources/avatars/La_chalupa.png";
-    private static final String SOURCE_IMAGE_AVATAR_El_diablito =  "src/main/resources/avatars/El_diablo.png";
-    private static final String SOURCE_IMAGE_AVATAR_El_sol =  "src/main/resources/avatars/El_sol.png";
-    private static final String SOURCE_IMAGE_AVATAR_El_borracho =  "src/main/resources/avatars/El_borracho.png";
-    private static final String SOURCE_IMAGE_AVATAR_El_apache =  "src/main/resources/avatars/El_apache.png";
-    private static final String SOURCE_IMAGE_AVATAR_El_Valiente =  "src/main/resources/avatars/El_Valiente.png";
+    private static final String SOURCE_IMAGE_AVATAR_El_Gallo =  "src/main/resources/avatars/El_Gallo.jpg";
+    private static final String SOURCE_IMAGE_AVATAR_La_dama =  "src/main/resources/avatars/La_dama.jpg";
+    private static final String SOURCE_IMAGE_AVATAR_La_chalupa =  "src/main/resources/avatars/La_chalupa.jpg";
+    private static final String SOURCE_IMAGE_AVATAR_El_diablito =  "src/main/resources/avatars/El_diablo.jpg";
+    private static final String SOURCE_IMAGE_AVATAR_El_sol =  "src/main/resources/avatars/El_sol.jpg";
+    private static final String SOURCE_IMAGE_AVATAR_El_borracho =  "src/main/resources/avatars/El_borracho.jpg";
+    private static final String SOURCE_IMAGE_AVATAR_El_apache =  "src/main/resources/avatars/El_apache.jpg";
+    private static final String SOURCE_IMAGE_AVATAR_El_Valiente =  "src/main/resources/avatars/El_Valiente.jpg";
     
     //Tiles
     public static String getSOURCE_IMAGE_TILE_FACE_0() {

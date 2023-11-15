@@ -31,9 +31,12 @@ public class frmMatch extends javax.swing.JFrame {
 
         initComponents();
         gamePanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
+        
+        
         try {
+            match.drawBoard(gamePanel);
             match.drawPool(gamePanel);
+            match.drawPlayer(gamePanel);
         } catch (PoolException ex) {
             Logger.getLogger(frmMatch.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -86,26 +89,12 @@ public class frmMatch extends javax.swing.JFrame {
     private void initComponents() {
 
         gamePanel = new javax.swing.JPanel();
-        playerTilesPannel = new javax.swing.JPanel();
         btnPause = new javax.swing.JButton();
         lbFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         gamePanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        javax.swing.GroupLayout playerTilesPannelLayout = new javax.swing.GroupLayout(playerTilesPannel);
-        playerTilesPannel.setLayout(playerTilesPannelLayout);
-        playerTilesPannelLayout.setHorizontalGroup(
-            playerTilesPannelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 740, Short.MAX_VALUE)
-        );
-        playerTilesPannelLayout.setVerticalGroup(
-            playerTilesPannelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 90, Short.MAX_VALUE)
-        );
-
-        gamePanel.add(playerTilesPannel, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 600, 740, 90));
 
         btnPause.setIcon(new javax.swing.ImageIcon(getClass().getResource("/match/Pausa.jpg"))); // NOI18N
         btnPause.addActionListener(new java.awt.event.ActionListener() {
@@ -142,6 +131,5 @@ public class frmMatch extends javax.swing.JFrame {
     private javax.swing.JButton btnPause;
     private javax.swing.JPanel gamePanel;
     private javax.swing.JLabel lbFondo;
-    private javax.swing.JPanel playerTilesPannel;
     // End of variables declaration//GEN-END:variables
 }
