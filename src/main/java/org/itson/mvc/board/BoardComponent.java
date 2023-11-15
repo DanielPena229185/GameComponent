@@ -4,6 +4,9 @@
  */
 package org.itson.mvc.board;
 
+import org.itson.mvc.Pool.PoolController;
+import org.itson.mvc.Pool.PoolModel;
+import org.itson.mvc.Pool.PoolView;
 import org.itson.mvc.board.BoardController;
 import org.itson.mvc.board.BoardModel;
 import org.itson.mvc.board.BoardView;
@@ -24,6 +27,10 @@ public class BoardComponent {
         boardController = new BoardController(boardView, boardModel);
     }
 
+    public BoardModel getBoardModel(){
+        return boardModel;
+    }
+    
     public BoardController getBoardController() {
         return boardController;
     }
@@ -37,6 +44,13 @@ public class BoardComponent {
         if (boardComponent == null) {
             boardComponent = new BoardComponent();
         }
+        return boardComponent;
+    }
+
+    public BoardComponent createBoardComponent() {
+        this.boardModel = new BoardModel();
+        this.boardView = new BoardView(boardModel);
+        this.boardController = new BoardController(boardView, boardModel);
         return boardComponent;
     }
     

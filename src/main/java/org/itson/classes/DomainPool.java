@@ -28,7 +28,10 @@ public class DomainPool {
            pool.createDominoTiles();
        } 
        
-       
-       
+    }
+    
+    public Tile getRandomTile() throws PoolException{
+        
+        return pool.getRandomTile();
     }
 }

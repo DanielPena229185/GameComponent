@@ -34,6 +34,7 @@ public class PlayerModel {
     
     private int CordY= 0;
 
+    
     public PlayerModel() {
     }
 
@@ -80,7 +81,22 @@ public class PlayerModel {
         return avatarPath;
     }
     
+    public Tile addTile(Tile tile){
+        this.tiles.add(tile);
+        return tile;
+    }
+
+    public LinkedList<Tile> getTiles() {
+        return tiles;
+    }
+
+    public void setTiles(LinkedList<Tile> tiles) {
+        this.tiles = tiles;
+    }
     
-    
+    public Tile removeTile(Tile tile){
+        this.tiles.remove(tile);
+        return tile;
+    }
     
 }

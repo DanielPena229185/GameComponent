@@ -11,14 +11,18 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.ArrayList;
 import java.util.EventListener;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import org.itson.classes.DomainBoard;
 import org.itson.classes.DomainMatch;
+import org.itson.classes.DomainPool;
 import org.itson.domaincomponent.domain.Board;
 import org.itson.domaincomponent.domain.Player;
 import org.itson.domaincomponent.domain.Pool;
 import org.itson.domaincomponent.domain.Tile;
+import org.itson.domaincomponent.exceptions.PlayerException;
 import org.itson.domaincomponent.exceptions.PoolException;
 import org.itson.mvc.Pool.PoolController;
 import org.itson.mvc.Pool.PoolModel;
@@ -46,23 +50,18 @@ public class Match {
     DomainBoard domainBoard;
 
     BoardComponent boardComponent;
-    private BoardModel boardModel;
-    private BoardView boardView;
-    private BoardController boardController;
+    
     Board board;
 
-    private PoolModel poolModel;
-    private PoolView poolView;
-    private PoolController poolController;
+    
     private DomainMatch match;
     Pool pool;
     PoolComponent poolComponent;
 
-    private PlayerModel playerModel;
-    private PlayerView playerView;
-    private PlayerController playerController;
+    
     Player player;
     PlayerComponent playerComponent;
+    DomainPool domainPool;
 
     private TileComponent tileComponent;
     private TileModel tileModel;
@@ -72,53 +71,60 @@ public class Match {
     Tile playerTileSelected;
 
     public Match() {
+        boardComponent.createBoardComponent();
+        poolComponent.createPoolComponent();
+        playerComponent.createPlayerComponent();
+        
         domainBoard = new DomainBoard();
     }
 
     public BoardView drawBoard(JPanel mainPanel) {
         boardComponent = new BoardComponent();
-        boardModel = new BoardModel();
-        boardView = new BoardView(boardModel);
-        boardController = new BoardController(boardView, boardModel);
-       
-        boardView.setPreferredSize(new Dimension(730, 600));
-        mainPanel.add(boardView, new org.netbeans.lib.awtextra.AbsoluteConstraints(322, 0, -1, -1));
-        mainPanel.setComponentZOrder(boardView, 0);
+        boardComponent.getBoardModel();
+        boardComponent.getBoardView().setPreferredSize(new Dimension(730, 600));
+        boardComponent.getBoardController();
+        
+        boardComponent.getBoardView().setPreferredSize(new Dimension(730, 600));
+        mainPanel.add(boardComponent.getBoardView(), new org.netbeans.lib.awtextra.AbsoluteConstraints(322, 0, -1, -1));
+        mainPanel.setComponentZOrder(boardComponent.getBoardView(), 0);
+//        boardView.setPreferredSize(new Dimension(730, 600));
+//        mainPanel.add(boardView, new org.netbeans.lib.awtextra.AbsoluteConstraints(322, 0, -1, -1));
+//        mainPanel.setComponentZOrder(boardView, 0);
         board = Board.getInstance();
-        boardView.repaint();
-        return boardView;
+        boardComponent.getBoardView().repaint();
+        return boardComponent.getBoardView();
         //board.addTileBeginning(playerTileSelected);
 
     }
 
     public PoolView drawPool(JPanel mainPanel) throws PoolException {
         poolComponent = new PoolComponent();
-        poolModel = new PoolModel();
-        poolView = new PoolView(poolModel);
-        poolController = new PoolController(poolView, poolModel);
+        poolComponent.getModel();
+        poolComponent.getView().setPreferredSize(new Dimension(730, 600));
+        poolComponent.getController();
         
         
-        poolView.setPreferredSize(new Dimension(120, 130));
-          mainPanel.add(poolView, new org.netbeans.lib.awtextra.AbsoluteConstraints(1110, 226, -1, -1));
-        mainPanel.setComponentZOrder(poolView, 0);
+//        poolView.setPreferredSize(new Dimension(120, 130));
+//          mainPanel.add(poolView, new org.netbeans.lib.awtextra.AbsoluteConstraints(1110, 226, -1, -1));
+//        mainPanel.setComponentZOrder(poolView, 0);
         pool = Pool.getInstance();
         pool.createDominoTiles();
-        poolView.repaint();
-        return poolView;
+        poolComponent.getView().repaint();
+        return poolComponent.getView();
     }
 
     public PlayerView drawPlayer(JPanel mainPanel) {
         playerComponent = new PlayerComponent();
-        playerModel = new PlayerModel();
-        playerView = new PlayerView(playerModel);
-        playerController = new PlayerController(playerModel, playerView);
+        playerComponent.getPlayerModel();
+        playerComponent.getPlayerView();
+        playerComponent.getPlayerController();
         
-        playerView.setPreferredSize(new Dimension(740, 90));
-        mainPanel.add(playerView, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 620, -1, -1));
-        mainPanel.setComponentZOrder(playerView, 0);
+        playerComponent.getPlayerView().setPreferredSize(new Dimension(740, 90));
+        mainPanel.add(playerComponent.getPlayerView(), new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 620, -1, -1));
+        mainPanel.setComponentZOrder(playerComponent.getPlayerView(), 0);
         //me quedé aqui
-        playerView.repaint();
-        return playerView;
+        playerComponent.getPlayerView().repaint();
+        return playerComponent.getPlayerView();
     }
     
 
@@ -143,6 +149,22 @@ public class Match {
             System.out.println("Haz dado click en el panel pool");
         }
     };
+    
+    public Tile pickTileFromPool(Player player) throws PlayerException{
+        try {
+            playerComponent = new PlayerComponent();
+            playerComponent.getPlayerModel().addTile(domainPool.getRandomTile());
+            playerComponent.getPlayerView();
+            playerComponent.getPlayerController();
+
+                player.addTile(pool.getRandomTile());
+            
+            return null;
+        } catch (PoolException ex) {
+            Logger.getLogger(Match.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
 
     public void addListenerToBoardView(BoardView boardView) {
         boardView.addMouseListener(boardPanelClickEvent);

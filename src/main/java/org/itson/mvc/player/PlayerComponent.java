@@ -53,4 +53,11 @@ public class PlayerComponent {
         }
         return playerComponent;
     }
+    
+    public PlayerComponent createPlayerComponent(){
+        this.playerModel = new PlayerModel();
+        this.playerView = new PlayerView(playerModel);
+        this.playerController = new PlayerController(playerModel, playerView);
+        return playerComponent;
+    }
 }

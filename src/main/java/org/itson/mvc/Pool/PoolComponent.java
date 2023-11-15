@@ -25,6 +25,10 @@ public class PoolComponent {
         poolController = new PoolController(poolView, poolModel);
     }
 
+    public PoolModel getModel(){
+        return poolModel;
+    }
+    
     public PoolController getController() {
         return poolController;
     }
@@ -37,6 +41,13 @@ public class PoolComponent {
         if (poolComponent == null) {
             poolComponent = new PoolComponent();
         }
+        return poolComponent;
+    }
+    
+    public PoolComponent createPoolComponent(){
+        this.poolModel = new PoolModel();
+        this.poolView = new PoolView(poolModel);
+        this.poolController = new PoolController(poolView, poolModel);
         return poolComponent;
     }
 
