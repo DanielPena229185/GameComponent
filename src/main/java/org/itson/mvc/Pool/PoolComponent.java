@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package org.itson.mvc.components;
+package org.itson.mvc.Pool;
 
 import org.itson.mvc.Pool.PoolController;
 import org.itson.mvc.Pool.PoolModel;
@@ -13,46 +13,27 @@ import org.itson.mvc.Pool.PoolView;
  * @author PC
  */
 public class PoolComponent {
+
     private static PoolComponent poolComponent;
-    PoolController poolController;
     PoolModel poolModel;
     PoolView poolView;
+    PoolController poolController;
 
     public PoolComponent() {
     }
 
-    
-    
-    public PoolComponent(PoolController poolController, PoolModel poolModel, PoolView poolView) {
-        this.poolController = poolController;
-        this.poolModel = poolModel;
-        this.poolView = poolView;
+    public PoolModel getModel(){
+        return poolModel;
     }
     
-    public PoolController getPoolController() {
+    public PoolController getController() {
         return poolController;
     }
 
-    public void setPoolController(PoolController poolController) {
-        this.poolController = poolController;
-    }
-
-    public PoolModel getPoolModel() {
-        return poolModel;
-    }
-
-    public void setPoolModel(PoolModel poolModel) {
-        this.poolModel = poolModel;
-    }
-
-    public PoolView getPoolView() {
+    public PoolView getView() {
         return poolView;
     }
 
-    public void setPoolView(PoolView poolView) {
-        this.poolView = poolView;
-    }
-    
     public static PoolComponent getInstance() {
         if (poolComponent == null) {
             poolComponent = new PoolComponent();
@@ -60,5 +41,12 @@ public class PoolComponent {
         return poolComponent;
     }
     
-    
+    public PoolComponent createPoolComponent(){
+         getInstance();
+        this.poolModel = new PoolModel();
+        this.poolView = new PoolView(poolModel);
+        this.poolController = new PoolController(poolView, poolModel);
+        return poolComponent;
+    }
+
 }

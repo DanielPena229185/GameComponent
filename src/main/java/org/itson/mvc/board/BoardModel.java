@@ -28,19 +28,19 @@ public class BoardModel {
     
     private LinkedList<Tile> tiles;
   
-    public BoardModel(){
-    }
+    /*public BoardModel(){
+    }*/
   
     public BoardModel(Board board){
       this.board = board;
       this.tiles = board.getTiles();
   }
     
-    public BoardModel(int weight, int height, int coordX, int coordY) {
-        this.width = weight;
-        this.height = height;
-        this.coordX = coordX;
-        this.coordY = coordY;
+    public BoardModel() {
+        this.width = 730;
+        this.height = 630;
+        this.coordX = 90;
+        this.coordY = 20;
         this.boardImagePath = ImagesSourcers.getSOURCE_IMAGE_BOARD();
     }
   

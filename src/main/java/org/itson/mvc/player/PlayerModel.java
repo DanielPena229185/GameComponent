@@ -16,13 +16,15 @@ import org.itson.enums.ImagesSourcers;
 public class PlayerModel {
     
     private Player player;
-   
- 
+    
+    
+    private LinkedList<Player> players;
+    
     private String avatarPath;
     
     private String name;
     
-    public LinkedList<Tile> tiles;
+    public LinkedList<Tile> tiles = new LinkedList<>();
     
     public int turn;
     
@@ -34,40 +36,43 @@ public class PlayerModel {
     
     private int CordY= 0;
 
+    
     public PlayerModel() {
     }
 
     public PlayerModel(Player player, String avatarSelected) {
         this.player = player;
-        this.name = avatarSelected;
+        this.name = "El_Gallo";
         this.avatarPath =getAvatarImage(this.name);
-        
+//        this.width = 100;
+//        this.height = 100;
         
     }
     
     public static String getAvatarImage(String name) {
-        switch (name) {
-            case "El_Gallo":
-                return ImagesSourcers.getSOURCE_IMAGE_AVATAR_El_Gallo();
-            case "La_dama":
-                return ImagesSourcers.getSOURCE_IMAGE_AVATAR_La_dama();
-            case "La_chalupa":
-                return ImagesSourcers.getSOURCE_IMAGE_AVATAR_La_chalupa();
-            case "El_diablito":
-                return ImagesSourcers.getSOURCE_IMAGE_AVATAR_El_diablito();
-            case "El_sol":
-                return ImagesSourcers.getSOURCE_IMAGE_AVATAR_El_sol();
-            case "El_borracho":
-                return ImagesSourcers.getSOURCE_IMAGE_AVATAR_El_borracho();
-            case "El_apache":
-                return ImagesSourcers.getSOURCE_IMAGE_AVATAR_El_apache();
-                case "El_Valiente":
-                return ImagesSourcers.getSOURCE_IMAGE_AVATAR_El_Valiente();
-            default:
-                return null;
-        }
+        return switch (name) {
+            case "El_Gallo" -> ImagesSourcers.getSOURCE_IMAGE_AVATAR_El_Gallo();
+            case "La_dama" -> ImagesSourcers.getSOURCE_IMAGE_AVATAR_La_dama();
+            case "La_chalupa" -> ImagesSourcers.getSOURCE_IMAGE_AVATAR_La_chalupa();
+            case "El_diablito" -> ImagesSourcers.getSOURCE_IMAGE_AVATAR_El_diablito();
+            case "El_sol" -> ImagesSourcers.getSOURCE_IMAGE_AVATAR_El_sol();
+            case "El_borracho" -> ImagesSourcers.getSOURCE_IMAGE_AVATAR_El_borracho();
+            case "El_apache" -> ImagesSourcers.getSOURCE_IMAGE_AVATAR_El_apache();
+            case "El_Valiente" -> ImagesSourcers.getSOURCE_IMAGE_AVATAR_El_Valiente();
+            default -> null;
+        };
     }
 
+    public Player getPlayer() {
+        return player;
+    }
+
+    public void setPlayer(Player player) {
+        this.player = player;
+    }
+
+    
+    
     public int getWidth() {
         return width;
     }
@@ -88,7 +93,22 @@ public class PlayerModel {
         return avatarPath;
     }
     
+    public Tile addTile(Tile tile){
+         this.getTiles().add(tile);
+        return tile;
+    }
+
+    public LinkedList<Tile> getTiles() {
+        return tiles;
+    }
+
+    public void setTiles(LinkedList<Tile> tiles) {
+        this.tiles = tiles;
+    }
     
-    
+    public Tile removeTile(Tile tile){
+        this.tiles.remove(tile);
+        return tile;
+    }
     
 }

@@ -5,7 +5,11 @@
 package org.itson.mvc.Pool;
 
 import java.util.LinkedList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import org.itson.classes.DomainPool;
 import org.itson.domaincomponent.domain.Tile;
+import org.itson.domaincomponent.exceptions.PoolException;
 import org.itson.enums.ImagesSourcers;
 
 /**
@@ -77,4 +81,20 @@ public class PoolModel {
         this.coordY = coordY;
     }
 
+    public Tile pickTileFromTilesList(){
+        try {
+            DomainPool pool = new DomainPool();
+            
+            Tile tile = pool.getRandomTile();
+            
+            this.tiles.remove(tile);
+            return tile;
+        } catch (PoolException ex) {
+            Logger.getLogger(PoolModel.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+        
+    }
+    
+    
 }
