@@ -10,15 +10,17 @@ import javax.swing.JFrame;
  *
  * @author TheMM
  */
-public class GameView extends JFrame{
+public class GameView extends JFrame {
+
     private GameModel gameModel;
 
     public GameView(GameModel gameModel) {
         this.gameModel = gameModel;
     }
-    
-    public void refresh(){
+
+    public void refresh() {
         this.getContentPane().setBackground(this.gameModel.getColor());
         this.setSize(this.gameModel.getWidth(), this.gameModel.getHeight());
+        this.add(this.gameModel.getPoolComponent().getPoolView());
     }
 }

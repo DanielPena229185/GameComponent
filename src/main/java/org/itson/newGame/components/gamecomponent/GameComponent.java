@@ -5,29 +5,40 @@
 package org.itson.newGame.components.gamecomponent;
 
 import java.awt.Color;
+import org.itson.newGame.components.poolcomponent.PoolComponent;
 
 /**
  *
  * @author TheMM
  */
 public class GameComponent {
+
     private GameController gameController;
     private GameModel gameModel;
     private GameView gameView;
+  
 
     public GameComponent() {
         this.gameModel = new GameModel();
         this.gameView = new GameView(gameModel);
         this.gameController = new GameController(gameModel, gameView);
+     
     }
-    
-    
-    public void setColor(Color color){
+
+    public void setColor(Color color) {
         this.gameController.setColor(color);
     }
-    
-    public void show(int width, int height){
+
+    public void show(int width, int height) {
         this.gameController.show(width, height);
     }
     
+    public void addPoolComponent(PoolComponent poolComponent){
+        this.gameController.addPoolComponent(poolComponent);
+    }
+    
+    public void createDominoTiles(){
+        this.gameController.createTiles();
+    }
+
 }

@@ -5,6 +5,7 @@
 package org.itson.newGame.components.gamecomponent;
 
 import java.awt.Color;
+import org.itson.newGame.components.poolcomponent.PoolComponent;
 
 /**
  *
@@ -14,6 +15,7 @@ public class GameModel {
     private Color color;
     private int width;
     private int height;
+    private PoolComponent poolComponent;
     
     public GameModel() {
     }
@@ -40,6 +42,14 @@ public class GameModel {
 
     public void setHeight(int height) {
         this.height = height;
+    }
+
+    public PoolComponent getPoolComponent() {
+        return poolComponent;
+    }
+
+    public void setPoolComponent(PoolComponent poolComponent) {
+        this.poolComponent = poolComponent;
     }
     
     

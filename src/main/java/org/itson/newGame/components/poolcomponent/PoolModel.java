@@ -20,14 +20,14 @@ public class PoolModel {
     
     public PoolModel() {
         this.tiles = new LinkedList<Integer>();
-        
-        for (int i = 1; i <= 10; i++) {
-            this.tiles.add(i);
-        }
     }
 
     public Color getColor() {
         return color;
+    }
+
+    public void addTiles(Integer tile) {
+        this.tiles.add(tile);
     }
 
     public void setColor(Color color) {

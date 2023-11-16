@@ -5,6 +5,7 @@
 package org.itson.newGame.components.gamecomponent;
 
 import java.awt.Color;
+import org.itson.newGame.components.poolcomponent.PoolComponent;
 
 /**
  *
@@ -16,13 +17,28 @@ public class TestGame {
      * @param args the command line arguments
      */
     public static void main(String[] args) throws InterruptedException {
-       GameComponent gameComponent = new GameComponent();
-       gameComponent.setColor(Color.cyan);
-       gameComponent.show(100, 100);
-       
-       Thread.sleep(5000);
-       gameComponent.setColor(Color.black);
-       gameComponent.show(500, 500);
+        GameComponent gameComponent = new GameComponent();
+        
+        PoolComponent poolComponent = new PoolComponent();
+        
+        gameComponent.addPoolComponent(poolComponent);
+        
+        gameComponent.createDominoTiles();
+        
+        gameComponent.setColor(Color.cyan);
+        
+        
+        gameComponent.show(100, 100);
+        
+
+        Thread.sleep(2000);
+        
+        gameComponent.setColor(Color.black);
+        
+        gameComponent.createDominoTiles();
+        
+        gameComponent.show(500, 500);
+        
     }
-    
+
 }

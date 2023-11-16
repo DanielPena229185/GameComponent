@@ -25,6 +25,13 @@ public class PoolComponent {
         return this.poolController.getTile();
     }
     
+    public int createTiles(){
+        return this.poolController.createTiles();
+    }
+    
+    public PoolView getPoolView(){
+        return poolView;
+    }
     
     
 }
