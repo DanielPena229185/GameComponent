@@ -10,4 +10,25 @@ package org.itson.mvc.Match;
  */
 public class MatchController {
     
+    
+     private MatchModel matchModel;
+    private MatchView matchView;
+
+    public MatchController(MatchModel matchModel, MatchView matchView) {
+        this.matchModel = matchModel;
+        this.matchView = matchView;
+    }
+    
+    
+    public void buildGame(){
+        this.matchModel.buildGame();
+    
+        this.matchView.refresh();   
+        
+        
+    }
+  
+    
+    
+    
 }
