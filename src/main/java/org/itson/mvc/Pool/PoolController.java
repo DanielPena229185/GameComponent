@@ -7,6 +7,7 @@ package org.itson.mvc.Pool;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.SwingUtilities;
+import org.itson.domaincomponent.domain.Tile;
 
 /**
  *
@@ -21,6 +22,14 @@ public class PoolController  extends MouseAdapter {
         this.poolModel = poolModel;
 
     }
-
+    
+    public void createDominoTiles(){
+        this.poolModel.createDominoTiles();
+    }
+    
+    public Tile getTileFromPool(){
+       return this.poolModel.pickTileFromTilesList();
+    }
+    
 
 }

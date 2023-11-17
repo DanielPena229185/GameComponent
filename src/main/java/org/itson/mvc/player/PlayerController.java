@@ -4,6 +4,9 @@
  */
 package org.itson.mvc.player;
 
+import javax.swing.JOptionPane;
+import org.itson.domaincomponent.domain.Tile;
+
 /**
  *
  * @author santi
@@ -17,6 +20,12 @@ public class PlayerController {
     public PlayerController(PlayerModel playerModel, PlayerView playerView) {
         this.playerModel = playerModel;
         this.playerView = playerView;
+    }
+    
+    public void addTileToPlayerList(Tile tile){
+        JOptionPane.showMessageDialog(null, tile.getFirstFace().getValue() + " " + tile.getSecondFace().getValue());
+        this.playerModel.addTile(tile); 
+        //playerview refresh; 
     }
     
     

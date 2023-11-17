@@ -4,6 +4,7 @@
  */
 package org.itson.mvc.Pool;
 
+import org.itson.domaincomponent.domain.Tile;
 import org.itson.mvc.Pool.PoolController;
 import org.itson.mvc.Pool.PoolModel;
 import org.itson.mvc.Pool.PoolView;
@@ -20,12 +21,22 @@ public class PoolComponent {
     PoolController poolController;
 
     public PoolComponent() {
+        this.poolModel = new PoolModel();
+        this.poolView = new PoolView(poolModel);
+        this.poolController = new PoolController(poolView, poolModel);
     }
 
-    public PoolModel getModel(){
-        return poolModel;
+    public Tile getTileFromPool(){
+        return this.poolController.getTileFromPool();
     }
     
+    public void createDominoTiles(){
+        this.poolController.createDominoTiles();
+    }
+    public PoolModel getModel() {
+        return poolModel;
+    }
+
     public PoolController getController() {
         return poolController;
     }
@@ -40,13 +51,4 @@ public class PoolComponent {
         }
         return poolComponent;
     }
-    
-    public PoolComponent createPoolComponent(){
-         getInstance();
-        this.poolModel = new PoolModel();
-        this.poolView = new PoolView(poolModel);
-        this.poolController = new PoolController(poolView, poolModel);
-        return poolComponent;
-    }
-
 }

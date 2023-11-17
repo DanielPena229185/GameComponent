@@ -5,6 +5,7 @@
 package org.itson.mvc.player;
 
 import org.itson.domaincomponent.domain.Player;
+import org.itson.domaincomponent.domain.Tile;
 
 /**
  *
@@ -18,31 +19,25 @@ public class PlayerComponent {
     PlayerController playerController;
     
     public PlayerComponent() {
-        
+         this.playerModel = new PlayerModel();
+        this.playerView = new PlayerView(playerModel);
+        this.playerController = new PlayerController(playerModel, playerView);
     }
 
+    public void addTileToPlayerList(Tile tile){
+        this.playerController.addTileToPlayerList(tile);
+    }
+    
+    
     public PlayerView getPlayerView() {
         return playerView;
-    }
-
-    public void setTileView(PlayerView playerView) {
-        this.playerView = playerView;
     }
 
     public PlayerModel getPlayerModel() {
         return playerModel;
     }
-
-    public void setPlayerModel(PlayerModel playerModel) {
-        this.playerModel = playerModel;
-    }
-
     public PlayerController getPlayerController() {
         return playerController;
-    }
-
-    public void setPlayerController(PlayerController playerController) {
-        this.playerController = playerController;
     }
     
     public static PlayerComponent getInstance() {
@@ -53,11 +48,6 @@ public class PlayerComponent {
     }
     
     public PlayerComponent createPlayerComponent(){
-  
-        this.playerModel = new PlayerModel();
-        this.playerModel.setPlayer(new Player("pepe"));
-        this.playerView = new PlayerView(playerModel);
-        this.playerController = new PlayerController(playerModel, playerView);
         return playerComponent;
     }
 }

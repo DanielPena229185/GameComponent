@@ -8,6 +8,7 @@ import java.util.LinkedList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.itson.classes.DomainPool;
+import org.itson.domaincomponent.domain.Pool;
 import org.itson.domaincomponent.domain.Tile;
 import org.itson.domaincomponent.exceptions.PoolException;
 import org.itson.enums.ImagesSourcers;
@@ -17,6 +18,7 @@ import org.itson.enums.ImagesSourcers;
  * @author PC
  */
 public class PoolModel {
+
     private LinkedList<Tile> tiles;
     private String poolImagePath;
     private int coordX;
@@ -32,7 +34,7 @@ public class PoolModel {
         this.coordX = 1110;
         this.coordY = 260;
     }
-    
+
     public LinkedList<Tile> getTiles() {
         return tiles;
     }
@@ -81,20 +83,26 @@ public class PoolModel {
         this.coordY = coordY;
     }
 
-    public Tile pickTileFromTilesList(){
+    public void createDominoTiles() {
         try {
-            DomainPool pool = new DomainPool();
-            
-            Tile tile = pool.getRandomTile();
-            
+            setTiles(Pool.getInstance().createDominoTiles());
+        } catch (PoolException ex) {
+            Logger.getLogger(PoolModel.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    public Tile pickTileFromTilesList() {
+        try {
+
+            Tile tile = Pool.getInstance().getRandomTile();
+
             this.tiles.remove(tile);
             return tile;
         } catch (PoolException ex) {
             Logger.getLogger(PoolModel.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
-        
+
     }
-    
-    
+
 }

@@ -33,13 +33,13 @@ public class frmMatch extends javax.swing.JFrame {
         gamePanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         
         
-        try {
-            match.drawBoard(gamePanel);
-            match.drawPool(gamePanel);
-            match.drawPlayer(gamePanel);
-        } catch (PoolException ex) {
-            Logger.getLogger(frmMatch.class.getName()).log(Level.SEVERE, null, ex);
-        }
+     //   try {
+         //   match.drawBoard(gamePanel);
+         //   match.drawPool(gamePanel);
+        //    match.drawPlayer(gamePanel);
+     //   } catch (PoolException ex) {
+           // Logger.getLogger(frmMatch.class.getName()).log(Level.SEVERE, null, ex);
+     //   }
 
         gamePanel.add(lbFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1290, 730));
 
