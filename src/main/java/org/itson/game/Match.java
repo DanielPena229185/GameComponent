@@ -3,6 +3,7 @@ package org.itson.game;
 import java.util.LinkedList;
 import org.itson.domaincomponent.domain.Tile;
 import org.itson.mvc.Match.MatchComponent;
+import org.itson.mvc.board.BoardView;
 
 public class Match {
     
@@ -28,7 +29,13 @@ public class Match {
         return matchesComponent.getTurn();
     }
     
-    public Tile getTileSelected(){
-        return this.matchesComponent.getTileSelected(tile);
+    public BoardView getBoardView(){
+        return matchesComponent.getBoardView();
     }
+    
+    
+    /*public Tile getTileSelected(){
+        return this.matchesComponent.getTileSelected(tile);
+    }*/
+    
 }

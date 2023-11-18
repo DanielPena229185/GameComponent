@@ -16,7 +16,9 @@ public class NewMain {
     public static void main(String[] args) {
         MatchComponent mtc = new MatchComponent();
         
-        mtc.buildGame();
+       mtc.buildGame();
+       mtc.getBoardView();
+        
     }
     
 }

@@ -4,9 +4,11 @@
  */
 package org.itson.mvc.board;
 
+import java.awt.Graphics;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.SwingUtilities;
+import org.itson.domaincomponent.domain.Tile;
 
 /**
  *
@@ -22,6 +24,14 @@ public class BoardController extends MouseAdapter{
         
         // Agrega el MouseListener al BoardView
         boardView.addMouseListener(this);
+    }
+    
+    public void setTile(Tile tile){
+        boardModel.setTile(tile);
+    }
+
+    public BoardView getBoardView() {
+        return boardView;
     }
     
     @Override

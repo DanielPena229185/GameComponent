@@ -38,7 +38,7 @@ public class BoardView extends JPanel {
 
         if (boardImage != null) {
             Graphics2D g2d = (Graphics2D) g.create();
-            g2d.drawImage(boardImage, 0, 0, this);
+            g2d.drawImage(boardImage, boardModel.getCoordX(), boardModel.getCoordY(), this);
             g2d.dispose();
         }
     }

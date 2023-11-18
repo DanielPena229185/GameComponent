@@ -51,6 +51,10 @@ public class BoardModel {
     public void setTiles(LinkedList <Tile> tiles){
       this.tiles = tiles;
   }
+    
+    public void setTile(Tile tile){
+        tiles.set(tiles.size(), tile);
+    }
   
     public int getWidth() {
         return width;
