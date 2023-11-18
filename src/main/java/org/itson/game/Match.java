@@ -1,5 +1,6 @@
 package org.itson.game;
 
+import java.util.LinkedList;
 import org.itson.domaincomponent.domain.Tile;
 import org.itson.mvc.Match.MatchComponent;
 
@@ -21,5 +22,13 @@ public class Match {
     
     public void createDominoTiles(){
         this.matchesComponent.createDominoTiles();
+    }
+    
+    public Boolean getTurn(){
+        return matchesComponent.getTurn();
+    }
+    
+    public Tile getTileSelected(){
+        return this.matchesComponent.getTileSelected(tile);
     }
 }

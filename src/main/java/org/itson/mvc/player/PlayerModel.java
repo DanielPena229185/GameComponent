@@ -109,6 +109,6 @@ public class PlayerModel {
     public Tile removeTile(Tile tile){
         this.tiles.remove(tile);
         return tile;
-    }
+    }    
     
 }

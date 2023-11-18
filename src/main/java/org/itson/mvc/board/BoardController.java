@@ -30,5 +30,7 @@ public class BoardController extends MouseAdapter{
             // Manejar el evento de clic en el panel de pool
             System.out.println("Me diste click, soy el board!");
         });
+        
+       
     }
 }

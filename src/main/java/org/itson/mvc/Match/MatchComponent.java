@@ -1,5 +1,6 @@
 package org.itson.mvc.Match;
 
+import java.util.LinkedList;
 import org.itson.domaincomponent.domain.Board;
 import org.itson.domaincomponent.domain.Match;
 import org.itson.domaincomponent.domain.Player;
@@ -35,6 +36,15 @@ public class MatchComponent {
     public void createDominoTiles(){
         this.poolComponent.createDominoTiles();
     }
+    
+    public Boolean getTurn(){
+        return this.playerComponent.getPlayerController().getTurn();
+    }
+    
+    public Tile getTileSelected(Tile tile){
+        return this.playerComponent.getPlayerController().getTileFromList(tile);
+    }
+    
     
     
     public void buildGame() {
