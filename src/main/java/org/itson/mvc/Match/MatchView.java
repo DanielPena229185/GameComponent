@@ -20,18 +20,5 @@ public class MatchView extends JFrame {
         
     }
     
-    public void refresh() {
-        this.setTitle(this.matchModel.getPlayers().length + "");
-        JLabel j = new JLabel();
-       
-        
-       j.setText(this.matchModel.getPlayers()[0].getName() + this.matchModel.getPlayers()[1].getName() + this.matchModel.getPlayers()[2].getName() + this.matchModel.getPlayers()[3].getName());
-     
-        this.add(j);
 
-
-        this.setSize(500, 500);
-        this.setVisible(true);
-    }
-    
 }

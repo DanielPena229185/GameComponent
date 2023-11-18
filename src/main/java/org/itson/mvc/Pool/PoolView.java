@@ -18,7 +18,6 @@ public class PoolView extends JPanel {
 
     public PoolView(PoolModel poolModel) {
         this.poolModel = poolModel;
-        loadPoolImage();
         setPreferredSize(new Dimension(120, 360));
     }
 
@@ -33,14 +32,18 @@ public class PoolView extends JPanel {
         }
     }
 
+    public void refresh() {
+         loadPoolImage();
+         repaint();
+    }
+
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
+        Graphics2D g2d = (Graphics2D) g;
 
-        if (poolImage != null) {
-            Graphics2D g2d = (Graphics2D) g.create();
-            g2d.drawImage(poolImage, 0, 0, this);
-            g2d.dispose();
-        }
+        // Dibuja la imagen en el JPanel
+        g2d.drawImage(poolImage, 0, 0, poolWidth, poolHeight, this);
     }
+
 }

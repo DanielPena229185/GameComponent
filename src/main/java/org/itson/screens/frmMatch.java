@@ -24,22 +24,12 @@ public class frmMatch extends javax.swing.JFrame {
 
     private Match match = new Match();
 
-    /**
-     * Creates new form frmBoard
-     */
     public frmMatch() {
 
         initComponents();
         gamePanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        
-        
-     //   try {
-         //   match.drawBoard(gamePanel);
-         //   match.drawPool(gamePanel);
-        //    match.drawPlayer(gamePanel);
-     //   } catch (PoolException ex) {
-           // Logger.getLogger(frmMatch.class.getName()).log(Level.SEVERE, null, ex);
-     //   }
+
+        paintPoolOnGamePanel();
 
         gamePanel.add(lbFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1290, 730));
 
@@ -48,6 +38,14 @@ public class frmMatch extends javax.swing.JFrame {
         this.pack();
 
     }
+
+    public void paintPoolOnGamePanel() {
+      
+        gamePanel.add(this.match.getPoolView(), new org.netbeans.lib.awtextra.AbsoluteConstraints(1110, 226, -1, -1));
+        this.match.matchesComponent.paintPool();
+     //   gamePanel.setComponentZOrder(this.match.getPoolView(), 0);
+    }
+
 
     private void closeCurrentWindow() {
         this.setVisible(false);

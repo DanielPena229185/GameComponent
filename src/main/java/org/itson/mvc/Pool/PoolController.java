@@ -31,5 +31,9 @@ public class PoolController  extends MouseAdapter {
        return this.poolModel.pickTileFromTilesList();
     }
     
+    public void refresh(){
+        this.poolView.refresh();
+    }
+    
 
 }

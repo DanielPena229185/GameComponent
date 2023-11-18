@@ -41,10 +41,15 @@ public class PoolComponent {
         return poolController;
     }
 
+    
     public PoolView getView() {
         return poolView;
     }
 
+    public void refresh(){
+        this.poolController.refresh();
+    }
+    
     public static PoolComponent getInstance() {
         if (poolComponent == null) {
             poolComponent = new PoolComponent();

@@ -21,11 +21,7 @@ public class MatchController {
     
     
     public void buildGame(){
-        this.matchModel.buildGame();
-    
-        this.matchView.refresh();   
-        
-        
+        this.matchModel.buildGame();   
     }
   
     
