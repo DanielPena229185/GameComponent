@@ -26,13 +26,13 @@ public class PoolModel {
     private int width;
     private int height;
 
-    public PoolModel() {
+    public PoolModel(int width, int height ,int coordX, int coordY) {
         this.poolImagePath = ImagesSourcers.getSOURCE_IMAGE_POOL();
-        this.width = 120;
-        this.height = 130;
+        this.width = width;//120;
+        this.height = height;//130;
         this.tiles = new LinkedList<>();
-        this.coordX = 1110;
-        this.coordY = 260;
+        this.coordX = coordX;//1110;
+        this.coordY = coordY;//260;
     }
 
     public LinkedList<Tile> getTiles() {

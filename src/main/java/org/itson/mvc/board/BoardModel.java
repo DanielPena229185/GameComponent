@@ -36,11 +36,11 @@ public class BoardModel {
       this.tiles = board.getTiles();
   }
     
-    public BoardModel() {
-        this.width = 730;
-        this.height = 630;
-        this.coordX = 0;
-        this.coordY = 0;
+    public BoardModel(int width, int height, int coordX, int coordY) {
+        this.width = width;//730;
+        this.height = height;//630;
+        this.coordX = coordX;
+        this.coordY = coordY;
         this.boardImagePath = ImagesSourcers.getSOURCE_IMAGE_BOARD();
     }
   

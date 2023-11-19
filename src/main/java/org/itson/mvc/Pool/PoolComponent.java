@@ -21,7 +21,7 @@ public class PoolComponent {
     PoolController poolController;
 
     public PoolComponent() {
-        this.poolModel = new PoolModel();
+        this.poolModel = new PoolModel(120, 130, 1110, 260);
         this.poolView = new PoolView(poolModel);
         this.poolController = new PoolController(poolView, poolModel);
     }

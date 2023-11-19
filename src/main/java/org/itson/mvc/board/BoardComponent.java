@@ -22,7 +22,7 @@ public class BoardComponent {
     BoardView boardView;
     
     public BoardComponent() {
-        boardModel = new BoardModel();
+        boardModel = new BoardModel(730, 630, 0, 0);
         boardView = new BoardView(boardModel);
         boardController = new BoardController(boardView, boardModel);
     }
@@ -43,21 +43,4 @@ public class BoardComponent {
     public void refreshBoard(){
         this.boardView.refresh();
     }
-
-    public static BoardComponent getInstance() {
-        if (boardComponent == null) {
-            boardComponent = new BoardComponent();
-        }
-        return boardComponent;
-    }
-
-    public BoardComponent createBoardComponent() {
-        getInstance();
-        
-        this.boardModel = new BoardModel();
-        this.boardView = new BoardView(boardModel);
-        this.boardController = new BoardController(boardView, boardModel);
-        return boardComponent;
-    }
-    
 }
