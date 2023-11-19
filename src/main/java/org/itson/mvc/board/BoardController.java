@@ -30,8 +30,8 @@ public class BoardController extends MouseAdapter{
         boardModel.setTile(tile);
     }
 
-    public BoardView getBoardView() {
-        return boardView;
+    public void refreshBoard() {
+         this.boardView.refresh();
     }
     
     @Override

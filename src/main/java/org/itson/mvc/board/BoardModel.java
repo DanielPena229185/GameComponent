@@ -39,8 +39,8 @@ public class BoardModel {
     public BoardModel() {
         this.width = 730;
         this.height = 630;
-        this.coordX = 90;
-        this.coordY = 20;
+        this.coordX = 0;
+        this.coordY = 0;
         this.boardImagePath = ImagesSourcers.getSOURCE_IMAGE_BOARD();
     }
   

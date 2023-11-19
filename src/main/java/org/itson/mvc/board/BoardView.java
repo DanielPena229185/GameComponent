@@ -19,17 +19,22 @@ public class BoardView extends JPanel {
     public BoardView(BoardModel boardModel) {
         this.boardModel = boardModel;
         loadBoardImage();
-        setPreferredSize(new Dimension(1010, 580));
+        setPreferredSize(new Dimension(630, 500));
     }
     
     private void loadBoardImage() {
         try {
             boardImage = ImageIO.read(new File(boardModel.getBoardImagePath()));
-            boardWidth = 730;
-            boardHeight = 600;
+            boardWidth = 630;
+            boardHeight = 500;
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+    
+    public void refresh() {
+         loadBoardImage();
+         repaint();
     }
     
     @Override

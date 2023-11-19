@@ -20,7 +20,7 @@ public class ImagesSourcers {
     private static final String SOURCE_IMAGE_TILE_FACE_6 =  "src/main/resources/tiles/Face-Tile-Vaue-6.png";
     
     //Board image
-    private static final String SOURCE_IMAGE_BOARD = "src/main/resources/match/Tablero.jpg";
+    private static final String SOURCE_IMAGE_BOARD = "src/main/resources/match/Tablero.jpeg";
     
     //Pool image
     private static final String SOURCE_IMAGE_POOL ="src/main/resources/match/pozo.jpg";

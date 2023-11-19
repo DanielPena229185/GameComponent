@@ -18,14 +18,14 @@ public class PoolView extends JPanel {
 
     public PoolView(PoolModel poolModel) {
         this.poolModel = poolModel;
-        setPreferredSize(new Dimension(120, 360));
+        setPreferredSize(new Dimension(120, 130));
     }
 
     private void loadPoolImage() {
         try {
             poolImage = ImageIO.read(new File(poolModel.getPoolImagePath()));
             poolWidth = 120;
-            poolHeight = 360;
+            poolHeight = 130;
         } catch (IOException e) {
             e.printStackTrace();
             // Manejar la excepción de manera adecuada

@@ -53,6 +53,10 @@ public class MatchComponent {
     public BoardView getBoardView() {
         return this.boardComponent.getBoardView();
     }
+    
+    public void paintBoard(){
+        this.boardComponent.refreshBoard();
+    }
 
     public PoolView getPoolView() {
         return this.poolComponent.getView();

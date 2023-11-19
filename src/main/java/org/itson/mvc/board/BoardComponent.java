@@ -39,6 +39,10 @@ public class BoardComponent {
     public BoardView getBoardView() {
         return boardView;
     }
+    
+    public void refreshBoard(){
+        this.boardView.refresh();
+    }
 
     public static BoardComponent getInstance() {
         if (boardComponent == null) {
