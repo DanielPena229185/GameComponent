@@ -8,6 +8,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.SwingUtilities;
 import org.itson.domaincomponent.domain.Tile;
+import org.itson.game.MatchGame;
 
 /**
  *
@@ -21,6 +22,10 @@ public class PoolController  extends MouseAdapter {
         this.poolView = poolView;
         this.poolModel = poolModel;
 
+    }
+    
+    public void suscribeToView(MatchGame match){
+        this.poolView.addObserver(match);
     }
     
     public void createDominoTiles(){

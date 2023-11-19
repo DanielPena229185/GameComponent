@@ -1,18 +1,36 @@
 package org.itson.game;
 
 import java.util.LinkedList;
+import javax.swing.JOptionPane;
 import org.itson.domaincomponent.domain.Tile;
+import org.itson.interfaces.Observer;
 import org.itson.mvc.Match.MatchComponent;
 import org.itson.mvc.Pool.PoolView;
 import org.itson.mvc.board.BoardView;
 
-public class Match {
+public class MatchGame implements Observer{
+    
     
     public MatchComponent matchesComponent;
     
-    public Match() {
+    public MatchGame() {
         this.matchesComponent = new MatchComponent();
     }
+    
+    
+      @Override
+    public void update(String message) {
+        if ("click_event".equals(message)) {
+            JOptionPane.showMessageDialog(null, "You take a tile from pool.");
+        }
+    }
+ 
+    
+    
+    public void suscribeToPoolView(){
+        this.matchesComponent.suscribeToPoolView(this);
+    }
+    
     
     public Tile getTileFromPool() {
         return matchesComponent.getTileFromPool();
@@ -31,11 +49,12 @@ public class Match {
     }
     
     public BoardView getBoardView(){
-        return matchesComponent.getBoardView();
+        return matchesComponent.getBoardComponent().getBoardView();
+                
     }
     
     public PoolView getPoolView(){
-        return matchesComponent.getPoolView();
+        return matchesComponent.getPoolComponent().getView();
     }
     
     /*public Tile getTileSelected(){

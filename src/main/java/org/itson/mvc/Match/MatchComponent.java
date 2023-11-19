@@ -11,7 +11,7 @@ import org.itson.mvc.Pool.PoolView;
 import org.itson.mvc.board.BoardComponent;
 import org.itson.mvc.board.BoardView;
 import org.itson.mvc.player.PlayerComponent;
-
+import org.itson.game.MatchGame;
 public class MatchComponent {
 
     private MatchModel matchModel;
@@ -29,7 +29,12 @@ public class MatchComponent {
         this.playerComponent = new PlayerComponent();
         this.boardComponent = new BoardComponent();
     }
-
+    
+    
+    public void suscribeToPoolView(MatchGame match){
+        this.poolComponent.suscribeToView(match);
+    }
+    
     public Tile getTileFromPool() {
         return this.poolComponent.getController().getTileFromPool();
     }
@@ -50,17 +55,24 @@ public class MatchComponent {
         return this.playerComponent.getPlayerController().getTileFromList(tile);
     }
 
-    public BoardView getBoardView() {
-        return this.boardComponent.getBoardView();
+    public PoolComponent getPoolComponent() {
+        return poolComponent;
     }
+
+    public PlayerComponent getPlayerComponent() {
+        return playerComponent;
+    }
+
+    public BoardComponent getBoardComponent() {
+        return boardComponent;
+    }
+
+
     
     public void paintBoard(){
         this.boardComponent.refreshBoard();
     }
 
-    public PoolView getPoolView() {
-        return this.poolComponent.getView();
-    }
 
     public void paintPool(){
         this.poolComponent.refresh();

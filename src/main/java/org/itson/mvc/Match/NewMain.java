@@ -4,6 +4,8 @@
  */
 package org.itson.mvc.Match;
 
+import org.itson.game.MatchGame;
+
 /**
  *
  * @author PC
@@ -14,10 +16,12 @@ public class NewMain {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        MatchComponent mtc = new MatchComponent();
+        MatchGame mtc = new MatchGame();
         
-       mtc.buildGame();
-       mtc.getBoardView();
+       
+       mtc.suscribeToPoolView();
+
+      // mtc.getPoolView().simulatePanelClick();
         
     }
     

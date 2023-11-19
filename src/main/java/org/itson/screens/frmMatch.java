@@ -11,7 +11,7 @@ import javax.swing.ImageIcon;
 
 import org.itson.domaincomponent.domain.Tile;
 import org.itson.domaincomponent.exceptions.PoolException;
-import org.itson.game.Match;
+import org.itson.game.MatchGame;
 
 /**
  *
@@ -22,13 +22,16 @@ public class frmMatch extends javax.swing.JFrame {
 
     private static frmMatch matchInstance;
 
-    private Match match = new Match();
+    private MatchGame match = new MatchGame();
 
     public frmMatch() {
 
         initComponents();
+
+        match.suscribeToPoolView();
+
         gamePanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        
+
         paintBoardOnGamePanel();
 
         paintPoolOnGamePanel();
@@ -40,19 +43,18 @@ public class frmMatch extends javax.swing.JFrame {
         this.pack();
 
     }
-    
-    public void paintBoardOnGamePanel(){
-        gamePanel.add(this.match.getBoardView(),new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 110, -1, -1));
+
+    public void paintBoardOnGamePanel() {
+        gamePanel.add(this.match.getBoardView(), new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 110, -1, -1));
         this.match.matchesComponent.paintBoard();
     }
 
     public void paintPoolOnGamePanel() {
-      
+
         gamePanel.add(this.match.getPoolView(), new org.netbeans.lib.awtextra.AbsoluteConstraints(1110, 126, -1, -1));
         this.match.matchesComponent.paintPool();
-     //   gamePanel.setComponentZOrder(this.match.getPoolView(), 0);
+        //   gamePanel.setComponentZOrder(this.match.getPoolView(), 0);
     }
-
 
     private void closeCurrentWindow() {
         this.setVisible(false);
@@ -67,11 +69,6 @@ public class frmMatch extends javax.swing.JFrame {
 
     public void drawPlayersTiles() {
 
-    }
-
-    public Graphics drawPool() {
-
-        return null;
     }
 
     public Graphics drawTile() {

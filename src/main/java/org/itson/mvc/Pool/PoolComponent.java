@@ -5,6 +5,7 @@
 package org.itson.mvc.Pool;
 
 import org.itson.domaincomponent.domain.Tile;
+import org.itson.game.MatchGame;
 import org.itson.mvc.Pool.PoolController;
 import org.itson.mvc.Pool.PoolModel;
 import org.itson.mvc.Pool.PoolView;
@@ -25,7 +26,11 @@ public class PoolComponent {
         this.poolView = new PoolView(poolModel);
         this.poolController = new PoolController(poolView, poolModel);
     }
-
+    
+    public void suscribeToView(MatchGame match){
+        this.poolController.suscribeToView(match);
+    }
+    
     public Tile getTileFromPool(){
         return this.poolController.getTileFromPool();
     }
