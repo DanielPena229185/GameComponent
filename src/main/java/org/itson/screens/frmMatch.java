@@ -27,6 +27,8 @@ public class frmMatch extends javax.swing.JFrame {
     public frmMatch() {
 
         initComponents();
+        
+        match.suscribeToBoardView();
 
         match.suscribeToPoolView();
 

@@ -9,6 +9,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.SwingUtilities;
 import org.itson.domaincomponent.domain.Tile;
+import org.itson.game.MatchGame;
 
 /**
  *
@@ -22,8 +23,10 @@ public class BoardController extends MouseAdapter{
         this.boardModel = boardModel;
         this.boardView = boardView;
         
-        // Agrega el MouseListener al BoardView
-        boardView.addMouseListener(this);
+    }
+    
+    public void suscribeToView(MatchGame match){
+        this.boardView.addObserver(match);
     }
     
     public void setTile(Tile tile){
@@ -32,15 +35,5 @@ public class BoardController extends MouseAdapter{
 
     public void refreshBoard() {
          this.boardView.refresh();
-    }
-    
-    @Override
-    public void mouseClicked(MouseEvent e) {
-        SwingUtilities.invokeLater(() -> {
-            // Manejar el evento de clic en el panel de pool
-            System.out.println("Me diste click, soy el board!");
-        });
-        
-       
     }
 }

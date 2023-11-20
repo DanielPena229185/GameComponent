@@ -4,19 +4,13 @@
  */
 package org.itson.mvc.board;
 
-import org.itson.mvc.Pool.PoolController;
-import org.itson.mvc.Pool.PoolModel;
-import org.itson.mvc.Pool.PoolView;
-import org.itson.mvc.board.BoardController;
-import org.itson.mvc.board.BoardModel;
-import org.itson.mvc.board.BoardView;
+import org.itson.game.MatchGame;
 
 /**
  *
  * @author PC
  */
 public class BoardComponent {
-    private static BoardComponent boardComponent;
     BoardController boardController;
     BoardModel boardModel;
     BoardView boardView;
@@ -25,6 +19,10 @@ public class BoardComponent {
         boardModel = new BoardModel(730, 630, 0, 0);
         boardView = new BoardView(boardModel);
         boardController = new BoardController(boardView, boardModel);
+    }
+    
+    public void suscribeToView(MatchGame match){
+        this.boardController.suscribeToView(match);
     }
 
     public BoardModel getBoardModel(){

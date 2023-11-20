@@ -35,6 +35,10 @@ public class MatchComponent {
         this.poolComponent.suscribeToView(match);
     }
     
+    public void suscribeToBoardView(MatchGame match){
+        this.boardComponent.suscribeToView(match);
+    }
+    
     public Tile getTileFromPool() {
         return this.poolComponent.getController().getTileFromPool();
     }

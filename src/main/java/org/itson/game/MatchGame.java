@@ -25,7 +25,9 @@ public class MatchGame implements Observer{
         }
     }
  
-    
+    public void suscribeToBoardView(){
+        this.matchesComponent.suscribeToBoardView(this);
+    }
     
     public void suscribeToPoolView(){
         this.matchesComponent.suscribeToPoolView(this);
