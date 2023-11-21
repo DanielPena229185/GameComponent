@@ -39,6 +39,10 @@ public class MatchComponent {
         this.boardComponent.suscribeToView(match);
     }
     
+    public Player[] getPlayersOnGame(){
+       return matchController.getPlayersOnGame();
+    }
+    
     public Tile getTileFromPool() {
         return this.poolComponent.getController().getTileFromPool();
     }

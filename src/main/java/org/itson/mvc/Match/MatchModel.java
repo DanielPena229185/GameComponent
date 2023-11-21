@@ -35,6 +35,10 @@ public class MatchModel {
         this.board = board;
         this.pool = pool;
         this.players = players;
+        
+        for (int i = 0; i < players.length; i++) {
+            players[i] = new Player("Player N." + i);
+        }
     }
 
     public Match getMatch() {

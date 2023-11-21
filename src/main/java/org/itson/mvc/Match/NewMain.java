@@ -5,6 +5,7 @@
 package org.itson.mvc.Match;
 
 import org.itson.game.MatchGame;
+import org.itson.game.TurnManager;
 
 /**
  *
@@ -20,7 +21,13 @@ public class NewMain {
         
        
        mtc.suscribeToPoolView();
-
+       
+       
+              TurnManager trn = new TurnManager();
+        
+        trn.generateTurns(mtc.getPlayersOnGame());
+        
+        trn.printTurns();
       // mtc.getPoolView().simulatePanelClick();
         
     }

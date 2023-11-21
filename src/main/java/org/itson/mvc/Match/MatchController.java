@@ -4,6 +4,8 @@
  */
 package org.itson.mvc.Match;
 
+import org.itson.domaincomponent.domain.Player;
+
 /**
  *
  * @author PC
@@ -19,6 +21,10 @@ public class MatchController {
         this.matchView = matchView;
     }
     
+    
+    public Player[] getPlayersOnGame(){
+        return this.matchModel.getPlayers();
+    }
     
     public void buildGame(){
         this.matchModel.buildGame();   
