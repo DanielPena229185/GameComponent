@@ -7,6 +7,7 @@ package org.itson.mvc.player;
 import java.util.LinkedList;
 import javax.swing.JOptionPane;
 import org.itson.domaincomponent.domain.Tile;
+import org.itson.game.MatchGame;
 
 /**
  *
@@ -23,8 +24,12 @@ public class PlayerController {
         this.playerView = playerView;
     }
     
+    public void suscribeToView(MatchGame match){
+        this.playerView.addObserver(match);
+    }
+    
     public void addTileToPlayerList(Tile tile){
-        JOptionPane.showMessageDialog(null, tile.getFirstFace().getValue() + " " + tile.getSecondFace().getValue());
+        //JOptionPane.showMessageDialog(null, tile.getFirstFace().getValue() + " " + tile.getSecondFace().getValue());
         this.playerModel.addTile(tile); 
         //playerview refresh; 
     }
@@ -38,7 +43,7 @@ public class PlayerController {
     }
     
     public void refreshPlayerView(){
-        playerView.repaint();   
+        playerView.refresh();   
     }
     
 }

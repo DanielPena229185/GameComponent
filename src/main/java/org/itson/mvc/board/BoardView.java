@@ -35,7 +35,7 @@ public class BoardView extends JPanel {
             this.addMouseListener(new java.awt.event.MouseAdapter() {
                 @Override
                 public void mouseClicked(java.awt.event.MouseEvent evt) {
-                    notifyObservers("click_event");
+                    notifyObservers("click_board");
                 }
             });
 

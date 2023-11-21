@@ -11,9 +11,12 @@ import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.imageio.ImageIO;
 import javax.swing.JPanel;
 import org.itson.enums.ImagesSourcers;
+import org.itson.interfaces.Observer;
 
 
 /**
@@ -27,11 +30,12 @@ public class PlayerView extends JPanel{
     private Image player;
     private int playerWidth;
     private int playerHeight;
+    private List<Observer> observers = new ArrayList<>();
     
     public PlayerView(PlayerModel playerModel) {
         this.playerModel = playerModel;
         loadAvatarImage();
-        setPreferredSize(new Dimension(1010, 580));
+        setPreferredSize(new Dimension(1010, 180));
     }
     
      private void loadAvatarImage() {
@@ -39,9 +43,22 @@ public class PlayerView extends JPanel{
             playerImage = ImageIO.read(new File(ImagesSourcers.getSOURCE_IMAGE_AVATAR_El_Gallo()));
             playerWidth = 100;
             playerHeight = 100;
+            
+            this.addMouseListener(new java.awt.event.MouseAdapter() {
+                @Override
+                public void mouseClicked(java.awt.event.MouseEvent evt) {
+                    notifyObservers("click_player");
+                }
+            });
+            
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+     
+     public void refresh() {
+        loadAvatarImage();
+        repaint();
     }
     
     /* public void drawPlayer() {
@@ -63,12 +80,30 @@ public class PlayerView extends JPanel{
       @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-        Graphics2D g2d = (Graphics2D) g.create();
+
+        if (playerImage != null) {
+            Graphics2D g2d = (Graphics2D) g.create();
             g2d.drawImage(playerImage, 0, 0, this);
             g2d.dispose();
+        }
+    
         /*if (player != null) {
             g.drawImage(player, playerModel.getCordX(), playerModel.getCordY(), null);
         }*/
+    }
+    
+    public void addObserver(Observer observer) {
+        observers.add(observer);
+    }
+
+    public void removeObserver(Observer observer) {
+        observers.remove(observer);
+    }
+
+    public void notifyObservers(String message) {
+        for (Observer observer : observers) {
+            observer.update(message);
+        }
     }
     
 }

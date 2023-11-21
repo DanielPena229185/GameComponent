@@ -92,6 +92,7 @@ public class MatchModel {
             
             this.pool.createDominoTiles();
             this.match.distributeTiles();
+            JOptionPane.showMessageDialog(null, this.pool.getTiles().size());
         } catch (PoolException ex) {
             Logger.getLogger(MatchModel.class.getName()).log(Level.SEVERE, null, ex);
         } catch (MatchException ex) {

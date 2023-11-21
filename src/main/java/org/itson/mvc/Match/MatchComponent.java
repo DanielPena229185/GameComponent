@@ -38,9 +38,13 @@ public class MatchComponent {
     public void suscribeToBoardView(MatchGame match){
         this.boardComponent.suscribeToView(match);
     }
-    
+
     public Player[] getPlayersOnGame(){
        return matchController.getPlayersOnGame();
+    }
+    public void suscribeToPlayerView(MatchGame match){//suscribirse nomas componente
+        this.playerComponent.suscribeToView(match);
+
     }
     
     public Tile getTileFromPool() {
@@ -86,6 +90,10 @@ public class MatchComponent {
         this.poolComponent.refresh();
     }
     
+    public void paintPlayer(){
+        this.playerComponent.refreshPlayer();
+    }
+    
     public void buildGame() {
         this.matchController.buildGame();
         
@@ -93,6 +101,10 @@ public class MatchComponent {
 
     public MatchView getMatchView() {
         return matchView;
+    }
+    
+    public int getTilesSize(){
+        return this.matchModel.getPool().getTiles().size();
     }
 
 }

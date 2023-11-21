@@ -4,8 +4,8 @@
  */
 package org.itson.mvc.player;
 
-import org.itson.domaincomponent.domain.Player;
 import org.itson.domaincomponent.domain.Tile;
+import org.itson.game.MatchGame;
 
 /**
  *
@@ -13,21 +13,24 @@ import org.itson.domaincomponent.domain.Tile;
  */
 public class PlayerComponent {
     
- private static PlayerComponent playerComponent;
+ //private static PlayerComponent playerComponent;
     PlayerView playerView;
     PlayerModel playerModel;
     PlayerController playerController;
     
     public PlayerComponent() {
-         this.playerModel = new PlayerModel();
+         this.playerModel = new PlayerModel(100, 50, 90, 550);
         this.playerView = new PlayerView(playerModel);
         this.playerController = new PlayerController(playerModel, playerView);
+    }
+    
+    public void suscribeToView(MatchGame match){
+        this.playerController.suscribeToView(match);
     }
 
     public void addTileToPlayerList(Tile tile){
         this.playerController.addTileToPlayerList(tile);
     }
-    
     
     public PlayerView getPlayerView() {
         return playerView;
@@ -40,7 +43,11 @@ public class PlayerComponent {
         return playerController;
     }
     
-    public static PlayerComponent getInstance() {
+    public void refreshPlayer(){
+        this.playerView.refresh();
+    }
+    
+    /*public static PlayerComponent getInstance() {
         if (playerComponent == null) {
             playerComponent = new PlayerComponent();
         }
@@ -49,5 +56,5 @@ public class PlayerComponent {
     
     public PlayerComponent createPlayerComponent(){
         return playerComponent;
-    }
+    }*/
 }

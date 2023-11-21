@@ -28,7 +28,7 @@ public class PoolComponent {
     }
     
     public void suscribeToView(MatchGame match){
-        this.poolController.suscribeToView(match);
+        this.poolController.suscribe(match);
     }
     
     public Tile getTileFromPool(){
