@@ -39,7 +39,7 @@ public class MatchComponent {
         this.boardComponent.suscribeToView(match);
     }
     
-    public void suscribeToPlayerView(MatchGame match){
+    public void suscribeToPlayerView(MatchGame match){//suscribirse nomas componente
         this.playerComponent.suscribeToView(match);
     }
     
