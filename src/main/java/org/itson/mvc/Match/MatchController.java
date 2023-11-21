@@ -27,7 +27,8 @@ public class MatchController {
     }
     
     public void buildGame(){
-        this.matchModel.buildGame();   
+        this.matchModel.buildGame();  
+        this.matchModel.printPlayersTiles();
     }
   
     

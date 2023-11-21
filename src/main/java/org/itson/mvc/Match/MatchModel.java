@@ -6,6 +6,7 @@ package org.itson.mvc.Match;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import org.itson.domaincomponent.domain.Board;
 import org.itson.domaincomponent.domain.Match;
 import org.itson.domaincomponent.domain.Player;
@@ -61,18 +62,32 @@ public class MatchModel {
     
     
     
-    public void buildGame() {
-
+    public void printPlayersTiles(){
+        for (int i = 0; i < this.players.length; i++) {
+            JOptionPane.showMessageDialog(null , "" + this.players.length);
+            System.out.println("Player: " + this.players[i].getName());
+            for (int j = 0; j <  this.players[i].getTiles().size(); j++) {
+                System.out.println("Tile id: " +  this.players[i].getTiles().get(j).getId() + " Value 1: " + this.players[i].getTiles().get(j).getFirstFace().getValue() + " Value 2: " + this.players[i].getTiles().get(j).getSecondFace().getValue());
+            }
+        }
+    }
+    
+      public void buildGame() {
+          
         try {
+            
+            //Generamos jugadores para probar
             for (int i = 0; i < 4; i++) {
                 if (this.players[i] == null) {
-                    this.players[i] = new Player("Pepito " + i);
+                    this.players[i] = new Player("Player N. " + i);
                     
                 }
             }
+            
+            
             this.board = Board.getInstance();
             this.pool = Pool.getInstance();
-            this.match = new Match(players, board, pool, 2);
+            this.match = new Match(players, board, pool, 7);
             
             
             this.pool.createDominoTiles();

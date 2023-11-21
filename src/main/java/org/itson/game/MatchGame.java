@@ -14,9 +14,10 @@ public class MatchGame implements Observer{
     
     public MatchComponent matchesComponent;
     private Tile playerTileSelected;
+    private Player player;
     
-    
-    public MatchGame() {
+    public MatchGame(Player player) {
+        this.player = player;
         this.matchesComponent = new MatchComponent();
     }
     
@@ -38,6 +39,10 @@ public class MatchGame implements Observer{
         this.matchesComponent.suscribeToPoolView(this);
     }
     
+    
+    public void buildGame(){
+        this.matchesComponent.buildGame();
+    }
     
     
     //Metodos generales

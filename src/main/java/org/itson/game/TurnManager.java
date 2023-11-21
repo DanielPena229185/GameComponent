@@ -18,13 +18,22 @@ public class TurnManager {
     private int actualTurn;
 
     public void generateTurns(Player[] players) {
-        playersTurnsList.clear(); // Limpia el HashMap de jugadores y turnos
-
-        // Asigna turnos aleatorios
+        
+        /*
+        Si la lista contiene algun dato al generar lus turnos, la lista se limpia
+        */
+        if(playersTurnsList != null){
+            playersTurnsList.clear();
+        } 
+        
+        /*
+        Aqui se mantienen los turnos y cuando se agreguen a un jugador se iran eliminando
+        */
         List<Integer> availableTurns = new ArrayList<>();
         for (int i = 1; i <= players.length; i++) {
             availableTurns.add(i);
         }
+        
         Collections.shuffle(availableTurns, new Random());
 
         for (Player player : players) {
@@ -34,6 +43,7 @@ public class TurnManager {
 
         // Ordena la lista por los turnos asignados en orden inverso
         List<Map.Entry<Player, Integer>> sortedList = new ArrayList<>(playersTurnsList.entrySet());
+        
         sortedList.sort(Comparator.comparing(Map.Entry::getValue, Comparator.reverseOrder()));
 
         // Limpia el HashMap y vuelve a agregar los elementos ordenados
@@ -45,7 +55,7 @@ public class TurnManager {
 
     public void setTurnToPlayer(Player player, Integer turn) {
         playersTurnsList.put(player, turn);
-        sortPlayersByTurn(); // Llama a un método para mantener la lista ordenada
+        sortPlayersByTurn();
     }
 
     private void sortPlayersByTurn() {
