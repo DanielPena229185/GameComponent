@@ -4,7 +4,9 @@
  */
 package org.itson.mvc.Match;
 
+import org.itson.domaincomponent.domain.Player;
 import org.itson.game.MatchGame;
+import org.itson.game.TurnManager;
 
 /**
  *
@@ -16,11 +18,19 @@ public class NewMain {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        MatchGame mtc = new MatchGame();
+        MatchGame mtc = new MatchGame(new Player("Test Player"));
+        
+       mtc.buildGame();
+      // mtc.suscribeToPoolView();
+       
+       
+              TurnManager trn = new TurnManager();
+        
+        trn.generateTurns(mtc.getPlayersOnGame());
+        
+        trn.printTurns();
         
        
-       mtc.suscribeToPoolView();
-
       // mtc.getPoolView().simulatePanelClick();
         
     }

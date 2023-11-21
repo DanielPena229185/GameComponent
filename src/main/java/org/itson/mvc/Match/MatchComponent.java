@@ -22,7 +22,7 @@ public class MatchComponent {
     private BoardComponent boardComponent;
 
     public MatchComponent() {
-        this.matchModel = new MatchModel(new Match(new Player[4], Board.getInstance(), Pool.getInstance(), 2), Board.getInstance(), Pool.getInstance(), new Player[4]);
+        this.matchModel = new MatchModel(new Match(new Player[4], Board.getInstance(), Pool.getInstance(), 7), Board.getInstance(), Pool.getInstance(), new Player[4]);
         this.matchView = new MatchView(matchModel);
         this.matchController = new MatchController(matchModel, matchView);
         this.poolComponent = new PoolComponent();
@@ -38,9 +38,13 @@ public class MatchComponent {
     public void suscribeToBoardView(MatchGame match){
         this.boardComponent.suscribeToView(match);
     }
-    
+
+    public Player[] getPlayersOnGame(){
+       return matchController.getPlayersOnGame();
+    }
     public void suscribeToPlayerView(MatchGame match){//suscribirse nomas componente
         this.playerComponent.suscribeToView(match);
+
     }
     
     public Tile getTileFromPool() {
@@ -92,6 +96,7 @@ public class MatchComponent {
     
     public void buildGame() {
         this.matchController.buildGame();
+        
     }
 
     public MatchView getMatchView() {

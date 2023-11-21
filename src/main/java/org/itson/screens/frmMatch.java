@@ -8,6 +8,7 @@ import java.awt.Graphics;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
+import org.itson.domaincomponent.domain.Player;
 
 import org.itson.domaincomponent.domain.Tile;
 import org.itson.domaincomponent.exceptions.PoolException;
@@ -22,14 +23,16 @@ public class frmMatch extends javax.swing.JFrame {
 
     private static frmMatch matchInstance;
 
-    private MatchGame match = new MatchGame();
+    private MatchGame match;
 
     public frmMatch() {
 
-        initComponents();
+
+        this.match = new MatchGame(new Player("Test Player"));
         match.buildGame();
         
         match.getTilesSize();
+
         
         match.suscribeToBoardView();
 
