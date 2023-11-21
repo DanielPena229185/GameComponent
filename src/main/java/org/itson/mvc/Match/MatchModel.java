@@ -6,6 +6,7 @@ package org.itson.mvc.Match;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import org.itson.domaincomponent.domain.Board;
 import org.itson.domaincomponent.domain.Match;
 import org.itson.domaincomponent.domain.Player;
@@ -73,6 +74,7 @@ public class MatchModel {
             
             this.pool.createDominoTiles();
             this.match.distributeTiles();
+            JOptionPane.showMessageDialog(null, this.pool.getTiles().size());
         } catch (PoolException ex) {
             Logger.getLogger(MatchModel.class.getName()).log(Level.SEVERE, null, ex);
         } catch (MatchException ex) {

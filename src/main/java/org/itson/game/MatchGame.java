@@ -17,11 +17,20 @@ public class MatchGame implements Observer{
         this.matchesComponent = new MatchComponent();
     }
     
+    public void buildGame(){
+        this.matchesComponent.buildGame();
+    }
+    
+    public int getTilesSize(){
+        return matchesComponent.getTilesSize();
+    }
     
       @Override
     public void update(String message) {
         if ("click_event".equals(message)) {
-            JOptionPane.showMessageDialog(null, "You take a tile from pool.");
+            //JOptionPane.showMessageDialog(null, "You take a tile from pool.");
+            JOptionPane.showMessageDialog(null, getTileFromPool().getFirstFace().getValue() + ":" + getTileFromPool().getSecondFace().getValue());
+            JOptionPane.showMessageDialog(null, "Quedan: "+ getTilesSize() + "fichas.");
         }
     }
  

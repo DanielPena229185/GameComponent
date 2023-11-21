@@ -89,5 +89,9 @@ public class MatchComponent {
     public MatchView getMatchView() {
         return matchView;
     }
+    
+    public int getTilesSize(){
+        return this.matchModel.getPool().getTiles().size();
+    }
 
 }
