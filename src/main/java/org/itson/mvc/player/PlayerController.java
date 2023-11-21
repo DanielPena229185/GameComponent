@@ -24,7 +24,7 @@ public class PlayerController {
     }
     
     public void addTileToPlayerList(Tile tile){
-        JOptionPane.showMessageDialog(null, tile.getFirstFace().getValue() + " " + tile.getSecondFace().getValue());
+        //JOptionPane.showMessageDialog(null, tile.getFirstFace().getValue() + " " + tile.getSecondFace().getValue());
         this.playerModel.addTile(tile); 
         //playerview refresh; 
     }

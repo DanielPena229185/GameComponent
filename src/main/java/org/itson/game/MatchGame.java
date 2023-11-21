@@ -29,8 +29,10 @@ public class MatchGame implements Observer{
     public void update(String message) {
         if ("click_event".equals(message)) {
             //JOptionPane.showMessageDialog(null, "You take a tile from pool.");
-            JOptionPane.showMessageDialog(null, getTileFromPool().getFirstFace().getValue() + ":" + getTileFromPool().getSecondFace().getValue());
+            Tile tile = getTileFromPool();
+            JOptionPane.showMessageDialog(null, tile.getFirstFace().getValue() + ":" + tile.getSecondFace().getValue());
             JOptionPane.showMessageDialog(null, "Quedan: "+ getTilesSize() + "fichas.");
+            addTileToPlayerList(tile);
         }
     }
  
@@ -47,8 +49,9 @@ public class MatchGame implements Observer{
         return matchesComponent.getTileFromPool();
     }
     
-    public void addTileToPlayerList() {
-        this.matchesComponent.addTileToPlayer(getTileFromPool());
+    public void addTileToPlayerList(Tile tile) {
+        this.matchesComponent.addTileToPlayer(tile);
+        JOptionPane.showMessageDialog(null, tile.getFirstFace().getValue() + ":" + tile.getSecondFace().getValue());
     }
     
     public void createDominoTiles(){
