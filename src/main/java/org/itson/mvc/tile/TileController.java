@@ -2,6 +2,7 @@ package org.itson.mvc.tile;
 
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 import org.itson.classes.DomainMatch;
 import org.itson.classes.DomainPool;
@@ -19,12 +20,11 @@ public class TileController extends MouseAdapter {
         this.tileView = tileView;
     }
     
-    @Override
+   @Override
     public void mouseClicked(MouseEvent e) {
-        System.out.println(e.getX() + " " + e.getY());
         tileModel.setCordX(e.getX() - 50);
         tileModel.setCordY(e.getY() - 120);
-
+        
         SwingUtilities.invokeLater(() -> {
             tileView.drawTile();
         });

@@ -7,6 +7,7 @@ package org.itson.mvc.tile;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -14,9 +15,9 @@ import javax.imageio.ImageIO;
 import javax.swing.JPanel;
 
 public class TileView extends JPanel {
+
     private TileModel tileModel;
     private BufferedImage tile;
-    private BufferedImage fondo;
     private BufferedImage firstFaceImage; // Imagen de la primera cara
     private BufferedImage secondFaceImage; // Imagen de la segunda cara
 
@@ -31,30 +32,37 @@ public class TileView extends JPanel {
         try {
             firstFaceImage = ImageIO.read(new File(tileModel.getFirstFacePath()));
             secondFaceImage = ImageIO.read(new File(tileModel.getSecondFacePath()));
-            fondo = ImageIO.read(new File("src/main/resources/match/Fondo.jpeg"));
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
-
+    
     public void drawTile() {
-        // Verifica que las imágenes estén cargadas antes de dibujar
-        if (firstFaceImage != null && secondFaceImage != null) {
-            tile = new BufferedImage(tileModel.getWidth(), tileModel.getHeight(), BufferedImage.TYPE_INT_ARGB);
-            Graphics2D g2d = tile.createGraphics();
-            g2d.drawImage(firstFaceImage, 0, 0, null);
-            g2d.drawImage(secondFaceImage, 0, firstFaceImage.getHeight(), null);
-            g2d.dispose();
-            repaint();
-        }
-    }
+    // Verifica que las imágenes estén cargadas antes de dibujar
+    if (firstFaceImage != null && secondFaceImage != null) {
+        tile = new BufferedImage(tileModel.getWidth(), tileModel.getHeight(), BufferedImage.TYPE_INT_ARGB);
+        Graphics2D g2d = tile.createGraphics();
 
+   
+        Image scaledFirstFaceImage = firstFaceImage.getScaledInstance(
+            tileModel.getWidth(), tileModel.getHeight() / 3, Image.SCALE_SMOOTH
+        );
+
+        Image scaledSecondFaceImage = secondFaceImage.getScaledInstance(
+            tileModel.getWidth(), tileModel.getHeight() / 3, Image.SCALE_SMOOTH
+        );
+
+        g2d.drawImage(scaledFirstFaceImage, 0, 0, null);
+        g2d.drawImage(scaledSecondFaceImage, 0, tileModel.getHeight() / 3, null);
+
+        g2d.dispose();
+        repaint();
+    }
+}
+    
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-        if (fondo != null) {
-            g.drawImage(fondo, 0, 0, null);
-        }
         if (tile != null) {
             g.drawImage(tile, tileModel.getCordX(), tileModel.getCordY(), null);
         }
@@ -65,4 +73,3 @@ public class TileView extends JPanel {
         return new Dimension(1280, 720);
     }
 }
-

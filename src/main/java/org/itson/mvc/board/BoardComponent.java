@@ -1,0 +1,44 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package org.itson.mvc.board;
+
+import org.itson.game.MatchGame;
+
+/**
+ *
+ * @author PC
+ */
+public class BoardComponent {
+    BoardController boardController;
+    BoardModel boardModel;
+    BoardView boardView;
+    
+    public BoardComponent() {
+        boardModel = new BoardModel(730, 630, 0, 0);
+        boardView = new BoardView(boardModel);
+        boardController = new BoardController(boardView, boardModel);
+    }
+    
+    public void suscribeToView(MatchGame match){
+        this.boardController.suscribeToView(match);
+    }
+
+    public BoardModel getBoardModel(){
+        return boardModel;
+    }
+    
+    public BoardController getBoardController() {
+        return boardController;
+    }
+
+   
+    public BoardView getBoardView() {
+        return boardView;
+    }
+    
+    public void refreshBoard(){
+        this.boardView.refresh();
+    }
+}

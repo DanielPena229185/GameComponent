@@ -1,13 +1,39 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package org.itson.classes;
 
-/**
- *
- * @author PC
- */
+import org.itson.domaincomponent.domain.Board;
+
 public class DomainBoard {
+
+    private Board board;
+
+    public DomainBoard() {
+        this.board = Board.getInstance();
+    }
+     
     
+    public void addTileBeginning() {
+
+    }
+
+    public void addTileBeginningForMule() {
+
+    }
+
+    public void addTileBeginningNonMule() {
+
+    }
+
+    public void addTileEnd() {
+
+    }
+
+    public void addTileEndForMule() {
+
+    }
+    
+     public void addTileEndForNonMule(){
+        
+    }
+     
+
 }
