@@ -7,6 +7,7 @@ package org.itson.mvc.player;
 import java.util.LinkedList;
 import javax.swing.JOptionPane;
 import org.itson.domaincomponent.domain.Tile;
+import org.itson.game.MatchGame;
 
 /**
  *
@@ -21,6 +22,10 @@ public class PlayerController {
     public PlayerController(PlayerModel playerModel, PlayerView playerView) {
         this.playerModel = playerModel;
         this.playerView = playerView;
+    }
+    
+    public void suscribeToView(MatchGame match){
+        this.playerView.addObserver(match);
     }
     
     public void addTileToPlayerList(Tile tile){
@@ -38,7 +43,7 @@ public class PlayerController {
     }
     
     public void refreshPlayerView(){
-        playerView.repaint();   
+        playerView.refresh();   
     }
     
 }

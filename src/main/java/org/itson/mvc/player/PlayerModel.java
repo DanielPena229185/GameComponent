@@ -28,16 +28,20 @@ public class PlayerModel {
     
     public int turn;
     
-    private int width= 100;
+    private int width;//= 100;
     
-    private int height= 100;
+    private int height;//= 100;
     
-    private int CordX= 0;
+    private int coordX;//= 0;
     
-    private int CordY= 0;
+    private int coordY;//= 0;
 
     
-    public PlayerModel() {
+    public PlayerModel(int width, int height, int coordX, int coordY) {
+        this.width = width;
+        this.height = height;
+        this.coordX = coordX;
+        this.coordY = coordY;
     }
 
     public PlayerModel(Player player, String avatarSelected) {
@@ -81,12 +85,12 @@ public class PlayerModel {
         return height;
     }
 
-    public int getCordX() {
-        return CordX;
+    public int getCoordX() {
+        return coordX;
     }
 
-    public int getCordY() {
-        return CordY;
+    public int getCoordY() {
+        return coordY;
     }
     
     public String getAvatarPath() {

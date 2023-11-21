@@ -7,6 +7,7 @@ import org.itson.interfaces.Observer;
 import org.itson.mvc.Match.MatchComponent;
 import org.itson.mvc.Pool.PoolView;
 import org.itson.mvc.board.BoardView;
+import org.itson.mvc.player.PlayerView;
 
 public class MatchGame implements Observer{
     
@@ -33,6 +34,8 @@ public class MatchGame implements Observer{
             JOptionPane.showMessageDialog(null, tile.getFirstFace().getValue() + ":" + tile.getSecondFace().getValue());
             JOptionPane.showMessageDialog(null, "Quedan: "+ getTilesSize() + "fichas.");
             addTileToPlayerList(tile);
+        } else if("click_event".equals(message)){
+            
         }
     }
  
@@ -44,6 +47,9 @@ public class MatchGame implements Observer{
         this.matchesComponent.suscribeToPoolView(this);
     }
     
+    public void suscribeToPlayerView(){
+        this.matchesComponent.suscribeToPlayerView(this);
+    }
     
     public Tile getTileFromPool() {
         return matchesComponent.getTileFromPool();
@@ -69,6 +75,10 @@ public class MatchGame implements Observer{
     
     public PoolView getPoolView(){
         return matchesComponent.getPoolComponent().getView();
+    }
+    
+    public PlayerView getPlayerView(){
+        return matchesComponent.getPlayerComponent().getPlayerView();
     }
     
     /*public Tile getTileSelected(){
