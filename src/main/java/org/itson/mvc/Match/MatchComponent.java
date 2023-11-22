@@ -12,6 +12,7 @@ import org.itson.mvc.board.BoardComponent;
 import org.itson.mvc.board.BoardView;
 import org.itson.mvc.player.PlayerComponent;
 import org.itson.game.MatchGame;
+import org.itson.mvc.tile.TileComponent;
 public class MatchComponent {
 
     private MatchModel matchModel;
@@ -20,6 +21,7 @@ public class MatchComponent {
     private PoolComponent poolComponent;
     private PlayerComponent playerComponent;
     private BoardComponent boardComponent;
+    private TileComponent tileComponent;
 
     public MatchComponent() {
         this.matchModel = new MatchModel(new Match(new Player[4], Board.getInstance(), Pool.getInstance(), 7), Board.getInstance(), Pool.getInstance(), new Player[4]);
@@ -51,7 +53,7 @@ public class MatchComponent {
         return this.poolComponent.getController().getTileFromPool();
     }
 
-    public void addTileToPlayer(Tile tile) {
+    public void addTileToPlayer(TileComponent tile) {
         this.playerComponent.addTileToPlayerList(tile);
     }
 
@@ -79,7 +81,9 @@ public class MatchComponent {
         return boardComponent;
     }
 
-
+    public TileComponent getTileComponent(){
+        return tileComponent;
+    }
     
     public void paintBoard(){
         this.boardComponent.refreshBoard();

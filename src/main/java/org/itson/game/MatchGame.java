@@ -9,6 +9,7 @@ import org.itson.mvc.Match.MatchComponent;
 import org.itson.mvc.Pool.PoolView;
 import org.itson.mvc.board.BoardView;
 import org.itson.mvc.player.PlayerView;
+import org.itson.mvc.tile.TileComponent;
 
 public class MatchGame implements Observer{
     
@@ -34,8 +35,8 @@ public class MatchGame implements Observer{
     public void update(String message) {
         if ("click_event".equals(message)) {
             //JOptionPane.showMessageDialog(null, "You take a tile from pool.");
-            Tile tile = getTileFromPool();
-            JOptionPane.showMessageDialog(null, tile.getFirstFace().getValue() + ":" + tile.getSecondFace().getValue());
+            TileComponent tile = getTileComponent();
+            //JOptionPane.showMessageDialog(null, tile.getFirstFace().getValue() + ":" + tile.getSecondFace().getValue());
             JOptionPane.showMessageDialog(null, "Quedan: "+ getTilesSize() + "fichas.");
             addTileToPlayerList(tile);
         } else if("click_event".equals(message)){
@@ -57,9 +58,9 @@ public class MatchGame implements Observer{
         this.matchesComponent.suscribeToPlayerView(this);
     }
     
-    public void buildGame(){
+    /*public void buildGame(){
         this.matchesComponent.buildGame();
-    }
+    }*/
     
     
     //Metodos generales
@@ -72,9 +73,9 @@ public class MatchGame implements Observer{
         return this.matchesComponent.getPlayersOnGame();
     }
     
-    public void addTileToPlayerList(Tile tile) {
+    public void addTileToPlayerList(TileComponent tile) {
         this.matchesComponent.addTileToPlayer(tile);
-        JOptionPane.showMessageDialog(null, tile.getFirstFace().getValue() + ":" + tile.getSecondFace().getValue());
+        //JOptionPane.showMessageDialog(null, tile.getFirstFace().getValue() + ":" + tile.getSecondFace().getValue());
     }
     
     public void createDominoTiles(){
@@ -96,6 +97,10 @@ public class MatchGame implements Observer{
     
     public PlayerView getPlayerView(){
         return matchesComponent.getPlayerComponent().getPlayerView();
+    }
+    
+    public TileComponent getTileComponent(){
+        return matchesComponent.getTileComponent();
     }
     
 }

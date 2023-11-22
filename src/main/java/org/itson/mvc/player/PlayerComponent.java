@@ -28,7 +28,7 @@ public class PlayerComponent {
         this.playerController.suscribeToView(match);
     }
 
-    public void addTileToPlayerList(Tile tile){
+    public void addTileToPlayerList(TileComponent tile){
         this.playerController.addTileToPlayerList(tile);
     }
     
