@@ -4,10 +4,9 @@
  */
 package org.itson.mvc.player;
 
-import java.util.LinkedList;
-import javax.swing.JOptionPane;
 import org.itson.domaincomponent.domain.Tile;
 import org.itson.game.MatchGame;
+import org.itson.mvc.tile.TileComponent;
 
 /**
  *
@@ -28,7 +27,7 @@ public class PlayerController {
         this.playerView.addObserver(match);
     }
     
-    public void addTileToPlayerList(Tile tile){
+    public void addTileToPlayerList(TileComponent tile){
         //JOptionPane.showMessageDialog(null, tile.getFirstFace().getValue() + " " + tile.getSecondFace().getValue());
         this.playerModel.addTile(tile); 
         //playerview refresh; 
@@ -38,7 +37,7 @@ public class PlayerController {
         return this.playerModel.getPlayer().isTurn();
     }
     
-    public Tile getTileFromList(Tile tile){
+    public TileComponent getTileFromList(TileComponent tile){
         return this.playerModel.removeTile(tile);
     }
     

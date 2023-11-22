@@ -87,7 +87,7 @@ public class MatchModel {
             
             this.board = Board.getInstance();
             this.pool = Pool.getInstance();
-            this.match = new Match(players, board, pool, 7);
+            this.match = new Match(players, board, pool, 3);
             
             
             this.pool.createDominoTiles();

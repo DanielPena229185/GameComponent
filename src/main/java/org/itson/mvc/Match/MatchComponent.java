@@ -49,7 +49,7 @@ public class MatchComponent {
 
     }
     
-    public Tile getTileFromPool() {
+    public TileComponent getTileFromPool() {
         return this.poolComponent.getController().getTileFromPool();
     }
 
@@ -65,7 +65,7 @@ public class MatchComponent {
         return this.playerComponent.getPlayerController().getTurn();
     }
 
-    public Tile getTileSelected(Tile tile) {
+    public TileComponent getTileSelected(TileComponent tile) {
         return this.playerComponent.getPlayerController().getTileFromList(tile);
     }
 

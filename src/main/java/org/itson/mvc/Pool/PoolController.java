@@ -5,13 +5,11 @@
 package org.itson.mvc.Pool;
 
 import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import java.util.List;
-import javax.swing.SwingUtilities;
-import org.itson.domaincomponent.domain.Tile;
 import org.itson.game.MatchGame;
 import org.itson.interfaces.Observer;
+import org.itson.mvc.tile.TileComponent;
 
 
 /**
@@ -37,7 +35,7 @@ public class PoolController  extends MouseAdapter {
         this.poolModel.createDominoTiles();
     }
     
-    public Tile getTileFromPool(){
+    public TileComponent getTileFromPool(){
        return this.poolModel.pickTileFromTilesList();
     }
     

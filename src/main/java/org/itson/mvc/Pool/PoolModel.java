@@ -7,11 +7,11 @@ package org.itson.mvc.Pool;
 import java.util.LinkedList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import org.itson.classes.DomainPool;
 import org.itson.domaincomponent.domain.Pool;
 import org.itson.domaincomponent.domain.Tile;
 import org.itson.domaincomponent.exceptions.PoolException;
 import org.itson.enums.ImagesSourcers;
+import org.itson.mvc.tile.TileComponent;
 
 /**
  *
@@ -19,7 +19,7 @@ import org.itson.enums.ImagesSourcers;
  */
 public class PoolModel {
 
-    private LinkedList<Tile> tiles;
+    private LinkedList<TileComponent> tiles;
     private String poolImagePath;
     private int coordX;
     private int coordY;
@@ -35,12 +35,16 @@ public class PoolModel {
         this.coordY = coordY;//260;
     }
 
-    public LinkedList<Tile> getTiles() {
+    public LinkedList<TileComponent> getTiles() {
         return tiles;
     }
 
     public void setTiles(LinkedList<Tile> tiles) {
-        this.tiles = tiles;
+        for (Tile tile : tiles) {
+            this.getTiles().add(new TileComponent(tile));
+        }
+        
+     //   this.tiles = tiles;
     }
 
     public int getWidth() {
@@ -91,13 +95,13 @@ public class PoolModel {
         }
     }
 
-    public Tile pickTileFromTilesList() {
+    public TileComponent pickTileFromTilesList() {
         try {
 
             Tile tile = Pool.getInstance().getRandomTile();
-
-            this.tiles.remove(tile);
-            return tile;
+            
+            this.tiles.remove(new TileComponent(tile));
+            return new TileComponent(tile);
         } catch (PoolException ex) {
             Logger.getLogger(PoolModel.class.getName()).log(Level.SEVERE, null, ex);
         }

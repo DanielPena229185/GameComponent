@@ -27,7 +27,8 @@ public class frmMatch extends javax.swing.JFrame {
 
     public frmMatch() {
 
-
+        initComponents();
+        
         this.match = new MatchGame(new Player("Test Player"));
         match.buildGame();
         

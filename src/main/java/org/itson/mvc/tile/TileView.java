@@ -37,7 +37,7 @@ public class TileView extends JPanel {
         }
     }
     
-    public void drawTile() {
+    public void refresh() {
     // Verifica que las imágenes estén cargadas antes de dibujar
     if (firstFaceImage != null && secondFaceImage != null) {
         tile = new BufferedImage(tileModel.getWidth(), tileModel.getHeight(), BufferedImage.TYPE_INT_ARGB);
@@ -64,7 +64,7 @@ public class TileView extends JPanel {
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
         if (tile != null) {
-            g.drawImage(tile, tileModel.getCordX(), tileModel.getCordY(), null);
+            g.drawImage(tile, 90, 550, null);
         }
     }
 

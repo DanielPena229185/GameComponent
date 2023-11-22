@@ -8,6 +8,7 @@ import java.util.LinkedList;
 import org.itson.domaincomponent.domain.Player;
 import org.itson.domaincomponent.domain.Tile;
 import org.itson.enums.ImagesSourcers;
+import org.itson.mvc.tile.TileComponent;
 
 /**
  *
@@ -24,7 +25,7 @@ public class PlayerModel {
     
     private String name;
     
-    public LinkedList<Tile> tiles = new LinkedList<>();
+    public LinkedList<TileComponent> tiles = new LinkedList<>();
     
     public int turn;
     
@@ -97,20 +98,20 @@ public class PlayerModel {
         return avatarPath;
     }
     
-    public Tile addTile(Tile tile){
+    public TileComponent addTile(TileComponent tile){
          this.getTiles().add(tile);
         return tile;
     }
 
-    public LinkedList<Tile> getTiles() {
+    public LinkedList<TileComponent> getTiles() {
         return tiles;
     }
 
-    public void setTiles(LinkedList<Tile> tiles) {
+    public void setTiles(LinkedList<TileComponent> tiles) {
         this.tiles = tiles;
     }
     
-    public Tile removeTile(Tile tile){
+    public TileComponent removeTile(TileComponent tile){
         this.tiles.remove(tile);
         return tile;
     }    

@@ -35,7 +35,8 @@ public class MatchGame implements Observer{
     public void update(String message) {
         if ("click_event".equals(message)) {
             //JOptionPane.showMessageDialog(null, "You take a tile from pool.");
-            TileComponent tile = getTileComponent();
+            TileComponent tile = getTileFromPool();
+            
             //JOptionPane.showMessageDialog(null, tile.getFirstFace().getValue() + ":" + tile.getSecondFace().getValue());
             JOptionPane.showMessageDialog(null, "Quedan: "+ getTilesSize() + "fichas.");
             addTileToPlayerList(tile);
@@ -65,7 +66,7 @@ public class MatchGame implements Observer{
     
     //Metodos generales
 
-    public Tile getTileFromPool() {
+    public TileComponent getTileFromPool() {
         return matchesComponent.getTileFromPool();
     }
 
@@ -75,6 +76,7 @@ public class MatchGame implements Observer{
     
     public void addTileToPlayerList(TileComponent tile) {
         this.matchesComponent.addTileToPlayer(tile);
+        this.matchesComponent.getPlayerComponent().getPlayerView().refresh();
         //JOptionPane.showMessageDialog(null, tile.getFirstFace().getValue() + ":" + tile.getSecondFace().getValue());
     }
     

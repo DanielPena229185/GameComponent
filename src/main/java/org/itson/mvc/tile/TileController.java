@@ -20,14 +20,12 @@ public class TileController extends MouseAdapter {
         this.tileView = tileView;
     }
     
-   @Override
-    public void mouseClicked(MouseEvent e) {
-        tileModel.setCordX(e.getX() - 50);
-        tileModel.setCordY(e.getY() - 120);
-        
-        SwingUtilities.invokeLater(() -> {
-            tileView.drawTile();
-        });
+   public void refresh(){
+       this.tileView.refresh();
+   }
+    
+    public Tile getTile(){
+        return this.tileModel.getTile();
     }
 
 

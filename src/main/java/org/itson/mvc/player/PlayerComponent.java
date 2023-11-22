@@ -6,6 +6,7 @@ package org.itson.mvc.player;
 
 import org.itson.domaincomponent.domain.Tile;
 import org.itson.game.MatchGame;
+import org.itson.mvc.tile.TileComponent;
 
 /**
  *
