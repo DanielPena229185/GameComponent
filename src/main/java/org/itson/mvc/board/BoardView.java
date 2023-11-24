@@ -8,6 +8,8 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import org.itson.enums.CustomEvents;
@@ -24,25 +26,20 @@ public class BoardView extends JPanel {
     public BoardView(BoardModel boardModel) {
         this.boardModel = boardModel;
         loadBoardImage();
+
         setPreferredSize(new Dimension(630, 500));
     }
 
     private void loadBoardImage() {
+   
         try {
             boardImage = ImageIO.read(new File(boardModel.getBoardImagePath()));
             boardWidth = 630;
             boardHeight = 500;
-
-            this.addMouseListener(new java.awt.event.MouseAdapter() {
-                @Override
-                public void mouseClicked(java.awt.event.MouseEvent evt) {
-                    notifyObservers(CustomEvents.RIGHT_CLICK_EVENT);
-                }
-            });
-
-        } catch (IOException e) {
-            e.printStackTrace();
+        } catch (IOException ex) {
+            Logger.getLogger(BoardView.class.getName()).log(Level.SEVERE, null, ex);
         }
+
     }
 
     public void refresh() {

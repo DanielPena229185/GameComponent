@@ -62,7 +62,7 @@ public class frmMatch extends javax.swing.JFrame {
     }
 
     public void paintBoardOnGamePanel() {
-        gamePanel.add(this.match.getBoardView(), new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 110, -1, -1));
+        gamePanel.add(this.match.getBoardView(), new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 30, -1, -1));
         this.match.matchesComponent.paintBoard();
     }
 

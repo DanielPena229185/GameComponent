@@ -23,7 +23,7 @@ public class PlayerView extends JPanel {
         setPreferredSize(new Dimension(1010, 110));
         setLayout(new FlowLayout());  // Establece un FlowLayout para el panel
         loadAvatarImage();
-        this.setBackground(Color.RED);setOpaque(false); // Configura el panel como no opaco
+        this.setBackground(Color.RED);
 
     }
 
@@ -36,7 +36,7 @@ public void paintTiles() {
         for (TileComponent tile : this.playerModel.getTiles()) {
             if (tile != null && tile.getTile() != null) {
                 // Establecer el tamaño deseado
-                Dimension tileSize = new Dimension(50, playerModel.getHeight());
+                Dimension tileSize = new Dimension(75, 80);
                 tile.getTileView().setPreferredSize(tileSize);
                 // Añadir TileView al panel
                 this.add(tile.getTileView());
