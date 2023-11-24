@@ -5,7 +5,6 @@
 package org.itson.mvc.tile;
 
 import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Image;
@@ -27,7 +26,7 @@ public class TileView extends JPanel {
         // Carga las imágenes de las caras de la ficha en el constructor
         loadFaceImages();
       
-        this.setBackground(Color.BLUE);
+        this.setBackground(Color.BLACK);
         
     }
 

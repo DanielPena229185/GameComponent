@@ -1,16 +1,12 @@
 package org.itson.mvc.Match;
 
-import java.util.LinkedList;
 import org.itson.domaincomponent.domain.Board;
 import org.itson.domaincomponent.domain.Match;
 import org.itson.domaincomponent.domain.Player;
 import org.itson.domaincomponent.domain.Pool;
-import org.itson.domaincomponent.domain.Tile;
 import org.itson.domaincomponent.exceptions.PoolException;
 import org.itson.mvc.Pool.PoolComponent;
-import org.itson.mvc.Pool.PoolView;
 import org.itson.mvc.board.BoardComponent;
-import org.itson.mvc.board.BoardView;
 import org.itson.mvc.player.PlayerComponent;
 import org.itson.game.MatchGame;
 import org.itson.mvc.tile.TileComponent;
