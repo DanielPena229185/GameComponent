@@ -20,6 +20,7 @@ import org.itson.mvc.tile.TileComponent;
 public class PoolModel {
 
     private LinkedList<TileComponent> tiles;
+    private Pool pool;
     private String poolImagePath;
     private int coordX;
     private int coordY;
@@ -33,6 +34,7 @@ public class PoolModel {
         this.tiles = new LinkedList<>();
         this.coordX = coordX;//1110;
         this.coordY = coordY;//260;
+        this.pool = Pool.getInstance();
     }
 
     public LinkedList<TileComponent> getTiles() {
@@ -43,10 +45,18 @@ public class PoolModel {
         for (Tile tile : tiles) {
             this.getTiles().add(new TileComponent(tile));
         }
-        
-     //   this.tiles = tiles;
     }
 
+    public Pool getPool() {
+        return pool;
+    }
+
+    public void setPool(Pool pool) {
+        this.pool = pool;
+    }
+
+    
+    
     public int getWidth() {
         return width;
     }
@@ -86,27 +96,4 @@ public class PoolModel {
     public void setCoordY(int coordY) {
         this.coordY = coordY;
     }
-
-    public void createDominoTiles() {
-        try {
-            setTiles(Pool.getInstance().createDominoTiles());
-        } catch (PoolException ex) {
-            Logger.getLogger(PoolModel.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
-
-    public TileComponent pickTileFromTilesList() {
-        try {
-
-            Tile tile = Pool.getInstance().getRandomTile();
-            
-            this.tiles.remove(new TileComponent(tile));
-            return new TileComponent(tile);
-        } catch (PoolException ex) {
-            Logger.getLogger(PoolModel.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return null;
-
-    }
-
 }

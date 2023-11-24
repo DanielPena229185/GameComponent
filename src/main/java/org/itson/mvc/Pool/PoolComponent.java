@@ -4,6 +4,7 @@
  */
 package org.itson.mvc.Pool;
 
+import org.itson.domaincomponent.exceptions.PoolException;
 import org.itson.game.MatchGame;
 import org.itson.mvc.tile.TileComponent;
 
@@ -28,11 +29,11 @@ public class PoolComponent {
         this.poolController.suscribe(match);
     }
     
-    public TileComponent getTileFromPool(){
+    public TileComponent getTileFromPool() throws PoolException{
         return this.poolController.getTileFromPool();
     }
     
-    public void createDominoTiles(){
+    public void createDominoTiles() throws PoolException{
         this.poolController.createDominoTiles();
     }
     public PoolModel getModel() {

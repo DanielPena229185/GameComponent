@@ -5,6 +5,7 @@
 package org.itson.mvc.player;
 
 import java.util.LinkedList;
+import javax.swing.JOptionPane;
 import org.itson.domaincomponent.domain.Player;
 import org.itson.domaincomponent.domain.Tile;
 import org.itson.enums.ImagesSourcers;
@@ -99,7 +100,12 @@ public class PlayerModel {
     }
     
     public TileComponent addTile(TileComponent tile){
+        
          this.getTiles().add(tile);
+         
+          for (TileComponent tiles : this.getTiles()) {
+            JOptionPane.showMessageDialog(null, tiles.getTile().getId());
+        }
         return tile;
     }
 

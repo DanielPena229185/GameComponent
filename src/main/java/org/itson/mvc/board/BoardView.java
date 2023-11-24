@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.imageio.ImageIO;
 import javax.swing.*;
+import org.itson.enums.CustomEvents;
 import org.itson.interfaces.Observer;
 
 public class BoardView extends JPanel {
@@ -35,7 +36,7 @@ public class BoardView extends JPanel {
             this.addMouseListener(new java.awt.event.MouseAdapter() {
                 @Override
                 public void mouseClicked(java.awt.event.MouseEvent evt) {
-                    notifyObservers("click_board");
+                    notifyObservers(CustomEvents.RIGHT_CLICK_EVENT);
                 }
             });
 
@@ -68,7 +69,7 @@ public class BoardView extends JPanel {
         observers.remove(observer);
     }
 
-    public void notifyObservers(String message) {
+    public void notifyObservers(CustomEvents message) {
         for (Observer observer : observers) {
             observer.update(message);
         }

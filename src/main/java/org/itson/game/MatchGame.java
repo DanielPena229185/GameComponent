@@ -1,9 +1,13 @@
 package org.itson.game;
 
 import java.util.LinkedList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import org.itson.domaincomponent.domain.Player;
 import org.itson.domaincomponent.domain.Tile;
+import org.itson.domaincomponent.exceptions.PoolException;
+import org.itson.enums.CustomEvents;
 import org.itson.interfaces.Observer;
 import org.itson.mvc.Match.MatchComponent;
 import org.itson.mvc.Pool.PoolView;
@@ -23,7 +27,7 @@ public class MatchGame implements Observer{
         this.matchesComponent = new MatchComponent();
     }
     
-    public void buildGame(){
+    public void buildGame() throws PoolException{
         this.matchesComponent.buildGame();
     }
     
@@ -32,15 +36,19 @@ public class MatchGame implements Observer{
     }
     
       @Override
-    public void update(String message) {
-        if ("click_event".equals(message)) {
-            //JOptionPane.showMessageDialog(null, "You take a tile from pool.");
-            TileComponent tile = getTileFromPool();
-            
-            //JOptionPane.showMessageDialog(null, tile.getFirstFace().getValue() + ":" + tile.getSecondFace().getValue());
-            JOptionPane.showMessageDialog(null, "Quedan: "+ getTilesSize() + "fichas.");
-            addTileToPlayerList(tile);
-        } else if("click_event".equals(message)){
+    public void update(CustomEvents message) {
+        if (CustomEvents.RIGHT_CLICK_EVENT.equals(message)) {
+            try {
+                //JOptionPane.showMessageDialog(null, "You take a tile from pool.");
+                TileComponent tile = getTileFromPool();
+                
+                //JOptionPane.showMessageDialog(null, tile.getFirstFace().getValue() + ":" + tile.getSecondFace().getValue());
+                JOptionPane.showMessageDialog(null, "Quedan: "+ getTilesSize() + "fichas.");
+                addTileToPlayerList(tile);
+            } catch (PoolException ex) {
+                Logger.getLogger(MatchGame.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } else if(CustomEvents.RIGHT_CLICK_EVENT.equals(message)){
             
         }
     }
@@ -66,7 +74,7 @@ public class MatchGame implements Observer{
     
     //Metodos generales
 
-    public TileComponent getTileFromPool() {
+    public TileComponent getTileFromPool() throws PoolException {
         return matchesComponent.getTileFromPool();
     }
 
@@ -80,7 +88,7 @@ public class MatchGame implements Observer{
         //JOptionPane.showMessageDialog(null, tile.getFirstFace().getValue() + ":" + tile.getSecondFace().getValue());
     }
     
-    public void createDominoTiles(){
+    public void createDominoTiles() throws PoolException{
         this.matchesComponent.createDominoTiles();
     }
     

@@ -1,95 +1,62 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package org.itson.mvc.player;
 
+import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.Image;
-import java.io.File;
-import java.io.IOException;
+import java.awt.FlowLayout;
 import java.util.ArrayList;
 import java.util.List;
-import javax.imageio.ImageIO;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import org.itson.enums.ImagesSourcers;
+import org.itson.enums.CustomEvents;
 import org.itson.interfaces.Observer;
 import org.itson.mvc.tile.TileComponent;
 
 /**
- *
- * @author santi
+ * PlayerView.java
  */
 public class PlayerView extends JPanel {
 
     private PlayerModel playerModel;
-    private Image playerImage;
-    private Image player;
-    private int playerWidth;
-    private int playerHeight;
     private List<Observer> observers = new ArrayList<>();
 
     public PlayerView(PlayerModel playerModel) {
         this.playerModel = playerModel;
+        setPreferredSize(new Dimension(1010, 110));
+        setLayout(new FlowLayout());  // Establece un FlowLayout para el panel
         loadAvatarImage();
-        setPreferredSize(new Dimension(1010, 180));
+        this.setBackground(Color.RED);setOpaque(false); // Configura el panel como no opaco
+
     }
 
     private void loadAvatarImage() {
-        try {
-            playerImage = ImageIO.read(new File(ImagesSourcers.getSOURCE_IMAGE_AVATAR_El_Gallo()));
-            playerWidth = 100;
-            playerHeight = 100;
-
-            this.addMouseListener(new java.awt.event.MouseAdapter() {
-                @Override
-                public void mouseClicked(java.awt.event.MouseEvent evt) {
-                    notifyObservers("click_player");
-                }
-            });
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        // Implementa el código para cargar la imagen del jugador
     }
 
-    public void paintTiles() {
-         JOptionPane.showMessageDialog(null, "Se hace la verificacion");
-        if (this.playerModel.getTiles() != null && !this.playerModel.getTiles().isEmpty()) {
-            for (TileComponent tile : this.playerModel.getTiles()) {
-                JOptionPane.showMessageDialog(null, "Se añade al componente");
+public void paintTiles() {
+    if (this.playerModel.getTiles() != null && !this.playerModel.getTiles().isEmpty()) {
+        for (TileComponent tile : this.playerModel.getTiles()) {
+            if (tile != null && tile.getTile() != null) {
+                // Establecer el tamaño deseado
+                Dimension tileSize = new Dimension(50, playerModel.getHeight());
+                tile.getTileView().setPreferredSize(tileSize);
+                // Añadir TileView al panel
                 this.add(tile.getTileView());
-                 JOptionPane.showMessageDialog(null, "Se pinta");
                 tile.refresh();
-
             }
         }
-         JOptionPane.showMessageDialog(null, "Finalizó");
-
-    }
-
-    public void refresh() {
-        loadAvatarImage();
-        paintTiles();
+        
+        // Forzar la actualización y el repintado
+        revalidate();
         repaint();
     }
+}
 
-    @Override
-    protected void paintComponent(Graphics g) {
-        super.paintComponent(g);
 
-        if (playerImage != null) {
-            Graphics2D g2d = (Graphics2D) g.create();
-            g2d.drawImage(null, 0, 0, this);
-            g2d.dispose();
-        }
 
-        /*if (player != null) {
-            g.drawImage(player, playerModel.getCordX(), playerModel.getCordY(), null);
-        }*/
+
+    public void refresh() {
+        removeAll();  // Elimina todas las fichas antes de repintar
+        loadAvatarImage();
+        paintTiles();
     }
 
     public void addObserver(Observer observer) {
@@ -100,10 +67,9 @@ public class PlayerView extends JPanel {
         observers.remove(observer);
     }
 
-    public void notifyObservers(String message) {
+    public void notifyObservers(CustomEvents message) {
         for (Observer observer : observers) {
             observer.update(message);
         }
     }
-
 }

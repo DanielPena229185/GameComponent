@@ -4,11 +4,13 @@
  */
 package org.itson.interfaces;
 
+import org.itson.enums.CustomEvents;
+
 /**
  *
  * @author PC
  */
 public interface Observer {
 
-    void update(String message);
+    void update(CustomEvents Event);
 }
