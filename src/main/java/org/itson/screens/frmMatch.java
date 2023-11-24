@@ -31,10 +31,7 @@ public class frmMatch extends javax.swing.JFrame {
             initComponents();
             
             this.match = new MatchGame(new Player("Test Player"));
-            match.buildGame();
-            
-            match.getTilesSize();
-            
+            match.buildGame();    
             
             match.suscribeToBoardView();
             

@@ -19,8 +19,7 @@ public class BoardView extends JPanel {
 
     private BoardModel boardModel;
     private Image boardImage; // Imagen de la primera cara
-    private int boardWidth;
-    private int boardHeight;
+
     private List<Observer> observers = new ArrayList<>();
 
     public BoardView(BoardModel boardModel) {
@@ -34,8 +33,7 @@ public class BoardView extends JPanel {
    
         try {
             boardImage = ImageIO.read(new File(boardModel.getBoardImagePath()));
-            boardWidth = 630;
-            boardHeight = 500;
+   
         } catch (IOException ex) {
             Logger.getLogger(BoardView.class.getName()).log(Level.SEVERE, null, ex);
         }

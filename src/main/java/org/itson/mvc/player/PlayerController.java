@@ -28,9 +28,8 @@ public class PlayerController {
     }
     
     public void addTileToPlayerList(TileComponent tile){
-        //JOptionPane.showMessageDialog(null, tile.getFirstFace().getValue() + " " + tile.getSecondFace().getValue());
         this.playerModel.addTile(tile); 
-        //playerview refresh; 
+        this.refreshPlayerView();
     }
     
     public Boolean getTurn(){

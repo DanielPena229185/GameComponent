@@ -21,41 +21,35 @@ public class PlayerView extends JPanel {
     public PlayerView(PlayerModel playerModel) {
         this.playerModel = playerModel;
         setPreferredSize(new Dimension(1010, 110));
-        setLayout(new FlowLayout());  // Establece un FlowLayout para el panel
-        loadAvatarImage();
-        this.setBackground(Color.RED);
+        setLayout(new FlowLayout());
 
     }
 
-    private void loadAvatarImage() {
-        // Implementa el código para cargar la imagen del jugador
-    }
-
-public void paintTiles() {
-    if (this.playerModel.getTiles() != null && !this.playerModel.getTiles().isEmpty()) {
-        for (TileComponent tile : this.playerModel.getTiles()) {
-            if (tile != null && tile.getTile() != null) {
-                // Establecer el tamaño deseado
-                Dimension tileSize = new Dimension(75, 80);
-                tile.getTileView().setPreferredSize(tileSize);
-                // Añadir TileView al panel
-                this.add(tile.getTileView());
-                tile.refresh();
-            }
+    public void paintTiles() {
+        if (playerHaveTiles()) {
+            
+            addTilesComponentsToPlayerView();
+            
+            revalidate();
+            repaint();
         }
-        
-        // Forzar la actualización y el repintado
-        revalidate();
-        repaint();
     }
-}
-
-
-
-
+    
+    public void addTilesComponentsToPlayerView(){
+            for (TileComponent tile : this.playerModel.getTiles()) {
+                if (tile != null && tile.getTile() != null) {
+                    this.add(tile.getTileView());
+                    tile.refresh();
+                }
+            }
+    }
+    
+    public boolean playerHaveTiles(){
+        return (this.playerModel.getTiles() != null && !this.playerModel.getTiles().isEmpty());
+    }
+    
     public void refresh() {
-        removeAll();  // Elimina todas las fichas antes de repintar
-        loadAvatarImage();
+        removeAll();
         paintTiles();
     }
 

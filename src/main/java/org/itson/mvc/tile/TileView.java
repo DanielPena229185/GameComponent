@@ -19,19 +19,15 @@ public class TileView extends JPanel {
 
     private TileModel tileModel;
     private BufferedImage tile;
-    private BufferedImage firstFaceImage; // Imagen de la primera cara
-    private BufferedImage secondFaceImage; // Imagen de la segunda cara
+    private BufferedImage firstFaceImage; 
+    private BufferedImage secondFaceImage; 
 
     public TileView(TileModel tileModel) {
         this.tileModel = tileModel;
-        // Carga las imágenes de las caras de la ficha en el constructor
+        this.setPreferredSize(new Dimension(68, 52));
         loadFaceImages();
-      
-        this.setBackground(Color.BLUE);
-        
-    }
-
-    // Método para cargar las imágenes de las caras de la ficha
+    }  
+    
     private void loadFaceImages() {
         try {
             firstFaceImage = ImageIO.read(new File(tileModel.getFirstFacePath()));
@@ -42,32 +38,35 @@ public class TileView extends JPanel {
     }
 
     public void refresh() {
-        // Verifica que las imágenes estén cargadas antes de dibujar
-        if (firstFaceImage != null && secondFaceImage != null) {
-
-
+        if (verifyFacesImages()) {
+            createImage();
             
-            tile = new BufferedImage(tileModel.getWidth(), tileModel.getHeight(), BufferedImage.TYPE_INT_ARGB);
+            repaint();
+        }
+    }
+    
+    public boolean verifyFacesImages(){
+        return firstFaceImage != null && secondFaceImage != null;
+    }
+    
+    public BufferedImage createImage(){
+        tile = new BufferedImage(tileModel.getWidth(), tileModel.getHeight(), BufferedImage.TYPE_INT_ARGB);
             Graphics2D g2d = tile.createGraphics();
 
             Image scaledFirstFaceImage = firstFaceImage.getScaledInstance(
-                    tileModel.getWidth(), tileModel.getHeight() / 2, Image.SCALE_SMOOTH
+                    tileModel.getWidth(), tileModel.getHeight() / 3, Image.SCALE_SMOOTH
             );
 
             Image scaledSecondFaceImage = secondFaceImage.getScaledInstance(
-                    tileModel.getWidth(), tileModel.getHeight() / 2, Image.SCALE_SMOOTH
+                    tileModel.getWidth(), tileModel.getHeight() / 3, Image.SCALE_SMOOTH
             );
 
             g2d.drawImage(scaledFirstFaceImage, 0, 0, this);
-            g2d.drawImage(scaledSecondFaceImage, 0, tileModel.getHeight() / 2, this);
+            g2d.drawImage(scaledSecondFaceImage, 0, tileModel.getHeight() / 3, this);
 
             g2d.dispose();
-
-            System.out.println("First Face Image Path: " + tileModel.getFirstFacePath());
-            System.out.println("Second Face Image Path: " + tileModel.getSecondFacePath());
-
-            repaint();
-        }
+            
+            return tile;
     }
 
     @Override
