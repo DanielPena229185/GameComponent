@@ -4,7 +4,10 @@
  */
 package org.itson.mvc.Match;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.itson.domaincomponent.domain.Player;
+import org.itson.domaincomponent.exceptions.PoolException;
 import org.itson.game.MatchGame;
 import org.itson.game.TurnManager;
 
@@ -20,8 +23,12 @@ public class NewMain {
     public static void main(String[] args) {
         MatchGame mtc = new MatchGame(new Player("Test Player"));
         
-       mtc.buildGame();
-      // mtc.suscribeToPoolView();
+        try {
+            mtc.buildGame();
+            // mtc.suscribeToPoolView();
+        } catch (PoolException ex) {
+            Logger.getLogger(NewMain.class.getName()).log(Level.SEVERE, null, ex);
+        }
        
        
               TurnManager trn = new TurnManager();

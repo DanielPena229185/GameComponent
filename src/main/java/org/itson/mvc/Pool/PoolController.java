@@ -52,7 +52,6 @@ public class PoolController extends MouseAdapter {
 
             if (tile == tiles.getTile()) {
                 this.poolModel.getTiles().remove(tiles);
-                JOptionPane.showMessageDialog(null, tiles.getTile().getId());
                 return tiles;
             }
         }
@@ -69,8 +68,8 @@ public class PoolController extends MouseAdapter {
         this.poolView.addMouseListener(new java.awt.event.MouseAdapter() {
             @Override
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-              if(SwingUtilities.isRightMouseButton(evt)){
-                  notifyObservers(CustomEvents.RIGHT_CLICK_EVENT);
+              if(SwingUtilities.isLeftMouseButton(evt)){
+                  notifyObservers(CustomEvents.LEFT_CLICK_EVENT);
               }
             }
         });

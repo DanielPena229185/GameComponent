@@ -64,7 +64,6 @@ public class MatchModel {
     
     public void printPlayersTiles(){
         for (int i = 0; i < this.players.length; i++) {
-            JOptionPane.showMessageDialog(null , "" + this.players.length);
             System.out.println("Player: " + this.players[i].getName());
             for (int j = 0; j <  this.players[i].getTiles().size(); j++) {
                 System.out.println("Tile id: " +  this.players[i].getTiles().get(j).getId() + " Value 1: " + this.players[i].getTiles().get(j).getFirstFace().getValue() + " Value 2: " + this.players[i].getTiles().get(j).getSecondFace().getValue());
@@ -74,8 +73,7 @@ public class MatchModel {
     
       public void buildGame() {
           
-        try {
-            
+           
             //Generamos jugadores para probar
             for (int i = 0; i < 4; i++) {
                 if (this.players[i] == null) {
@@ -89,15 +87,8 @@ public class MatchModel {
             this.pool = Pool.getInstance();
             this.match = new Match(players, board, pool, 3);
             
-            
-            this.pool.createDominoTiles();
-            this.match.distributeTiles();
-            JOptionPane.showMessageDialog(null, this.pool.getTiles().size());
-        } catch (PoolException ex) {
-            Logger.getLogger(MatchModel.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (MatchException ex) {
-            Logger.getLogger(MatchModel.class.getName()).log(Level.SEVERE, null, ex);
-        }
+
+    
         
     }
 

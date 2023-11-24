@@ -36,19 +36,16 @@ public class MatchGame implements Observer{
     
       @Override
     public void update(CustomEvents message) {
-        if (CustomEvents.RIGHT_CLICK_EVENT.equals(message)) {
+        if (CustomEvents.LEFT_CLICK_EVENT.equals(message)) {
             try {
-                //JOptionPane.showMessageDialog(null, "You take a tile from pool.");
+               
                 TileComponent tile = getTileFromPool();
-                
-                //JOptionPane.showMessageDialog(null, tile.getFirstFace().getValue() + ":" + tile.getSecondFace().getValue());
-                JOptionPane.showMessageDialog(null, "Quedan: "+ getTilesSize() + "fichas.");
                 addTileToPlayerList(tile);
             } catch (PoolException ex) {
                 Logger.getLogger(MatchGame.class.getName()).log(Level.SEVERE, null, ex);
             }
         } else if(CustomEvents.RIGHT_CLICK_EVENT.equals(message)){
-            
+            JOptionPane.showMessageDialog(null, "Tienes que dar click izquierdo, ya lo cambie wey.");
         }
     }
     
