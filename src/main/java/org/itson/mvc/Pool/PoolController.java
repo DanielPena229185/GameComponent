@@ -32,10 +32,6 @@ public class PoolController extends MouseAdapter {
         this.suscribeToClick();
     }
 
-    public void suscribe(MatchGame match) {
-        this.addObserver(match);
-    }
-
     public void createDominoTiles() throws PoolException {
 
         for (Tile tile :  this.poolModel.getPool().createDominoTiles()) {
@@ -69,10 +65,14 @@ public class PoolController extends MouseAdapter {
             @Override
             public void mouseClicked(java.awt.event.MouseEvent evt) {
               if(SwingUtilities.isLeftMouseButton(evt)){
-                  notifyObservers(CustomEvents.LEFT_CLICK_EVENT);
+                  notifyObservers(CustomEvents.LEFT_CLICK_ON_POOL_EVENT);
               }
             }
         });
+    }
+    
+     public void suscribe(MatchGame match) {
+        this.addObserver(match);
     }
 
     public void addObserver(Observer observer) {

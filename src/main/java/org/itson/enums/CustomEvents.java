@@ -9,5 +9,5 @@ package org.itson.enums;
  * @author PC
  */
 public enum CustomEvents {
-    RIGHT_CLICK_EVENT, LEFT_CLICK_EVENT
+    RIGHT_CLICK_EVENT, LEFT_CLICK_EVENT,LEFT_CLICK_ON_POOL_EVENT,LEFT_CLICK_ON_BOARD_EVENT
 }

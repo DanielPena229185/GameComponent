@@ -36,19 +36,30 @@ public class MatchGame implements Observer{
     
       @Override
     public void update(CustomEvents message) {
-        if (CustomEvents.LEFT_CLICK_EVENT.equals(message)) {
-            try {
+        if (CustomEvents.LEFT_CLICK_ON_POOL_EVENT.equals(message)) {
+          this.getTileFromPoolEvent();
+        } 
+        
+        if(CustomEvents.LEFT_CLICK_ON_BOARD_EVENT.equals(message)){
+            
+        }
+    }
+    
+    
+    //Metodos relacionados con eventos
+    public void getTileFromPoolEvent(){
+          try {
                
                 TileComponent tile = getTileFromPool();
                 addTileToPlayerList(tile);
             } catch (PoolException ex) {
                 Logger.getLogger(MatchGame.class.getName()).log(Level.SEVERE, null, ex);
             }
-        } else if(CustomEvents.RIGHT_CLICK_EVENT.equals(message)){
-            JOptionPane.showMessageDialog(null, "Tienes que dar click izquierdo, ya lo cambie wey.");
-        }
     }
     
+    public void putTileFromPlayerToBoardEvent(){
+        
+    }
     
     //Suscripcion a los eventos
     public void suscribeToBoardView(){
@@ -80,7 +91,7 @@ public class MatchGame implements Observer{
     
     public void addTileToPlayerList(TileComponent tile) {
         this.matchesComponent.addTileToPlayer(tile);
-        this.matchesComponent.getPlayerComponent().getPlayerView().refresh();
+        this.matchesComponent.getPlayerComponent().refreshPlayer();
         //JOptionPane.showMessageDialog(null, tile.getFirstFace().getValue() + ":" + tile.getSecondFace().getValue());
     }
     
