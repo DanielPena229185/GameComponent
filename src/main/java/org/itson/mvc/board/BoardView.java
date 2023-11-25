@@ -1,6 +1,7 @@
 package org.itson.mvc.board;
 
 import java.awt.Dimension;
+import java.awt.FlowLayout;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Image;
@@ -14,6 +15,7 @@ import javax.imageio.ImageIO;
 import javax.swing.*;
 import org.itson.enums.CustomEvents;
 import org.itson.interfaces.Observer;
+import org.itson.mvc.tile.TileComponent;
 
 public class BoardView extends JPanel {
 
@@ -27,6 +29,29 @@ public class BoardView extends JPanel {
         loadBoardImage();
 
         setPreferredSize(new Dimension(630, 500));
+        setLayout(new FlowLayout());
+    }
+    
+    public void paintTiles(){
+        if (boardHasTiles()){
+            addTilesComponentsToBoardView();
+            
+            revalidate();
+            repaint();
+        }
+    }
+    
+    public void addTilesComponentsToBoardView() {
+        for (TileComponent tile : this.boardModel.getTiles()) {
+            if (tile != null && tile.getTile() != null) {
+                this.add(tile.getTileView());
+                tile.refresh();
+            }
+        }
+    }
+    
+    public boolean boardHasTiles(){
+        return (this.boardModel.getTiles() != null && !this.boardModel.getTiles().isEmpty());
     }
 
     private void loadBoardImage() {
@@ -43,6 +68,8 @@ public class BoardView extends JPanel {
     public void refresh() {
         loadBoardImage();
         repaint();
+        removeAll();
+        paintTiles();
     }
 
     @Override

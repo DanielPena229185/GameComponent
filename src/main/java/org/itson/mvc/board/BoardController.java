@@ -10,6 +10,7 @@ import java.awt.event.MouseEvent;
 import javax.swing.SwingUtilities;
 import org.itson.domaincomponent.domain.Tile;
 import org.itson.game.MatchGame;
+import org.itson.mvc.tile.TileComponent;
 
 /**
  *
@@ -29,9 +30,17 @@ public class BoardController extends MouseAdapter{
         this.boardView.addObserver(match);
     }
     
-    public void setTile(Tile tile){
-        boardModel.setTile(tile);
+    public void addTileToBoard(TileComponent tile){
+        this.boardModel.addTile(tile);
     }
+    
+    public TileComponent getTileFromList(TileComponent tile){
+        return this.boardModel.removeTile(tile);
+    }
+    
+    /*public void setTile(Tile tile){
+        boardModel.setTile(tile);
+    }*/
 
     public void refreshBoard() {
          this.boardView.refresh();

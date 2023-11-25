@@ -5,6 +5,7 @@
 package org.itson.mvc.board;
 
 import org.itson.game.MatchGame;
+import org.itson.mvc.tile.TileComponent;
 
 /**
  *
@@ -23,6 +24,10 @@ public class BoardComponent {
     
     public void suscribeToView(MatchGame match){
         this.boardController.suscribeToView(match);
+    }
+    
+    public void addTileToBoard(TileComponent tile){
+        this.boardController.addTileToBoard(tile);
     }
 
     public BoardModel getBoardModel(){
