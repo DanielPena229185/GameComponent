@@ -4,8 +4,11 @@
  */
 package org.itson.mvc.player;
 
-import org.itson.domaincomponent.domain.Tile;
+import java.util.ArrayList;
+import java.util.List;
+import org.itson.enums.BoardEvents;
 import org.itson.game.MatchGame;
+import org.itson.interfaces.Observer;
 import org.itson.mvc.tile.TileComponent;
 
 /**
@@ -18,13 +21,16 @@ public class PlayerController {
     
     private PlayerView playerView;
 
+    private List<Observer> observers = new ArrayList<>();
+
+    
     public PlayerController(PlayerModel playerModel, PlayerView playerView) {
         this.playerModel = playerModel;
         this.playerView = playerView;
     }
     
     public void suscribeToView(MatchGame match){
-        this.playerView.addObserver(match);
+        this.addObserver(match);
     }
     
     public void addTileToPlayerList(TileComponent tile){
@@ -42,6 +48,21 @@ public class PlayerController {
     
     public void refreshPlayerView(){
         playerView.refresh();   
+    }
+    
+    
+    public void addObserver(Observer observer) {
+        observers.add(observer);
+    }
+
+    public void removeObserver(Observer observer) {
+        observers.remove(observer);
+    }
+
+    public void notifyObservers(BoardEvents message) {
+        for (Observer observer : observers) {
+            observer.eventOnBoardUpdate(message);
+        }
     }
     
 }

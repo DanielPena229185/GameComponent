@@ -6,8 +6,8 @@ package org.itson.enums;
 
 /**
  *
- * @author PC
+ * @author TheMM
  */
-public enum CustomEvents {
-    RIGHT_CLICK_EVENT, LEFT_CLICK_EVENT
+public enum PoolEvents {
+   LEFT_CLICK_ON_POOL_EVENT, RIGHT_CLICK_ON_POOL_EVENT
 }

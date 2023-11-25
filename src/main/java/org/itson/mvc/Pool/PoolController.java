@@ -7,11 +7,10 @@ package org.itson.mvc.Pool;
 import java.awt.event.MouseAdapter;
 import java.util.ArrayList;
 import java.util.List;
-import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 import org.itson.domaincomponent.domain.Tile;
 import org.itson.domaincomponent.exceptions.PoolException;
-import org.itson.enums.CustomEvents;
+import org.itson.enums.PoolEvents;
 import org.itson.game.MatchGame;
 import org.itson.interfaces.Observer;
 import org.itson.mvc.tile.TileComponent;
@@ -69,7 +68,7 @@ public class PoolController extends MouseAdapter {
             @Override
             public void mouseClicked(java.awt.event.MouseEvent evt) {
               if(SwingUtilities.isLeftMouseButton(evt)){
-                  notifyObservers(CustomEvents.LEFT_CLICK_EVENT);
+                  notifyObservers(PoolEvents.LEFT_CLICK_ON_POOL_EVENT);
               }
             }
         });
@@ -83,9 +82,9 @@ public class PoolController extends MouseAdapter {
         observers.remove(observer);
     }
 
-    public void notifyObservers(CustomEvents message) {
+    public void notifyObservers(PoolEvents message) {
         for (Observer observer : observers) {
-            observer.update(message);
+            observer.eventOnPoolUpdate(message);
         }
     }
 }

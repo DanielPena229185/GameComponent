@@ -21,8 +21,8 @@ public class BoardComponent {
         boardController = new BoardController(boardView, boardModel);
     }
     
-    public void suscribeToView(MatchGame match){
-        this.boardController.suscribeToView(match);
+    public void suscribe(MatchGame match){
+        this.boardController.suscribe(match);
     }
 
     public BoardModel getBoardModel(){
