@@ -4,7 +4,9 @@
  */
 package org.itson.interfaces;
 
-import org.itson.enums.CustomEvents;
+import org.itson.enums.BoardEvents;
+import org.itson.enums.PoolEvents;
+import org.itson.enums.TileEvents;
 
 /**
  *
@@ -12,5 +14,8 @@ import org.itson.enums.CustomEvents;
  */
 public interface Observer {
 
-    void update(CustomEvents Event);
+    void eventOnPoolUpdate(PoolEvents evt);
+    void eventOnBoardUpdate(BoardEvents evt);
+    void eventOnTileUpdate(TileEvents evt);
+ 
 }

@@ -4,13 +4,13 @@
  */
 package org.itson.mvc.board;
 
-import java.awt.Graphics;
 import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import javax.swing.SwingUtilities;
+import java.util.ArrayList;
+import java.util.List;
 import org.itson.domaincomponent.domain.Tile;
+import org.itson.enums.BoardEvents;
 import org.itson.game.MatchGame;
-import org.itson.mvc.tile.TileComponent;
+import org.itson.interfaces.Observer;
 
 /**
  *
@@ -19,6 +19,7 @@ import org.itson.mvc.tile.TileComponent;
 public class BoardController extends MouseAdapter{
     private BoardView boardView;
     private BoardModel boardModel;
+    private List<Observer> observers = new ArrayList<>();
     
     public BoardController(BoardView boardView, BoardModel boardModel){
         this.boardModel = boardModel;
@@ -26,23 +27,30 @@ public class BoardController extends MouseAdapter{
         
     }
     
-    public void suscribeToView(MatchGame match){
-        this.boardView.addObserver(match);
+    public void suscribe(MatchGame match){
+        this.addObserver(match);
     }
     
-    public void addTileToBoard(TileComponent tile){
-        this.boardModel.addTile(tile);
-    }
-    
-    public TileComponent getTileFromList(TileComponent tile){
-        return this.boardModel.removeTile(tile);
-    }
-    
-    /*public void setTile(Tile tile){
+    public void setTile(Tile tile){
         boardModel.setTile(tile);
-    }*/
+    }
 
     public void refreshBoard() {
          this.boardView.refresh();
+    }
+    
+    
+       public void addObserver(Observer observer) {
+        observers.add(observer);
+    }
+
+    public void removeObserver(Observer observer) {
+        observers.remove(observer);
+    }
+
+    public void notifyObservers(BoardEvents message) {
+        for (Observer observer : observers) {
+            observer.eventOnBoardUpdate(message);
+        }
     }
 }

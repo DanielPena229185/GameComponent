@@ -35,7 +35,7 @@ public class MatchComponent {
     }
     
     public void suscribeToBoardView(MatchGame match){
-        this.boardComponent.suscribeToView(match);
+        this.boardComponent.suscribe(match);
     }
 
     public Player[] getPlayersOnGame(){

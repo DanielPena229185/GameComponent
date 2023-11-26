@@ -13,7 +13,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 import javax.swing.*;
-import org.itson.enums.CustomEvents;
+
 import org.itson.interfaces.Observer;
 import org.itson.mvc.tile.TileComponent;
 
@@ -21,8 +21,6 @@ public class BoardView extends JPanel {
 
     private BoardModel boardModel;
     private Image boardImage; // Imagen de la primera cara
-
-    private List<Observer> observers = new ArrayList<>();
 
     public BoardView(BoardModel boardModel) {
         this.boardModel = boardModel;
@@ -83,17 +81,4 @@ public class BoardView extends JPanel {
         }
     }
 
-    public void addObserver(Observer observer) {
-        observers.add(observer);
-    }
-
-    public void removeObserver(Observer observer) {
-        observers.remove(observer);
-    }
-
-    public void notifyObservers(CustomEvents message) {
-        for (Observer observer : observers) {
-            observer.update(message);
-        }
-    }
 }

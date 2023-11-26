@@ -24,7 +24,7 @@ public class TileView extends JPanel {
 
     public TileView(TileModel tileModel) {
         this.tileModel = tileModel;
-        this.setPreferredSize(new Dimension(68, 52));
+        this.setPreferredSize(new Dimension(70, 55));
         loadFaceImages();
     }  
     
