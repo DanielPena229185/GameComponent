@@ -7,6 +7,7 @@ import org.itson.domaincomponent.domain.Player;
 import org.itson.domaincomponent.domain.Tile;
 import org.itson.domaincomponent.exceptions.PoolException;
 import org.itson.enums.BoardEvents;
+import org.itson.enums.PlayerEvents;
 import org.itson.enums.PoolEvents;
 import org.itson.enums.TileEvents;
 import org.itson.interfaces.Observer;
@@ -46,17 +47,28 @@ public class MatchGame implements Observer {
     public void eventOnBoardUpdate(BoardEvents evt) {
         if (BoardEvents.LEFT_CLICK_ON_BOARD_EVENT.equals(evt)) {
             if (hasTileSelected()) {
-
+                
             } else {
                 JOptionPane.showMessageDialog(null, "You have to select a tile to set it on the board");
             }
+        }
+    }
+    
+    @Override
+    public void eventOnPlayerUpdate(PlayerEvents evt){
+        if(PlayerEvents.LEFT_CLICK_ON_PLAYER_EVENT.equals(evt)){
+            JOptionPane.showMessageDialog(null, "hola, soy el player");
         }
     }
 
     @Override
     public void eventOnTileUpdate(TileEvents evt) {
         if (TileEvents.LEFT_CLICK_ON_TILE_EVENT.equals(evt)) {
-
+            //getTileFromPlayerEvent();
+            JOptionPane.showMessageDialog(null, "hola");
+        }
+        else{
+            JOptionPane.showMessageDialog(null, "Hola, soy la ficha");
         }
     }
 
@@ -72,6 +84,13 @@ public class MatchGame implements Observer {
             Logger.getLogger(MatchGame.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    
+    public void getTileFromPlayerEvent(){
+        JOptionPane.showMessageDialog(null, "hola");
+        TileComponent tile = getTileFromPlayer();
+        JOptionPane.showMessageDialog(null, tile.getTileModel().getId());
+        //addTileToBoardList(tile);
+    }
 
     //Suscripcion a los eventos
     public void suscribeToBoardView() {
@@ -85,6 +104,10 @@ public class MatchGame implements Observer {
     public void suscribeToPlayerView() {
         this.matchesComponent.suscribeToPlayerView(this);
     }
+    
+    public void suscribeToTileView(){
+        this.matchesComponent.suscribeToTileView(this);
+    }
 
     /*public void buildGame(){
         this.matchesComponent.buildGame();
@@ -92,6 +115,10 @@ public class MatchGame implements Observer {
     //Metodos generales
     public TileComponent getTileFromPool() throws PoolException {
         return matchesComponent.getTileFromPool();
+    }
+    
+    public TileComponent getTileFromPlayer(){
+        return matchesComponent.getTileSelected(playerTileSelected);
     }
 
     public Player[] getPlayersOnGame() {
@@ -102,6 +129,11 @@ public class MatchGame implements Observer {
         this.matchesComponent.addTileToPlayer(tile);
         this.matchesComponent.getPlayerComponent().getPlayerView().refresh();
         //JOptionPane.showMessageDialog(null, tile.getFirstFace().getValue() + ":" + tile.getSecondFace().getValue());
+    }
+    
+    public void addTileToBoardList(TileComponent tile){
+        this.matchesComponent.addTileToBoard(tile);
+        this.matchesComponent.getBoardComponent().getBoardView().refresh();
     }
 
     public void createDominoTiles() throws PoolException {

@@ -2,10 +2,7 @@ package org.itson.mvc.player;
 
 import java.awt.Dimension;
 import java.awt.FlowLayout;
-import java.util.ArrayList;
-import java.util.List;
 import javax.swing.JPanel;
-import org.itson.interfaces.Observer;
 import org.itson.mvc.tile.TileComponent;
 
 /**
@@ -45,7 +42,7 @@ public class PlayerView extends JPanel {
     public boolean playerHaveTiles(){
         return (this.playerModel.getTiles() != null && !this.playerModel.getTiles().isEmpty());
     }
-    
+
     public void refresh() {
         removeAll();
         paintTiles();

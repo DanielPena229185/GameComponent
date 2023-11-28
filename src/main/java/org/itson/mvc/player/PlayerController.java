@@ -4,9 +4,12 @@
  */
 package org.itson.mvc.player;
 
+import java.awt.event.MouseAdapter;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.SwingUtilities;
 import org.itson.enums.BoardEvents;
+import org.itson.enums.PlayerEvents;
 import org.itson.game.MatchGame;
 import org.itson.interfaces.Observer;
 import org.itson.mvc.tile.TileComponent;
@@ -15,7 +18,7 @@ import org.itson.mvc.tile.TileComponent;
  *
  * @author santi
  */
-public class PlayerController {
+public class PlayerController extends MouseAdapter{
     
     private PlayerModel playerModel;
     
@@ -27,6 +30,7 @@ public class PlayerController {
     public PlayerController(PlayerModel playerModel, PlayerView playerView) {
         this.playerModel = playerModel;
         this.playerView = playerView;
+         this.suscribeToClick();
     }
     
     public void suscribeToView(MatchGame match){
@@ -50,6 +54,16 @@ public class PlayerController {
         playerView.refresh();   
     }
     
+    private void suscribeToClick() {
+        this.playerView.addMouseListener(new java.awt.event.MouseAdapter() {
+            @Override
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+              if(SwingUtilities.isLeftMouseButton(evt)){
+                  notifyObservers(PlayerEvents.LEFT_CLICK_ON_PLAYER_EVENT);
+              }
+            }
+        });
+    }
     
     public void addObserver(Observer observer) {
         observers.add(observer);
@@ -59,9 +73,9 @@ public class PlayerController {
         observers.remove(observer);
     }
 
-    public void notifyObservers(BoardEvents message) {
+    public void notifyObservers(PlayerEvents message) {
         for (Observer observer : observers) {
-            observer.eventOnBoardUpdate(message);
+            observer.eventOnPlayerUpdate(message);
         }
     }
     

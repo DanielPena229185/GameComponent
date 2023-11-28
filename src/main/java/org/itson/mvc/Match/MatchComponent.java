@@ -46,12 +46,20 @@ public class MatchComponent {
 
     }
     
+    public void suscribeToTileView(MatchGame match){
+        this.tileComponent.suscribeToView(match);
+    }
+    
     public TileComponent getTileFromPool() throws PoolException {
         return this.poolComponent.getController().getTileFromPool();
     }
 
     public void addTileToPlayer(TileComponent tile) {
         this.playerComponent.addTileToPlayerList(tile);
+    }
+    
+    public void addTileToBoard(TileComponent tile){
+        this.boardComponent.addTileToBoard(tile);
     }
 
     public void createDominoTiles() throws PoolException {

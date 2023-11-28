@@ -11,6 +11,7 @@ import org.itson.domaincomponent.domain.Tile;
 import org.itson.enums.BoardEvents;
 import org.itson.game.MatchGame;
 import org.itson.interfaces.Observer;
+import org.itson.mvc.tile.TileComponent;
 
 /**
  *
@@ -31,9 +32,13 @@ public class BoardController extends MouseAdapter{
         this.addObserver(match);
     }
     
-    public void setTile(Tile tile){
-        boardModel.setTile(tile);
+    public void addTileToBoard(TileComponent tile){
+        this.boardModel.addTile(tile);
     }
+    
+    /*public void setTile(Tile tile){
+        boardModel.setTile(tile);
+    }*/
 
     public void refreshBoard() {
          this.boardView.refresh();

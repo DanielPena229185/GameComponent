@@ -5,6 +5,7 @@
 package org.itson.interfaces;
 
 import org.itson.enums.BoardEvents;
+import org.itson.enums.PlayerEvents;
 import org.itson.enums.PoolEvents;
 import org.itson.enums.TileEvents;
 
@@ -17,5 +18,5 @@ public interface Observer {
     void eventOnPoolUpdate(PoolEvents evt);
     void eventOnBoardUpdate(BoardEvents evt);
     void eventOnTileUpdate(TileEvents evt);
- 
+    void eventOnPlayerUpdate(PlayerEvents evt);
 }
