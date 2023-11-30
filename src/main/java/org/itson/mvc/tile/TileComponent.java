@@ -5,7 +5,7 @@
 package org.itson.mvc.tile;
 
 import org.itson.domaincomponent.domain.Tile;
-import org.itson.game.MatchGame;
+import org.itson.mvc.player.PlayerController;
 
 /**
  *
@@ -24,8 +24,8 @@ public class TileComponent {
         
     }
     
-    public void suscribeToView(MatchGame match){
-        this.tileController.suscribe(match);
+    public void suscribeToView(PlayerController player){
+        this.tileController.suscribe(player);
     }
     
     public void refresh(){

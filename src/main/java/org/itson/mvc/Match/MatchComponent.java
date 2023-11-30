@@ -46,9 +46,9 @@ public class MatchComponent {
 
     }
     
-    public void suscribeToTileView(MatchGame match){
+    /*public void suscribeToTileView(MatchGame match){
         this.tileComponent.suscribeToView(match);
-    }
+    }*/
     
     public TileComponent getTileFromPool() throws PoolException {
         return this.poolComponent.getController().getTileFromPool();

@@ -11,13 +11,14 @@ import org.itson.domaincomponent.domain.Tile;
 import org.itson.domaincomponent.exceptions.PlayerException;
 import org.itson.domaincomponent.exceptions.PoolException;
 import org.itson.enums.TileEvents;
-import org.itson.game.MatchGame;
 import org.itson.interfaces.Observer;
+import org.itson.interfaces.TileObserver;
+import org.itson.mvc.player.PlayerController;
 
 public class TileController extends MouseAdapter {
     private TileModel tileModel;
     private TileView tileView;
-    private List<Observer> observers = new ArrayList<>();
+    private List<TileObserver> observers = new ArrayList<>();
 
     public TileController(TileModel tileModel, TileView tileView) {
         this.tileModel = tileModel;
@@ -25,8 +26,8 @@ public class TileController extends MouseAdapter {
         this.suscribeToClick();
     }
     
-    public void suscribe(MatchGame match) {
-        this.addObserver(match);
+    public void suscribe(PlayerController player) {
+        this.addObserver(player);
     }
     
    public void refresh(){
@@ -48,16 +49,16 @@ public class TileController extends MouseAdapter {
         });
     }
         
-    public void addObserver(Observer observer) {
+    public void addObserver(TileObserver observer) {
         observers.add(observer);
     }
 
-    public void removeObserver(Observer observer) {
+    public void removeObserver(TileObserver observer) {
         observers.remove(observer);
     }
 
     public void notifyObservers(TileEvents message) {
-        for (Observer observer : observers) {
+        for (TileObserver observer : observers) {
             observer.eventOnTileUpdate(message);
         }
     }

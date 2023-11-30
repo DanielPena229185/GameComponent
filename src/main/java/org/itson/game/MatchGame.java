@@ -61,7 +61,7 @@ public class MatchGame implements Observer {
         }
     }
 
-    @Override
+    /*@Override
     public void eventOnTileUpdate(TileEvents evt) {
         if (TileEvents.LEFT_CLICK_ON_TILE_EVENT.equals(evt)) {
             //getTileFromPlayerEvent();
@@ -70,7 +70,7 @@ public class MatchGame implements Observer {
         else{
             JOptionPane.showMessageDialog(null, "Hola, soy la ficha");
         }
-    }
+    }*/
 
     public boolean hasTileSelected() {
         return playerTileSelected != null;
@@ -105,9 +105,9 @@ public class MatchGame implements Observer {
         this.matchesComponent.suscribeToPlayerView(this);
     }
     
-    public void suscribeToTileView(){
+    /*public void suscribeToTileView(){
         this.matchesComponent.suscribeToTileView(this);
-    }
+    }*/
 
     /*public void buildGame(){
         this.matchesComponent.buildGame();

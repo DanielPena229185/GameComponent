@@ -4,8 +4,10 @@
  */
 package org.itson.mvc.player;
 
-import org.itson.domaincomponent.domain.Tile;
+import org.itson.enums.PlayerEvents;
+import org.itson.enums.TileEvents;
 import org.itson.game.MatchGame;
+import org.itson.interfaces.TileObserver;
 import org.itson.mvc.tile.TileComponent;
 
 /**
@@ -18,6 +20,7 @@ public class PlayerComponent {
     PlayerView playerView;
     PlayerModel playerModel;
     PlayerController playerController;
+    TileComponent tileComponent;
     
     public PlayerComponent() {
          this.playerModel = new PlayerModel(100, 50, 90, 550);

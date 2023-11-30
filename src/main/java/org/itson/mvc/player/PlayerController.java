@@ -10,15 +10,17 @@ import java.util.List;
 import javax.swing.SwingUtilities;
 import org.itson.enums.BoardEvents;
 import org.itson.enums.PlayerEvents;
+import org.itson.enums.TileEvents;
 import org.itson.game.MatchGame;
 import org.itson.interfaces.Observer;
+import org.itson.interfaces.TileObserver;
 import org.itson.mvc.tile.TileComponent;
 
 /**
  *
  * @author santi
  */
-public class PlayerController extends MouseAdapter{
+public class PlayerController extends MouseAdapter implements TileObserver{
     
     private PlayerModel playerModel;
     
@@ -26,6 +28,7 @@ public class PlayerController extends MouseAdapter{
 
     private List<Observer> observers = new ArrayList<>();
 
+    TileComponent tileComponent;
     
     public PlayerController(PlayerModel playerModel, PlayerView playerView) {
         this.playerModel = playerModel;
@@ -76,6 +79,18 @@ public class PlayerController extends MouseAdapter{
     public void notifyObservers(PlayerEvents message) {
         for (Observer observer : observers) {
             observer.eventOnPlayerUpdate(message);
+        }
+    }
+    
+    public void suscribeToTileView(){
+        this.tileComponent.suscribeToView(this);
+    }
+    
+        @Override
+    public void eventOnTileUpdate(TileEvents evt) {
+        if (TileEvents.LEFT_CLICK_ON_TILE_EVENT.equals(evt)){
+            //Notificar a match que le dieron click a la ficha del Player
+            this.notifyObservers(PlayerEvents.LEFT_CLICK_ON_PLAYER_EVENT);
         }
     }
     

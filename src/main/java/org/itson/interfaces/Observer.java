@@ -17,6 +17,5 @@ public interface Observer {
 
     void eventOnPoolUpdate(PoolEvents evt);
     void eventOnBoardUpdate(BoardEvents evt);
-    void eventOnTileUpdate(TileEvents evt);
     void eventOnPlayerUpdate(PlayerEvents evt);
 }
