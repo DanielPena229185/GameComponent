@@ -7,8 +7,8 @@ package org.itson.mvc.board;
 import java.awt.event.MouseAdapter;
 import java.util.ArrayList;
 import java.util.List;
-import org.itson.domaincomponent.domain.Tile;
-import org.itson.enums.BoardEvents;
+import javax.swing.SwingUtilities;
+import org.itson.events.BoardEvents;
 import org.itson.game.MatchGame;
 import org.itson.interfaces.Observer;
 import org.itson.mvc.tile.TileComponent;
@@ -25,7 +25,7 @@ public class BoardController extends MouseAdapter{
     public BoardController(BoardView boardView, BoardModel boardModel){
         this.boardModel = boardModel;
         this.boardView = boardView;
-        
+        suscribeToClick();
     }
     
     public void suscribe(MatchGame match){
@@ -43,7 +43,16 @@ public class BoardController extends MouseAdapter{
     public void refreshBoard() {
          this.boardView.refresh();
     }
-    
+        private void suscribeToClick() {
+        this.boardView.addMouseListener(new java.awt.event.MouseAdapter() {
+            @Override
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+              if(SwingUtilities.isLeftMouseButton(evt)){
+                  notifyObservers(BoardEvents.LEFT_CLICK_ON_BOARD_EVENT);
+              }
+            }
+        });
+    }
     
        public void addObserver(Observer observer) {
         observers.add(observer);

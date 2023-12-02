@@ -7,10 +7,10 @@ package org.itson.mvc.player;
 import java.awt.event.MouseAdapter;
 import java.util.ArrayList;
 import java.util.List;
-import javax.swing.SwingUtilities;
-import org.itson.enums.BoardEvents;
-import org.itson.enums.PlayerEvents;
-import org.itson.enums.TileEvents;
+import javax.swing.JOptionPane;
+import org.itson.domaincomponent.domain.Tile;
+import org.itson.events.PlayerEvents;
+import org.itson.events.TileEvents;
 import org.itson.game.MatchGame;
 import org.itson.interfaces.Observer;
 import org.itson.interfaces.TileObserver;
@@ -20,54 +20,56 @@ import org.itson.mvc.tile.TileComponent;
  *
  * @author santi
  */
-public class PlayerController extends MouseAdapter implements TileObserver{
-    
+public class PlayerController extends MouseAdapter implements TileObserver {
+
     private PlayerModel playerModel;
-    
+
     private PlayerView playerView;
 
     private List<Observer> observers = new ArrayList<>();
 
-    TileComponent tileComponent;
-    
     public PlayerController(PlayerModel playerModel, PlayerView playerView) {
         this.playerModel = playerModel;
         this.playerView = playerView;
-         this.suscribeToClick();
+
     }
-    
-    public void suscribeToView(MatchGame match){
+
+    public void suscribeToView(MatchGame match) {
         this.addObserver(match);
     }
-    
-    public void addTileToPlayerList(TileComponent tile){
-        this.playerModel.addTile(tile); 
+
+    public void addTileToPlayerList(TileComponent tile) {
+        this.playerModel.addTile(tile);
+        unsuscribeOfTiles();
+        suscribeToTiles();
         this.refreshPlayerView();
     }
-    
-    public Boolean getTurn(){
+
+    public Boolean getTurn() {
         return this.playerModel.getPlayer().isTurn();
     }
-    
-    public TileComponent getTileFromList(TileComponent tile){
+
+    public TileComponent getTileFromList(TileComponent tile) {
         return this.playerModel.removeTile(tile);
     }
-    
-    public void refreshPlayerView(){
-        playerView.refresh();   
+
+    public void suscribeToTiles() {
+        for (TileComponent tilesComponents : this.playerModel.getTiles()) {
+            tilesComponents.suscribe(this);
+        }
+
     }
-    
-    private void suscribeToClick() {
-        this.playerView.addMouseListener(new java.awt.event.MouseAdapter() {
-            @Override
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-              if(SwingUtilities.isLeftMouseButton(evt)){
-                  notifyObservers(PlayerEvents.LEFT_CLICK_ON_PLAYER_EVENT);
-              }
-            }
-        });
+
+    public void unsuscribeOfTiles() {
+        for (TileComponent tilesComponents : this.playerModel.getTiles()) {
+            tilesComponents.unsuscribe(this);
+        }
     }
-    
+
+    public void refreshPlayerView() {
+        playerView.refresh();
+    }
+
     public void addObserver(Observer observer) {
         observers.add(observer);
     }
@@ -81,17 +83,27 @@ public class PlayerController extends MouseAdapter implements TileObserver{
             observer.eventOnPlayerUpdate(message);
         }
     }
-    
-    public void suscribeToTileView(){
-        this.tileComponent.suscribeToView(this);
-    }
-    
-        @Override
-    public void eventOnTileUpdate(TileEvents evt) {
-        if (TileEvents.LEFT_CLICK_ON_TILE_EVENT.equals(evt)){
-            //Notificar a match que le dieron click a la ficha del Player
-            this.notifyObservers(PlayerEvents.LEFT_CLICK_ON_PLAYER_EVENT);
+
+    public void notifyObserversWithTile(PlayerEvents message, TileComponent tile) {
+        for (Observer observer : observers) {
+            observer.eventOnPlayerClickedTile(message, tile);
         }
     }
-    
+
+    public TileComponent getTileComponentWithTileId(Tile tile) {
+        for (TileComponent tileComponents : playerModel.getTiles()) {
+            if (tileComponents.getTile().getId().equals(tile.getId())) {
+                return tileComponents;
+            }
+        }
+        return null;
+    }
+
+    @Override
+    public void eventOnTileUpdate(TileEvents evt, Tile tile) {
+        if (TileEvents.LEFT_CLICK_ON_TILE_EVENT.equals(evt)) {
+            notifyObserversWithTile(PlayerEvents.LEFT_CLICK_ON_PLAYER_EVENT, getTileComponentWithTileId(tile));
+        }
+    }
+
 }

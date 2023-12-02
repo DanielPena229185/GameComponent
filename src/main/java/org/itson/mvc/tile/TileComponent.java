@@ -24,10 +24,14 @@ public class TileComponent {
         
     }
     
-    public void suscribeToView(PlayerController player){
+     public void suscribe(PlayerController player){
         this.tileController.suscribe(player);
     }
     
+    public void unsuscribe(PlayerController player){
+        this.tileController.unsuscribe(player);
+    }
+     
     public void refresh(){
         this.tileController.refresh();
     }

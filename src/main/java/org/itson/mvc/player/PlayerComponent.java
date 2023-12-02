@@ -4,8 +4,8 @@
  */
 package org.itson.mvc.player;
 
-import org.itson.enums.PlayerEvents;
-import org.itson.enums.TileEvents;
+import org.itson.events.PlayerEvents;
+import org.itson.events.TileEvents;
 import org.itson.game.MatchGame;
 import org.itson.interfaces.TileObserver;
 import org.itson.mvc.tile.TileComponent;
@@ -34,6 +34,15 @@ public class PlayerComponent {
 
     public void addTileToPlayerList(TileComponent tile){
         this.playerController.addTileToPlayerList(tile);
+        this.playerController.suscribeToTiles();
+    }
+    
+    public void suscribeToTiles(){
+        this.playerController.suscribeToTiles();
+    }
+    
+    public void unsiscribeToTiles(){
+        this.playerController.unsuscribeOfTiles();
     }
     
     public PlayerView getPlayerView() {

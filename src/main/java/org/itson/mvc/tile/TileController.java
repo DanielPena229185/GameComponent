@@ -3,6 +3,7 @@ package org.itson.mvc.tile;
 import java.awt.event.MouseAdapter;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 import org.itson.classes.DomainMatch;
 import org.itson.classes.DomainPool;
@@ -10,8 +11,7 @@ import org.itson.domaincomponent.domain.Player;
 import org.itson.domaincomponent.domain.Tile;
 import org.itson.domaincomponent.exceptions.PlayerException;
 import org.itson.domaincomponent.exceptions.PoolException;
-import org.itson.enums.TileEvents;
-import org.itson.interfaces.Observer;
+import org.itson.events.TileEvents;
 import org.itson.interfaces.TileObserver;
 import org.itson.mvc.player.PlayerController;
 
@@ -29,6 +29,10 @@ public class TileController extends MouseAdapter {
     public void suscribe(PlayerController player) {
         this.addObserver(player);
     }
+   
+     public void unsuscribe(PlayerController player) {
+        this.removeObserver(player);
+    }
     
    public void refresh(){
        this.tileView.refresh();
@@ -43,7 +47,7 @@ public class TileController extends MouseAdapter {
             @Override
             public void mouseClicked(java.awt.event.MouseEvent evt) {
               if(SwingUtilities.isLeftMouseButton(evt)){
-                  notifyObservers(TileEvents.LEFT_CLICK_ON_TILE_EVENT);
+                  notifyObservers(TileEvents.LEFT_CLICK_ON_TILE_EVENT, tileModel.getTile());
               }
             }
         });
@@ -57,20 +61,14 @@ public class TileController extends MouseAdapter {
         observers.remove(observer);
     }
 
-    public void notifyObservers(TileEvents message) {
+    public void notifyObservers(TileEvents message, Tile tile) {
+        
         for (TileObserver observer : observers) {
-            observer.eventOnTileUpdate(message);
+            
+            observer.eventOnTileUpdate(message, tile);
         }
     }
 
-    private void playerTakesTileFromPool(Player player, DomainPool pool) throws PoolException, PlayerException {
-        Tile tile = pool.getPool().getRandomTile();
-        player.addTile(tile);
-    }
-
-    private void changeTilePossessionToMatch(Player player, DomainMatch match) {
-        //obtengo la ficha que quiera poner o cambiar de posesion el jugador.
-        //luego se la elimino y se la envio al match
-    }
+  
 }
 

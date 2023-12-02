@@ -4,12 +4,13 @@
  */
 package org.itson.interfaces;
 
-import org.itson.enums.TileEvents;
+import org.itson.domaincomponent.domain.Tile;
+import org.itson.events.TileEvents;
 
 /**
  *
  * @author paulvazquez
  */
 public interface TileObserver {
-    void eventOnTileUpdate(TileEvents evt);
+    void eventOnTileUpdate(TileEvents evt, Tile tile);
 }

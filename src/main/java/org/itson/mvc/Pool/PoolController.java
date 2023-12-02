@@ -10,7 +10,7 @@ import java.util.List;
 import javax.swing.SwingUtilities;
 import org.itson.domaincomponent.domain.Tile;
 import org.itson.domaincomponent.exceptions.PoolException;
-import org.itson.enums.PoolEvents;
+import org.itson.events.PoolEvents;
 import org.itson.game.MatchGame;
 import org.itson.interfaces.Observer;
 import org.itson.mvc.tile.TileComponent;
