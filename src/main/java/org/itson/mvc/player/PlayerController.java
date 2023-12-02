@@ -40,9 +40,9 @@ public class PlayerController extends MouseAdapter implements TileObserver {
 
     public void addTileToPlayerList(TileComponent tile) {
         this.playerModel.addTile(tile);
+        this.refreshPlayerView();
         unsuscribeOfTiles();
         suscribeToTiles();
-        this.refreshPlayerView();
     }
 
     public Boolean getTurn() {
@@ -53,18 +53,24 @@ public class PlayerController extends MouseAdapter implements TileObserver {
         return this.playerModel.removeTile(tile);
     }
 
-    public void suscribeToTiles() {
+      public void suscribeToTiles() {
         for (TileComponent tilesComponents : this.playerModel.getTiles()) {
-            tilesComponents.suscribe(this);
+            // Verificar si ya está suscrito antes de suscribir
+            if (!tilesComponents.isSubscribed(this)) {
+                tilesComponents.suscribe(this);
+            }
         }
-
     }
 
     public void unsuscribeOfTiles() {
         for (TileComponent tilesComponents : this.playerModel.getTiles()) {
-            tilesComponents.unsuscribe(this);
+            // Verificar si está suscrito antes de intentar desuscribir
+            if (tilesComponents.isSubscribed(this)) {
+                tilesComponents.unsuscribe(this);
+            }
         }
     }
+
 
     public void refreshPlayerView() {
         playerView.refresh();
@@ -102,7 +108,9 @@ public class PlayerController extends MouseAdapter implements TileObserver {
     @Override
     public void eventOnTileUpdate(TileEvents evt, Tile tile) {
         if (TileEvents.LEFT_CLICK_ON_TILE_EVENT.equals(evt)) {
-            notifyObserversWithTile(PlayerEvents.LEFT_CLICK_ON_PLAYER_EVENT, getTileComponentWithTileId(tile));
+            System.out.println("Calling matchgame");
+            TileComponent comparedTile = getTileComponentWithTileId(tile);
+            notifyObserversWithTile(PlayerEvents.LEFT_CLICK_ON_PLAYER_EVENT, comparedTile );
         }
     }
 

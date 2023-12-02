@@ -47,12 +47,17 @@ public class TileController extends MouseAdapter {
             @Override
             public void mouseClicked(java.awt.event.MouseEvent evt) {
               if(SwingUtilities.isLeftMouseButton(evt)){
+                   System.out.println("Mouse clicked on TileView");
                   notifyObservers(TileEvents.LEFT_CLICK_ON_TILE_EVENT, tileModel.getTile());
               }
             }
         });
     }
         
+       public boolean isSubscribed(TileObserver observer) {
+        return observers.contains(observer);
+    }
+     
     public void addObserver(TileObserver observer) {
         observers.add(observer);
     }
@@ -61,10 +66,8 @@ public class TileController extends MouseAdapter {
         observers.remove(observer);
     }
 
-    public void notifyObservers(TileEvents message, Tile tile) {
-        
+    public void notifyObservers(TileEvents message, Tile tile) {        
         for (TileObserver observer : observers) {
-            
             observer.eventOnTileUpdate(message, tile);
         }
     }

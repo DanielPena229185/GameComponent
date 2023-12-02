@@ -27,6 +27,10 @@ public class MatchGame implements Observer {
         this.player = player;
         this.matchesComponent = new MatchComponent();
     }
+     
+    public boolean hasTileSelected() {
+        return playerTileSelected != null;
+    }
     
     public void buildGame() throws PoolException {
         this.matchesComponent.buildGame();
@@ -48,6 +52,9 @@ public class MatchGame implements Observer {
         if (BoardEvents.LEFT_CLICK_ON_BOARD_EVENT.equals(evt)) {
             if (hasTileSelected()) {
                 JOptionPane.showMessageDialog(null, "Has puesto la ficha: " + playerTileSelected.getTile().getId());
+                
+                addTileToBoardList(getTileFromPlayer(playerTileSelected));
+                
                 playerTileSelected = null;
             } else {
                 JOptionPane.showMessageDialog(null, "You have to select a tile to set it on the board");
@@ -72,20 +79,6 @@ public class MatchGame implements Observer {
             JOptionPane.showMessageDialog(null, "Hubo un error y la tile fue nula");
         }
     }
-
-    /*@Override
-    public void eventOnTileUpdate(TileEvents evt) {
-        if (TileEvents.LEFT_CLICK_ON_TILE_EVENT.equals(evt)) {
-            //getTileFromPlayerEvent();
-            JOptionPane.showMessageDialog(null, "hola");
-        }
-        else{
-            JOptionPane.showMessageDialog(null, "Hola, soy la ficha");
-        }
-    }*/
-    public boolean hasTileSelected() {
-        return playerTileSelected != null;
-    }
     
     public void getTileFromPoolEvent() {
         try {
@@ -96,12 +89,7 @@ public class MatchGame implements Observer {
         }
     }
     
-    public void getTileFromPlayerEvent() {
-        JOptionPane.showMessageDialog(null, "hola");
-        TileComponent tile = getTileFromPlayer();
-        JOptionPane.showMessageDialog(null, tile.getTileModel().getId());
-        //addTileToBoardList(tile);
-    }
+  
 
     //Suscripcion a los eventos
     public void suscribeToBoardView() {
@@ -128,8 +116,8 @@ public class MatchGame implements Observer {
         return matchesComponent.getTileFromPool();
     }
     
-    public TileComponent getTileFromPlayer() {
-        return matchesComponent.getTileSelected(playerTileSelected);
+    public TileComponent getTileFromPlayer(TileComponent tile) {
+        return matchesComponent.getTileSelected(tile);
     }
     
     public Player[] getPlayersOnGame() {

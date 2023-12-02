@@ -5,6 +5,7 @@
 package org.itson.mvc.tile;
 
 import org.itson.domaincomponent.domain.Tile;
+import org.itson.interfaces.TileObserver;
 import org.itson.mvc.player.PlayerController;
 
 /**
@@ -39,7 +40,9 @@ public class TileComponent {
     public Tile getTile(){
        return this.tileController.getTile();
     }
-    
+      public boolean isSubscribed(TileObserver observer) {
+        return tileController.isSubscribed(observer);
+    }
     
     public TileView getTileView() {
         return tileView;
