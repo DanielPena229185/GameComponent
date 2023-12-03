@@ -4,6 +4,7 @@
  */
 package org.itson.mvc.board;
 
+import javax.swing.JOptionPane;
 import org.itson.game.MatchGame;
 import org.itson.mvc.tile.TileComponent;
 
@@ -27,7 +28,19 @@ public class BoardComponent {
     }
     
     public void addTileToBoard(TileComponent tile){
+     if(getBoardModel().getTiles().peek()==null){
         this.boardController.addTileToBoard(tile);
+         System.out.println("primera");
+     }
+     else if(tile.getTileModel().getFirsFace().getValue()==getBoardModel().getTiles().peekLast().getTile().getFirstFace().getValue()){
+         
+        this.boardController.addTileToBoard(tile); 
+        System.out.println("segunda");}
+     else{
+     JOptionPane.showMessageDialog(boardView, "Ficha sin valor similar a la del tablero", "Ficha invalida", JOptionPane.ERROR_MESSAGE);
+     System.out.println("tercera");
+     }   
+        System.out.println("sas");  
     }
 
     public BoardModel getBoardModel(){

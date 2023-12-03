@@ -60,6 +60,7 @@ public class MatchComponent {
     
     public void addTileToBoard(TileComponent tile){
         this.boardComponent.addTileToBoard(tile);
+        
     }
 
     public void createDominoTiles() throws PoolException {

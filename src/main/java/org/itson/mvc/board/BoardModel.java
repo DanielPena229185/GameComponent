@@ -45,9 +45,10 @@ public class BoardModel {
         this.boardImagePath = ImagesSourcers.getSOURCE_IMAGE_BOARD();
     }
     
-    public TileComponent addTile(TileComponent tile){
+    public void addTile(TileComponent tile){
+       
         this.getTiles().add(tile);
-        return tile;
+        
     }
   
     public LinkedList<TileComponent> getTiles() {
