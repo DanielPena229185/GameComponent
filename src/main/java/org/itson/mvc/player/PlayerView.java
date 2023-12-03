@@ -28,6 +28,8 @@ public class PlayerView extends JPanel {
             revalidate();
             repaint();
         }
+        revalidate();
+        repaint();
     }
     
     public void addTilesComponentsToPlayerView(){

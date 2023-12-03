@@ -133,6 +133,7 @@ public class MatchGame implements Observer {
     public void addTileToBoardList(TileComponent tile) {
         this.matchesComponent.addTileToBoard(tile);
         this.matchesComponent.getBoardComponent().getBoardView().refresh();
+        this.matchesComponent.getPlayerComponent().refreshPlayer();
     }
     
     public void createDominoTiles() throws PoolException {
