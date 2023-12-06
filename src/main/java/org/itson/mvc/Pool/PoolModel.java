@@ -7,11 +7,11 @@ package org.itson.mvc.Pool;
 import java.util.LinkedList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import org.itson.classes.DomainPool;
 import org.itson.domaincomponent.domain.Pool;
 import org.itson.domaincomponent.domain.Tile;
 import org.itson.domaincomponent.exceptions.PoolException;
 import org.itson.enums.ImagesSourcers;
+import org.itson.mvc.tile.TileComponent;
 
 /**
  *
@@ -19,7 +19,8 @@ import org.itson.enums.ImagesSourcers;
  */
 public class PoolModel {
 
-    private LinkedList<Tile> tiles;
+    private LinkedList<TileComponent> tiles;
+    private Pool pool;
     private String poolImagePath;
     private int coordX;
     private int coordY;
@@ -33,16 +34,29 @@ public class PoolModel {
         this.tiles = new LinkedList<>();
         this.coordX = coordX;//1110;
         this.coordY = coordY;//260;
+        this.pool = Pool.getInstance();
     }
 
-    public LinkedList<Tile> getTiles() {
+    public LinkedList<TileComponent> getTiles() {
         return tiles;
     }
 
     public void setTiles(LinkedList<Tile> tiles) {
-        this.tiles = tiles;
+        for (Tile tile : tiles) {
+            this.getTiles().add(new TileComponent(tile));
+        }
     }
 
+    public Pool getPool() {
+        return pool;
+    }
+
+    public void setPool(Pool pool) {
+        this.pool = pool;
+    }
+
+    
+    
     public int getWidth() {
         return width;
     }
@@ -82,27 +96,4 @@ public class PoolModel {
     public void setCoordY(int coordY) {
         this.coordY = coordY;
     }
-
-    public void createDominoTiles() {
-        try {
-            setTiles(Pool.getInstance().createDominoTiles());
-        } catch (PoolException ex) {
-            Logger.getLogger(PoolModel.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
-
-    public Tile pickTileFromTilesList() {
-        try {
-
-            Tile tile = Pool.getInstance().getRandomTile();
-
-            this.tiles.remove(tile);
-            return tile;
-        } catch (PoolException ex) {
-            Logger.getLogger(PoolModel.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return null;
-
-    }
-
 }

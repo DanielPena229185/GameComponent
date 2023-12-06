@@ -6,19 +6,15 @@ import java.awt.Graphics2D;
 import java.awt.Image;
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 import javax.imageio.ImageIO;
-import javax.swing.*;
-import org.itson.interfaces.Observer;
+import javax.swing.JPanel;
+import org.itson.domaincomponent.enums.Orientation;
+import org.itson.mvc.tile.TileComponent;
 
 public class BoardView extends JPanel {
 
     private BoardModel boardModel;
     private Image boardImage; // Imagen de la primera cara
-    private int boardWidth;
-    private int boardHeight;
-    private List<Observer> observers = new ArrayList<>();
 
     public BoardView(BoardModel boardModel) {
         this.boardModel = boardModel;
@@ -29,24 +25,38 @@ public class BoardView extends JPanel {
     private void loadBoardImage() {
         try {
             boardImage = ImageIO.read(new File(boardModel.getBoardImagePath()));
-            boardWidth = 630;
-            boardHeight = 500;
-
-            this.addMouseListener(new java.awt.event.MouseAdapter() {
-                @Override
-                public void mouseClicked(java.awt.event.MouseEvent evt) {
-                    notifyObservers("click_board");
-                }
-            });
-
-        } catch (IOException e) {
-            e.printStackTrace();
+        } catch (IOException ex) {
+            ex.printStackTrace();
         }
     }
 
     public void refresh() {
         loadBoardImage();
         repaint();
+        removeAll();
+        paintTiles();
+    }
+
+    private void paintTiles() {
+        if (boardHasTiles()) {
+            addTilesComponentsToBoardView();
+            revalidate();
+            repaint();
+        }
+    }
+
+    private void addTilesComponentsToBoardView() {
+        for (TileComponent tile : this.boardModel.getTiles()) {
+            if (tile != null && tile.getTile() != null) {
+                this.add(tile.getTileView());
+                tile.refresh();
+                paintRotatedTile(tile.getTileView().createImage(), tile.getTileModel().getOrientation());
+            }
+        }
+    }
+
+    private boolean boardHasTiles() {
+        return (this.boardModel.getTiles() != null && !this.boardModel.getTiles().isEmpty());
     }
 
     @Override
@@ -60,17 +70,19 @@ public class BoardView extends JPanel {
         }
     }
 
-    public void addObserver(Observer observer) {
-        observers.add(observer);
-    }
+    private void paintRotatedTile(Image tileImage, Orientation orientation) {
+        if (tileImage != null) {
+            Graphics2D g2d = (Graphics2D) getGraphics().create();
 
-    public void removeObserver(Observer observer) {
-        observers.remove(observer);
-    }
+            // Aplicar la rotación individual para cada ficha
+            if (orientation == Orientation.HORIZONTAL) {
+                g2d.rotate(Math.toRadians(90), getWidth() / 2, getHeight() / 2);
+            } else if (orientation == Orientation.VERTICAL) {
+                // Puedes agregar más casos según sea necesario
+            }
 
-    public void notifyObservers(String message) {
-        for (Observer observer : observers) {
-            observer.update(message);
+            g2d.drawImage(tileImage, 0, 0, this);
+            g2d.dispose();
         }
     }
 }

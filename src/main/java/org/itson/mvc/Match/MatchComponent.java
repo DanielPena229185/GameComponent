@@ -1,17 +1,15 @@
 package org.itson.mvc.Match;
 
-import java.util.LinkedList;
 import org.itson.domaincomponent.domain.Board;
 import org.itson.domaincomponent.domain.Match;
 import org.itson.domaincomponent.domain.Player;
 import org.itson.domaincomponent.domain.Pool;
-import org.itson.domaincomponent.domain.Tile;
+import org.itson.domaincomponent.exceptions.PoolException;
 import org.itson.mvc.Pool.PoolComponent;
-import org.itson.mvc.Pool.PoolView;
 import org.itson.mvc.board.BoardComponent;
-import org.itson.mvc.board.BoardView;
 import org.itson.mvc.player.PlayerComponent;
 import org.itson.game.MatchGame;
+import org.itson.mvc.tile.TileComponent;
 public class MatchComponent {
 
     private MatchModel matchModel;
@@ -20,6 +18,7 @@ public class MatchComponent {
     private PoolComponent poolComponent;
     private PlayerComponent playerComponent;
     private BoardComponent boardComponent;
+    private TileComponent tileComponent;
 
     public MatchComponent() {
         this.matchModel = new MatchModel(new Match(new Player[4], Board.getInstance(), Pool.getInstance(), 7), Board.getInstance(), Pool.getInstance(), new Player[4]);
@@ -36,7 +35,7 @@ public class MatchComponent {
     }
     
     public void suscribeToBoardView(MatchGame match){
-        this.boardComponent.suscribeToView(match);
+        this.boardComponent.suscribe(match);
     }
 
     public Player[] getPlayersOnGame(){
@@ -47,15 +46,23 @@ public class MatchComponent {
 
     }
     
-    public Tile getTileFromPool() {
+    /*public void suscribeToTileView(MatchGame match){
+        this.tileComponent.suscribeToView(match);
+    }*/
+    
+    public TileComponent getTileFromPool() throws PoolException {
         return this.poolComponent.getController().getTileFromPool();
     }
 
-    public void addTileToPlayer(Tile tile) {
+    public void addTileToPlayer(TileComponent tile) {
         this.playerComponent.addTileToPlayerList(tile);
     }
+    
+    public void addTileToBoard(TileComponent tile){
+        this.boardComponent.addTileToBoard(tile);
+    }
 
-    public void createDominoTiles() {
+    public void createDominoTiles() throws PoolException {
         this.poolComponent.createDominoTiles();
     }
 
@@ -63,7 +70,7 @@ public class MatchComponent {
         return this.playerComponent.getPlayerController().getTurn();
     }
 
-    public Tile getTileSelected(Tile tile) {
+    public TileComponent getTileSelected(TileComponent tile) {
         return this.playerComponent.getPlayerController().getTileFromList(tile);
     }
 
@@ -79,7 +86,9 @@ public class MatchComponent {
         return boardComponent;
     }
 
-
+    public TileComponent getTileComponent(){
+        return tileComponent;
+    }
     
     public void paintBoard(){
         this.boardComponent.refreshBoard();
@@ -94,8 +103,11 @@ public class MatchComponent {
         this.playerComponent.refreshPlayer();
     }
     
-    public void buildGame() {
+    public void buildGame() throws PoolException {
+        
+        this.poolComponent.createDominoTiles();
         this.matchController.buildGame();
+        
         
     }
 

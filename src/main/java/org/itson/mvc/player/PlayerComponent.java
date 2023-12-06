@@ -4,8 +4,11 @@
  */
 package org.itson.mvc.player;
 
-import org.itson.domaincomponent.domain.Tile;
+import org.itson.events.PlayerEvents;
+import org.itson.events.TileEvents;
 import org.itson.game.MatchGame;
+import org.itson.interfaces.TileObserver;
+import org.itson.mvc.tile.TileComponent;
 
 /**
  *
@@ -17,6 +20,7 @@ public class PlayerComponent {
     PlayerView playerView;
     PlayerModel playerModel;
     PlayerController playerController;
+    TileComponent tileComponent;
     
     public PlayerComponent() {
          this.playerModel = new PlayerModel(100, 50, 90, 550);
@@ -28,8 +32,17 @@ public class PlayerComponent {
         this.playerController.suscribeToView(match);
     }
 
-    public void addTileToPlayerList(Tile tile){
+    public void addTileToPlayerList(TileComponent tile){
         this.playerController.addTileToPlayerList(tile);
+        this.playerController.suscribeToTiles();
+    }
+    
+    public void suscribeToTiles(){
+        this.playerController.suscribeToTiles();
+    }
+    
+    public void unsiscribeToTiles(){
+        this.playerController.unsuscribeOfTiles();
     }
     
     public PlayerView getPlayerView() {

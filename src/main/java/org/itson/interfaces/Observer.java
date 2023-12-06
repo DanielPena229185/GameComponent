@@ -4,11 +4,19 @@
  */
 package org.itson.interfaces;
 
+import org.itson.events.BoardEvents;
+import org.itson.events.PlayerEvents;
+import org.itson.events.PoolEvents;
+import org.itson.mvc.tile.TileComponent;
+
 /**
  *
  * @author PC
  */
 public interface Observer {
 
-    void update(String message);
+    void eventOnPoolUpdate(PoolEvents evt);
+    void eventOnBoardUpdate(BoardEvents evt);
+    void eventOnPlayerUpdate(PlayerEvents evt);
+    void eventOnPlayerClickedTile(PlayerEvents evt, TileComponent tile);
 }

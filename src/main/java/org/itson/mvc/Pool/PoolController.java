@@ -5,20 +5,22 @@
 package org.itson.mvc.Pool;
 
 import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.SwingUtilities;
 import org.itson.domaincomponent.domain.Tile;
+import org.itson.domaincomponent.exceptions.PoolException;
+import org.itson.events.PoolEvents;
 import org.itson.game.MatchGame;
 import org.itson.interfaces.Observer;
-
+import org.itson.mvc.tile.TileComponent;
 
 /**
  *
  * @author PC
  */
-public class PoolController  extends MouseAdapter {
+public class PoolController extends MouseAdapter {
+
     private PoolView poolView;
     private PoolModel poolModel;
     private List<Observer> observers = new ArrayList<>();
@@ -28,35 +30,51 @@ public class PoolController  extends MouseAdapter {
         this.poolModel = poolModel;
         this.suscribeToClick();
     }
-    
-    public void suscribe(MatchGame match){
+
+    public void suscribe(MatchGame match) {
         this.addObserver(match);
     }
-    
-    public void createDominoTiles(){
-        this.poolModel.createDominoTiles();
-    }
-    
-    public Tile getTileFromPool(){
-       return this.poolModel.pickTileFromTilesList();
-    }
-    
-    public void refresh(){
-        this.poolView.refresh();
-    }
-    
-    private void suscribeToClick(){
-        this.poolView.addMouseListener(new java.awt.event.MouseAdapter() {
-                @Override
-                public void mouseClicked(java.awt.event.MouseEvent evt) {
-                    notifyObservers("click_event");
-                }
-            });
+
+    public void createDominoTiles() throws PoolException {
+
+        for (Tile tile :  this.poolModel.getPool().createDominoTiles()) {
+            this.poolModel.getTiles().add(new TileComponent(tile));
+        }
+
     }
 
-    
-    
-     public void addObserver(Observer observer) {
+    public TileComponent getTileFromPool() throws PoolException {
+
+        Tile tile = this.poolModel.getPool().getRandomTile();
+
+        for (TileComponent tiles : this.poolModel.getTiles()) {
+
+            if (tile == tiles.getTile()) {
+                this.poolModel.getTiles().remove(tiles);
+                return tiles;
+            }
+        }
+        
+        return null; 
+
+    }
+
+    public void refresh() {
+        this.poolView.refresh();
+    }
+
+    private void suscribeToClick() {
+        this.poolView.addMouseListener(new java.awt.event.MouseAdapter() {
+            @Override
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+              if(SwingUtilities.isLeftMouseButton(evt)){
+                  notifyObservers(PoolEvents.LEFT_CLICK_ON_POOL_EVENT);
+              }
+            }
+        });
+    }
+
+    public void addObserver(Observer observer) {
         observers.add(observer);
     }
 
@@ -64,9 +82,9 @@ public class PoolController  extends MouseAdapter {
         observers.remove(observer);
     }
 
-    public void notifyObservers(String message) {
+    public void notifyObservers(PoolEvents message) {
         for (Observer observer : observers) {
-            observer.update(message);
+            observer.eventOnPoolUpdate(message);
         }
     }
 }

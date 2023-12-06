@@ -8,6 +8,7 @@ import java.util.LinkedList;
 import org.itson.domaincomponent.domain.Board;
 import org.itson.domaincomponent.domain.Tile;
 import org.itson.enums.ImagesSourcers;
+import org.itson.mvc.tile.TileComponent;
 
 /**
  *
@@ -26,14 +27,14 @@ public class BoardModel {
 
     int height;
     
-    private LinkedList<Tile> tiles;
+    private LinkedList<TileComponent> tiles = new LinkedList<>();
   
     /*public BoardModel(){
     }*/
   
     public BoardModel(Board board){
       this.board = board;
-      this.tiles = board.getTiles();
+      //this.tiles = board.getTiles();
   }
     
     public BoardModel(int width, int height, int coordX, int coordY) {
@@ -43,18 +44,28 @@ public class BoardModel {
         this.coordY = coordY;
         this.boardImagePath = ImagesSourcers.getSOURCE_IMAGE_BOARD();
     }
+    
+    public TileComponent addTile(TileComponent tile){
+        this.getTiles().add(tile);
+        return tile;
+    }
   
-    public LinkedList<Tile> getTiles() {
+    public LinkedList<TileComponent> getTiles() {
         return tiles;
     }
     
-    public void setTiles(LinkedList <Tile> tiles){
+    public void setTiles(LinkedList <TileComponent> tiles){
       this.tiles = tiles;
   }
     
-    public void setTile(Tile tile){
-        tiles.set(tiles.size(), tile);
+    public TileComponent removeTile(TileComponent tile){
+        this.tiles.remove(tile);
+        return tile;
     }
+    
+    /*public void setTile(Tile tile){
+        tiles.set(tiles.size(), tile);
+    }*/
   
     public int getWidth() {
         return width;

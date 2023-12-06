@@ -27,37 +27,39 @@ public class frmMatch extends javax.swing.JFrame {
 
     public frmMatch() {
 
-
-        this.match = new MatchGame(new Player("Test Player"));
-        match.buildGame();
-        
-        match.getTilesSize();
-
-        
-        match.suscribeToBoardView();
-
-        match.suscribeToPoolView();
-        
-        match.suscribeToPlayerView();
-
-        gamePanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        paintBoardOnGamePanel();
-
-        paintPoolOnGamePanel();
-        
-        paintPlayerOnGamePanel();
-
-        gamePanel.add(lbFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1290, 730));
-
-        lbFondo.setIcon(new ImageIcon("src/main/resources/match/Fondo.jpeg"));
-
-        this.pack();
+        try {
+            initComponents();
+            
+            this.match = new MatchGame(new Player("Test Player"));
+            match.buildGame();    
+            
+            match.suscribeToBoardView();
+            
+            match.suscribeToPoolView();
+            
+            match.suscribeToPlayerView();
+            
+            gamePanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+            
+            paintBoardOnGamePanel();
+            
+            paintPoolOnGamePanel();
+            
+            paintPlayerOnGamePanel();
+            
+            gamePanel.add(lbFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1290, 730));
+            
+            lbFondo.setIcon(new ImageIcon("src/main/resources/match/Fondo.jpeg"));
+            
+            this.pack();
+        } catch (PoolException ex) {
+            Logger.getLogger(frmMatch.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
     }
 
     public void paintBoardOnGamePanel() {
-        gamePanel.add(this.match.getBoardView(), new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 110, -1, -1));
+        gamePanel.add(this.match.getBoardView(), new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 30, -1, -1));
         this.match.matchesComponent.paintBoard();
     }
 

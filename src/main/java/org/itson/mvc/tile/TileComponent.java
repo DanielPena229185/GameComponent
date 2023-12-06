@@ -4,53 +4,56 @@
  */
 package org.itson.mvc.tile;
 
-import org.itson.mvc.tile.TileController;
-import org.itson.mvc.tile.TileModel;
-import org.itson.mvc.tile.TileView;
+import org.itson.domaincomponent.domain.Tile;
+import org.itson.interfaces.TileObserver;
+import org.itson.mvc.player.PlayerController;
 
 /**
  *
  * @author PC
  */
 public class TileComponent {
-    
-    private static TileComponent tileComponent;
+
     TileView tileView;
     TileModel tileModel;
     TileController tileController;
     
-    public TileComponent() {
+    public TileComponent(Tile tile) {
+        this.tileModel = new TileModel(tile);
+        this.tileView = new TileView(tileModel);
+        this.tileController = new TileController(tileModel, tileView);
         
     }
+    
+     public void suscribe(PlayerController player){
+        this.tileController.suscribe(player);
+    }
+    
+    public void unsuscribe(PlayerController player){
+        this.tileController.unsuscribe(player);
+    }
+     
+    public void refresh(){
+        this.tileController.refresh();
+    }
 
+    public Tile getTile(){
+       return this.tileController.getTile();
+    }
+      public boolean isSubscribed(TileObserver observer) {
+        return tileController.isSubscribed(observer);
+    }
+    
     public TileView getTileView() {
         return tileView;
-    }
-
-    public void setTileView(TileView tileView) {
-        this.tileView = tileView;
-    }
+    } 
 
     public TileModel getTileModel() {
         return tileModel;
-    }
-
-    public void setTileModel(TileModel tileModel) {
-        this.tileModel = tileModel;
     }
 
     public TileController getTileController() {
         return tileController;
     }
 
-    public void setTileController(TileController tileController) {
-        this.tileController = tileController;
-    }
-    
-    public static TileComponent getInstance() {
-        if (tileComponent == null) {
-            tileComponent = new TileComponent();
-        }
-        return tileComponent;
-    }
 }
