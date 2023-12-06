@@ -14,6 +14,7 @@ import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
 import javax.swing.JPanel;
+import org.itson.domaincomponent.enums.Orientation;
 
 public class TileView extends JPanel {
 
@@ -69,13 +70,19 @@ public class TileView extends JPanel {
             return tile;
     }
 
-    @Override
-    protected void paintComponent(Graphics g) {
-        super.paintComponent(g);
-        if (tile != null) {
-            g.drawImage(tile, 0, 0, null);
-        }
+@Override
+protected void paintComponent(Graphics g) {
+    super.paintComponent(g);
+
+    if (tile != null) {
+        Graphics2D g2d = (Graphics2D) g.create();
+
+   
+
+        g2d.drawImage(tile, 0, 0, this);
+        g2d.dispose();
     }
+}
 
   
 }

@@ -38,6 +38,7 @@ public class PlayerController extends MouseAdapter implements TileObserver {
         this.addObserver(match);
     }
 
+    
     public void addTileToPlayerList(TileComponent tile) {
         this.playerModel.addTile(tile);
         this.refreshPlayerView();

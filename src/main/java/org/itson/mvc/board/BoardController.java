@@ -32,6 +32,26 @@ public class BoardController extends MouseAdapter{
         this.addObserver(match);
     }
     
+        public boolean canPlaceTile(TileComponent tile) {
+        // Verificar si la ficha se puede colocar en el tablero
+        if (boardModel.getTiles().isEmpty()) {
+            // Si el tablero está vacío, cualquier ficha se puede colocar
+            return true;
+        } else {
+            // Obtener la última ficha en el tablero
+            TileComponent lastTile = boardModel.getTiles().getLast();
+
+            // Verificar si los lados de la nueva ficha coinciden con los lados de la última ficha
+            if (lastTile.getTile().getRightFace().getValue() == tile.getTile().getLeftFace().getValue()) {
+                return true;  // Los lados derecho e izquierdo coinciden
+            } else if (lastTile.getTile().getLeftFace().getValue() == tile.getTile().getRightFace().getValue()) {
+                return true;  // Los lados izquierdo y derecho coinciden
+            } else {
+                return false;  // No se pueden colocar las fichas
+            }
+        }
+    }
+    
     public void addTileToBoard(TileComponent tile){
         this.boardModel.addTile(tile);
     }

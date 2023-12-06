@@ -47,20 +47,31 @@ public class MatchGame implements Observer {
         }
     }
     
-    @Override
-    public void eventOnBoardUpdate(BoardEvents evt) {
-        if (BoardEvents.LEFT_CLICK_ON_BOARD_EVENT.equals(evt)) {
-            if (hasTileSelected()) {
+@Override
+public void eventOnBoardUpdate(BoardEvents evt) {
+    if (BoardEvents.LEFT_CLICK_ON_BOARD_EVENT.equals(evt)) {
+        if (hasTileSelected()) {
+            if (canPlaceTileOnBoard(playerTileSelected)) {
                 JOptionPane.showMessageDialog(null, "Has puesto la ficha: " + playerTileSelected.getTile().getId());
-                
                 addTileToBoardList(getTileFromPlayer(playerTileSelected));
-                
                 playerTileSelected = null;
             } else {
-                JOptionPane.showMessageDialog(null, "You have to select a tile to set it on the board");
+                JOptionPane.showMessageDialog(null, "No puedes colocar esa ficha en esa posición.");
             }
+        } else {
+            JOptionPane.showMessageDialog(null, "You have to select a tile to set it on the board");
         }
     }
+}
+
+// Método para verificar si se puede colocar la ficha en el tablero
+private boolean canPlaceTileOnBoard(TileComponent tile) {
+    if (matchesComponent.getBoardComponent().getBoardController().canPlaceTile(tile)) {
+        return true;
+    } else {
+        return false;
+    }
+}
     
     @Override
     public void eventOnPlayerUpdate(PlayerEvents evt) {
